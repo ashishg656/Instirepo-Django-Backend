@@ -24,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.69213486">
+              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -40,9 +40,8 @@
         <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="160" column="13" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="13" />
+              <caret line="192" column="8" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="8" />
               <folding>
-                <element signature="e#113#1755#0" expanded="false" />
                 <element signature="e#1734#1755#0" expanded="false" />
                 <element signature="e#1796#1932#0" expanded="false" />
                 <element signature="e#1916#1932#0" expanded="false" />
@@ -69,20 +68,26 @@
                 <element signature="e#5420#5632#0" expanded="false" />
                 <element signature="e#5616#5632#0" expanded="false" />
                 <element signature="e#5675#6146#0" expanded="false" />
-                <element signature="e#6184#6297#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7022472">
-              <caret line="169" column="74" selection-start-line="169" selection-start-column="74" selection-end-line="169" selection-end-column="74" />
+            <state vertical-scroll-proportion="-4.470588">
+              <caret line="295" column="27" selection-start-line="295" selection-start-column="4" selection-end-line="295" selection-end-column="27" />
               <folding>
-                <element signature="e#9515#11409#0" expanded="false" />
-                <element signature="e#11462#13356#0" expanded="false" />
+                <element signature="e#803#2189#0" expanded="false" />
+                <element signature="e#2257#2777#0" expanded="false" />
+                <element signature="e#2840#3809#0" expanded="false" />
+                <element signature="e#3876#4818#0" expanded="false" />
+                <element signature="e#7160#7806#0" expanded="false" />
+                <element signature="e#9021#9578#0" expanded="false" />
+                <element signature="e#14215#14386#0" expanded="false" />
+                <element signature="e#14426#14591#0" expanded="false" />
+                <element signature="e#14635#14699#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -97,8 +102,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/instirepo_web/models.py" />
-        <option value="$PROJECT_DIR$/instirepo_app/urls.py" />
         <option value="$PROJECT_DIR$/instirepo_app/views.py" />
+        <option value="$PROJECT_DIR$/instirepo_app/urls.py" />
       </list>
     </option>
   </component>
@@ -262,7 +267,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/instirepo_web/models.py</url>
+          <line>189</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -295,22 +307,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="160" column="13" selection-start-line="160" selection-start-column="4" selection-end-line="160" selection-end-column="13" />
+          <caret line="192" column="8" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="8" />
           <folding>
-            <element signature="e#113#1755#0" expanded="false" />
             <element signature="e#1734#1755#0" expanded="false" />
             <element signature="e#1796#1932#0" expanded="false" />
             <element signature="e#1916#1932#0" expanded="false" />
@@ -337,18 +338,34 @@
             <element signature="e#5420#5632#0" expanded="false" />
             <element signature="e#5616#5632#0" expanded="false" />
             <element signature="e#5675#6146#0" expanded="false" />
-            <element signature="e#6184#6297#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7022472">
-          <caret line="169" column="74" selection-start-line="169" selection-start-column="74" selection-end-line="169" selection-end-column="74" />
+        <state vertical-scroll-proportion="-4.470588">
+          <caret line="295" column="27" selection-start-line="295" selection-start-column="4" selection-end-line="295" selection-end-column="27" />
           <folding>
-            <element signature="e#9515#11409#0" expanded="false" />
-            <element signature="e#11462#13356#0" expanded="false" />
+            <element signature="e#803#2189#0" expanded="false" />
+            <element signature="e#2257#2777#0" expanded="false" />
+            <element signature="e#2840#3809#0" expanded="false" />
+            <element signature="e#3876#4818#0" expanded="false" />
+            <element signature="e#7160#7806#0" expanded="false" />
+            <element signature="e#9021#9578#0" expanded="false" />
+            <element signature="e#14215#14386#0" expanded="false" />
+            <element signature="e#14426#14591#0" expanded="false" />
+            <element signature="e#14635#14699#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69213486">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

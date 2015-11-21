@@ -237,13 +237,15 @@ def add_comment_on_post(request):
 
     user = User.objects.get(pk=int(user_id))
     post = Posts.objects.get(pk=int(post_id))
+    user_profile = user.user_profile.get()
 
     query = CommentsOnPosts(comment=comment, user=user, post=post)
     query.save()
 
     count = CommentsOnPosts.objects.filter(post=post, is_active=True).count()
 
-    return JsonResponse({'count': count, 'id': query.id})
+    return JsonResponse(
+        {'count': count, 'id': query.id, 'name': user_profile.full_name, 'image': user_profile.profile_image})
 
 
 @csrf_exempt
@@ -288,6 +290,29 @@ def upvote_or_downvote_post(request):
 
     return JsonResponse({'message': message, 'upvotes': upvotes, 'downvotes': downvotes, 'has_upvoted': has_upvoted,
                          'has_downvoted': has_downvoted})
+
+
+@csrf_exempt
+def get_people_who_saw_post(request):
+    pagenumber = request.GET.get('pagenumber', 1)
+    post_id = request.POST.get('post_id')
+
+    post = Posts.objects.get(pk=int(post_id))
+
+    query = PostSeens.objects.filter(post=post)
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    seens = []
+    for saw in query:
+        user_profile = saw.user.user_profile.get()
+        seens.append({'time': saw.time, 'image': user_profile.profile_image, 'name': user_profile.full_name})
+
+    return JsonResponse({'seens': seens, 'next_page': next_page})
 
 
 @csrf_exempt

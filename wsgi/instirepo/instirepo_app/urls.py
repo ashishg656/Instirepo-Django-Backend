@@ -25,7 +25,8 @@ urlpatterns = [
 
     url(r'^save_post_for_later', views.save_post_for_later, name='save_post_for_later'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_people_who_saw_post', views.get_people_who_saw_post, name='get_people_who_saw_post'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
