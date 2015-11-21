@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_app/views.py" afterPath="$PROJECT_DIR$/instirepo_app/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="instirepo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,18 +91,14 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28154206">
-              <caret line="299" column="34" selection-start-line="299" selection-start-column="34" selection-end-line="299" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.22897196">
+              <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
               <folding>
-                <element signature="e#803#2189#0" expanded="false" />
-                <element signature="e#2257#2777#0" expanded="false" />
-                <element signature="e#2840#3809#0" expanded="false" />
-                <element signature="e#3876#4818#0" expanded="false" />
-                <element signature="e#7160#7806#0" expanded="false" />
-                <element signature="e#9021#9578#0" expanded="false" />
-                <element signature="e#14232#14403#0" expanded="false" />
-                <element signature="e#14443#14608#0" expanded="false" />
-                <element signature="e#14652#14716#0" expanded="false" />
+                <element signature="e#4870#7148#0" expanded="false" />
+                <element signature="e#7202#7848#0" expanded="false" />
+                <element signature="e#9062#9619#0" expanded="false" />
+                <element signature="e#14516#14681#0" expanded="false" />
+                <element signature="e#14725#14789#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -370,18 +367,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28154206">
-          <caret line="299" column="34" selection-start-line="299" selection-start-column="34" selection-end-line="299" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.22897196">
+          <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
           <folding>
-            <element signature="e#803#2189#0" expanded="false" />
-            <element signature="e#2257#2777#0" expanded="false" />
-            <element signature="e#2840#3809#0" expanded="false" />
-            <element signature="e#3876#4818#0" expanded="false" />
-            <element signature="e#7160#7806#0" expanded="false" />
-            <element signature="e#9021#9578#0" expanded="false" />
-            <element signature="e#14232#14403#0" expanded="false" />
-            <element signature="e#14443#14608#0" expanded="false" />
-            <element signature="e#14652#14716#0" expanded="false" />
+            <element signature="e#4870#7148#0" expanded="false" />
+            <element signature="e#7202#7848#0" expanded="false" />
+            <element signature="e#9062#9619#0" expanded="false" />
+            <element signature="e#14516#14681#0" expanded="false" />
+            <element signature="e#14725#14789#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -167,7 +167,8 @@ def get_teacher_posts(request):
             {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image, 'time': post.time,
              'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes, 'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
-             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved})
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -202,7 +203,7 @@ def save_post_for_later(request):
 def get_comments_on_post(request):
     pagenumber = request.GET.get('pagenumber', 1)
     user_id = request.POST.get('user_id')
-    post_id = request.POST.get('post_id')
+    post_id = request.GET.get('post_id')
 
     post = Posts.objects.get(pk=int(post_id))
 
@@ -310,7 +311,8 @@ def get_people_who_saw_post(request):
     seens = []
     for saw in query:
         user_profile = saw.user.user_profile.get()
-        seens.append({'time': saw.time, 'image': user_profile.profile_image, 'name': user_profile.full_name})
+        seens.append(
+            {'time': saw.time, 'image': user_profile.profile_image, 'name': user_profile.full_name, 'id': saw.user.id})
 
     return JsonResponse({'seens': seens, 'next_page': next_page})
 
