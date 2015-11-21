@@ -167,7 +167,7 @@ def get_teacher_posts(request):
             {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image, 'time': post.time,
              'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes, 'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
-             'category': category, 'category_color': category_color})
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -193,7 +193,7 @@ def save_post_for_later(request):
         query = SavedPosts(post=post, user=user)
         query.save()
 
-    count = SavedPosts.objects.filter(post=post).count()
+    count = SavedPosts.objects.filter(post=post, is_active=True).count()
 
     return JsonResponse({'count': count, 'is_saved': is_saved})
 
@@ -341,7 +341,10 @@ def get_students_posts(request):
 @csrf_exempt
 def post_detail_page(request):
     user_id = request.POST.get('user_id')
-    user_id = int(user_id)
+    post_id = request.POST.get('post_id')
+
+    post = Posts.objects.get(pk=int(post_id))
+    user = User.objects.get(pk=int(user_id))
 
 
 def parseBoolean(stringToParse):

@@ -22,8 +22,9 @@ urlpatterns = [
     url(r'^upvote_or_downvote_post', views.upvote_or_downvote_post, name='upvote_or_downvote_post'),
 
     url(r'^add_comment_on_post', views.add_comment_on_post, name='add_comment_on_post'),
-    
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+
+    url(r'^save_post_for_later', views.save_post_for_later, name='save_post_for_later'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
