@@ -295,7 +295,7 @@ def upvote_or_downvote_post(request):
 @csrf_exempt
 def get_people_who_saw_post(request):
     pagenumber = request.GET.get('pagenumber', 1)
-    post_id = request.POST.get('post_id')
+    post_id = request.GET.get('post_id')
 
     post = Posts.objects.get(pk=int(post_id))
 
