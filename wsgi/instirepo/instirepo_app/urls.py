@@ -17,9 +17,12 @@ urlpatterns = [
 
     url(r'^get_students_posts', views.get_students_posts, name='get_students_posts'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_comments_on_post', views.get_comments_on_post, name='get_comments_on_post'),
+
+    url(r'^upvote_or_downvote_post', views.upvote_or_downvote_post, name='upvote_or_downvote_post'),
+
+    url(r'^add_comment_on_post', views.add_comment_on_post, name='add_comment_on_post'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

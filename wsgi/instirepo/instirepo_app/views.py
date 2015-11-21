@@ -151,6 +151,7 @@ def get_teacher_posts(request):
         downvotes = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post).count()
         has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
         has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
+        seens = PostSeens.objects.filter(post=post).count()
         if has_upvoted > 0:
             has_upvoted = True
             has_downvoted = False
@@ -165,9 +166,101 @@ def get_teacher_posts(request):
         teacher_posts.append(
             {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image, 'time': post.time,
              'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes, 'downvotes': downvotes,
-             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment})
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
+
+
+@csrf_exempt
+def get_comments_on_post(request):
+    pagenumber = request.GET.get('pagenumber', 1)
+    user_id = request.POST.get('user_id')
+    post_id = request.POST.get('post_id')
+
+    post = Posts.objects.get(pk=int(post_id))
+
+    query = CommentsOnPosts.objects.filter(post=post, is_active=True).order_by('-time')
+    count = CommentsOnPosts.objects.filter(post=post, is_active=True).count()
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    comments = []
+    for comment in query:
+        is_by_user = False
+        if comment.user.id == int(user_id):
+            is_by_user = True
+        temp_user = UserProfiles.objects.get(user_obj=comment.user)
+        user_name = temp_user.full_name
+        user_image = temp_user.profile_image
+        comments.append({'id': comment.id, 'comment': comment.comment, 'time': comment.time, 'user_name': user_name,
+                         'user_image': user_image, 'is_by_user': is_by_user})
+
+    return JsonResponse({'comments': comments, 'next_page': next_page, 'count': count})
+
+
+@csrf_exempt
+def add_comment_on_post(request):
+    user_id = request.POST.get('user_id')
+    post_id = request.POST.get('post_id')
+    comment = request.POST.get('comment')
+
+    user = User.objects.get(pk=int(user_id))
+    post = Posts.objects.get(pk=int(post_id))
+
+    query = CommentsOnPosts(comment=comment, user=user, post=post)
+    query.save()
+
+    count = CommentsOnPosts.objects.filter(post=post, is_active=True).count()
+
+    return JsonResponse({'count': count, 'id': query.id})
+
+
+@csrf_exempt
+def upvote_or_downvote_post(request):
+    user_id = request.POST.get('user_id')
+    post_id = request.POST.get('post_id')
+    is_upvote_clicked = request.POST.get('is_upvote_clicked')
+    is_upvote_clicked = parseBoolean(is_upvote_clicked)
+
+    user = User.objects.get(pk=int(user_id))
+    post = Posts.objects.get(pk=int(post_id))
+
+    message = None
+
+    try:
+        query = UpvotesOnPosts.objects.get(user=user, post=post)
+        if query.is_active:
+            if query.is_upvote and is_upvote_clicked:
+                message = "Already upvoted and clicked on upvote"
+            elif query.is_upvote and not is_upvote_clicked:
+                query.is_active = False
+                message = "Earlier upvoted but now no vote"
+            elif not query.is_upvote and is_upvote_clicked:
+                query.is_active = False
+                message = "Earlier downvoted but now no vote"
+            elif not query.is_upvote and not is_upvote_clicked:
+                message = "Already downvoted and clicked on downvote"
+        else:
+            query.is_active = True
+            query.is_upvote = is_upvote_clicked
+            message = "Made is_active True"
+        query.save()
+    except:
+        query = UpvotesOnPosts(is_upvote=is_upvote_clicked, user=user, post=post)
+        query.save()
+        message = "Created new row"
+
+    upvotes = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post).count()
+    downvotes = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post).count()
+    has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
+    has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
+
+    return JsonResponse({'message': message, 'upvotes': upvotes, 'downvotes': downvotes, 'has_upvoted': has_upvoted,
+                         'has_downvoted': has_downvoted})
 
 
 @csrf_exempt

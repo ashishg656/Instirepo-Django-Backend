@@ -129,6 +129,7 @@ class CommentsOnPosts(models.Model):
     user = models.ForeignKey(User)
     post = models.ForeignKey(Posts)
     time = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.comment
@@ -181,5 +182,11 @@ class PostVisibility(models.Model):
     college = models.ForeignKey(College, null=True, blank=True)
     university = models.ForeignKey(Universities, null=True, blank=True)
 
+    post = models.ForeignKey(Posts)
+    time = models.DateTimeField(auto_now=True)
+
+
+class PostSeens(models.Model):
+    user = models.ForeignKey(User)
     post = models.ForeignKey(Posts)
     time = models.DateTimeField(auto_now=True)
