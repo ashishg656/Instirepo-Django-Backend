@@ -299,7 +299,7 @@ def get_people_who_saw_post(request):
 
     post = Posts.objects.get(pk=int(post_id))
 
-    query = PostSeens.objects.filter(post=post)
+    query = PostSeens.objects.filter(post=post).order_by('-time')
 
     query_paginated = Paginator(query, 20)
     query = query_paginated.page(pagenumber)
