@@ -407,7 +407,7 @@ def user_profile_viewed_by_other(request):
     if query_user_profile.year is not None:
         year = str(query_user_profile.year.admission_year) + ' - ' + str(query_user_profile.year.passout_year)
 
-    number_of_posts = Posts.objects.filter(uploader=query_user)
+    number_of_posts = Posts.objects.filter(uploader=query_user).count()
 
     email = None
     if query_user_profile.is_email_shown_to_others:
