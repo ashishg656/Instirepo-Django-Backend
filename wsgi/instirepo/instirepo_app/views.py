@@ -405,7 +405,7 @@ def user_profile_viewed_by_other(request):
     if query_user_profile.batch is not None:
         batch = query_user_profile.batch.batch_name
     if query_user_profile.year is not None:
-        year = query_user_profile.year.admission_year + ' - ' + query_user_profile.year.passout_year
+        year = str(query_user_profile.year.admission_year) + ' - ' + str(query_user_profile.year.passout_year)
 
     number_of_posts = Posts.objects.filter(uploader=query_user)
 
