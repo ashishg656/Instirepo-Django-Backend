@@ -485,7 +485,9 @@ def user_profile_viewed_by_other(request):
                          'branch': branch, 'batch': batch, 'year': year, 'number_of_posts': number_of_posts,
                          'resume': query_user_profile.resume, 'email': email, 'phone': phone,
                          'can_message': can_message, 'upvotes': upvotes, 'downvotes': downvotes,
-                         'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted})
+                         'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted,
+                         'is_professor': query_user_profile.is_professor,
+                         'is_senior_professor': query_user_profile.is_senior_professor})
 
 
 def getBooleanFromQueryCount(count):

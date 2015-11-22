@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_app/urls.py" afterPath="$PROJECT_DIR$/instirepo_app/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_app/views.py" afterPath="$PROJECT_DIR$/instirepo_app/views.py" />
     </list>
     <ignored path="instirepo.iws" />
@@ -40,9 +39,8 @@
         <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="199" column="11" selection-start-line="199" selection-start-column="4" selection-end-line="199" selection-end-column="11" />
+              <caret line="15" column="16" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="16" />
               <folding>
-                <element signature="e#113#1888#0" expanded="false" />
                 <element signature="e#1867#1888#0" expanded="false" />
                 <element signature="e#1929#2065#0" expanded="false" />
                 <element signature="e#2049#2065#0" expanded="false" />
@@ -90,8 +88,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7775281">
-              <caret line="488" column="0" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.752809">
+              <caret line="489" column="45" selection-start-line="489" selection-start-column="45" selection-end-line="489" selection-end-column="45" />
               <folding>
                 <element signature="e#803#2189#0" expanded="false" />
                 <element signature="e#2257#2777#0" expanded="false" />
@@ -106,7 +104,7 @@
                 <element signature="e#14913#16807#0" expanded="false" />
                 <element signature="e#16858#17029#0" expanded="false" />
                 <element signature="e#17069#17234#0" expanded="false" />
-                <element signature="e#19999#20063#0" expanded="false" />
+                <element signature="e#20161#20225#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -311,7 +309,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="20" selection-start-line="177" selection-start-column="6" selection-end-line="177" selection-end-column="20" />
           <folding>
-            <element signature="e#113#1888#0" expanded="false" />
             <element signature="e#1867#1888#0" expanded="false" />
             <element signature="e#1929#2065#0" expanded="false" />
             <element signature="e#2049#2065#0" expanded="false" />
@@ -371,7 +368,7 @@
             <element signature="e#14913#16807#0" expanded="false" />
             <element signature="e#16858#17029#0" expanded="false" />
             <element signature="e#17069#17234#0" expanded="false" />
-            <element signature="e#19999#20063#0" expanded="false" />
+            <element signature="e#20161#20225#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -404,10 +401,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
+    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -417,9 +414,8 @@
     <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="199" column="11" selection-start-line="199" selection-start-column="4" selection-end-line="199" selection-end-column="11" />
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="16" />
           <folding>
-            <element signature="e#113#1888#0" expanded="false" />
             <element signature="e#1867#1888#0" expanded="false" />
             <element signature="e#1929#2065#0" expanded="false" />
             <element signature="e#2049#2065#0" expanded="false" />
@@ -451,10 +447,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
+    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -463,8 +459,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7775281">
-          <caret line="488" column="0" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.752809">
+          <caret line="489" column="45" selection-start-line="489" selection-start-column="45" selection-end-line="489" selection-end-column="45" />
           <folding>
             <element signature="e#803#2189#0" expanded="false" />
             <element signature="e#2257#2777#0" expanded="false" />
@@ -479,7 +475,7 @@
             <element signature="e#14913#16807#0" expanded="false" />
             <element signature="e#16858#17029#0" expanded="false" />
             <element signature="e#17069#17234#0" expanded="false" />
-            <element signature="e#19999#20063#0" expanded="false" />
+            <element signature="e#20161#20225#0" expanded="false" />
           </folding>
         </state>
       </provider>
