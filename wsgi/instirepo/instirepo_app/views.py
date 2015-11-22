@@ -383,6 +383,43 @@ def parseBoolean(stringToParse):
     return False
 
 
+@csrf_exempt
+def user_profile_viewed_by_other(request):
+    user_id = request.POST.get('user_id')
+    id_find = request.POST.get('profile_viewing_id')
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    query_user = User.objects.get(pk=int(id_find))
+    query_user_profile = query_user.user_profile.get()
+
+    branch = 'Not Available'
+    batch = 'Not Available'
+    year = 'Not Available'
+    if query_user_profile.branch is not None:
+        branch = query_user_profile.branch.branch_name
+    if query_user_profile.batch is not None:
+        batch = query_user_profile.batch.batch_name
+    if query_user_profile.year is not None:
+        year = query_user_profile.year.admission_year + ' - ' + query_user_profile.year.passout_year
+
+    number_of_posts = Posts.objects.filter(uploader=query_user)
+
+    email = None
+    if query_user_profile.is_email_shown_to_others:
+        email = query_user.email
+    phone = None
+    if query_user_profile.is_mobile_shown_to_others:
+        phone = query_user_profile.mobile_number
+
+    return JsonResponse({'name': query_user_profile.full_name, 'image': query_user_profile.profile_image,
+                         'is_student_coordinator': query_user_profile.is_student_coordinator,
+                         'designation': query_user_profile.designation, 'about': query_user_profile.about,
+                         'branch': branch, 'batch': batch, 'year': year, 'number_of_posts': number_of_posts,
+                         'resume': query_user_profile.resume, 'email': email, 'phone': phone})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True

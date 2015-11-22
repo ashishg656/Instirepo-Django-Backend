@@ -29,6 +29,8 @@ class UserProfiles(models.Model):
     is_email_shown_to_others = models.BooleanField(default=False)
     is_mobile_shown_to_others = models.BooleanField(default=False)
     resume = models.TextField(null=True, blank=True)
+    designation = models.CharField(max_length=255, default='Student', null=True)
+    about = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.full_name
@@ -190,4 +192,12 @@ class PostVisibility(models.Model):
 class PostSeens(models.Model):
     user = models.ForeignKey(User)
     post = models.ForeignKey(Posts)
+    time = models.DateTimeField(auto_now=True)
+
+
+class UpvotesOnUsers(models.Model):
+    user = models.ForeignKey(User, related_name='user_being_voted')
+    upvoter = models.ForeignKey(User, related_name='user_who_voted')
+    is_upvote = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
     time = models.DateTimeField(auto_now=True)
