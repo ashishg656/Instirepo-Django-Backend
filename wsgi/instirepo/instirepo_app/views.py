@@ -224,8 +224,11 @@ def get_comments_on_post(request):
         temp_user = UserProfiles.objects.get(user_obj=comment.user)
         user_name = temp_user.full_name
         user_image = temp_user.profile_image
+        is_different_color = False
+        if temp_user.is_senior_professor or temp_user.is_professor:
+            is_different_color = True
         comments.append({'id': comment.id, 'comment': comment.comment, 'time': comment.time, 'user_name': user_name,
-                         'user_image': user_image, 'is_by_user': is_by_user})
+                         'user_image': user_image, 'is_by_user': is_by_user, 'is_different_color': is_different_color})
 
     return JsonResponse({'comments': comments, 'next_page': next_page, 'count': count})
 
@@ -413,11 +416,16 @@ def user_profile_viewed_by_other(request):
     if query_user_profile.is_mobile_shown_to_others:
         phone = query_user_profile.mobile_number
 
+    can_message = False
+    if user_profile.is_student_coordinator or user_profile.is_professor or user_profile.is_senior_professor or query_user_profile.is_student_coordinator or query_user_profile.is_professor or query_user_profile.is_senior_professor:
+        can_message = True
+
     return JsonResponse({'name': query_user_profile.full_name, 'image': query_user_profile.profile_image,
                          'is_student_coordinator': query_user_profile.is_student_coordinator,
                          'designation': query_user_profile.designation, 'about': query_user_profile.about,
                          'branch': branch, 'batch': batch, 'year': year, 'number_of_posts': number_of_posts,
-                         'resume': query_user_profile.resume, 'email': email, 'phone': phone})
+                         'resume': query_user_profile.resume, 'email': email, 'phone': phone,
+                         'can_message': can_message})
 
 
 def getBooleanFromQueryCount(count):
