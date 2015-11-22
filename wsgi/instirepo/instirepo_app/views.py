@@ -289,6 +289,9 @@ def upvote_or_downvote_post(request):
     has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
     has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
 
+    has_downvoted = getBooleanFromQueryCount(has_downvoted)
+    has_upvoted = getBooleanFromQueryCount(has_upvoted)
+
     return JsonResponse({'message': message, 'upvotes': upvotes, 'downvotes': downvotes, 'has_upvoted': has_upvoted,
                          'has_downvoted': has_downvoted})
 
