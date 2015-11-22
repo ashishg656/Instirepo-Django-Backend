@@ -29,7 +29,8 @@ urlpatterns = [
 
     url(r'^user_profile_viewed_by_other', views.user_profile_viewed_by_other, name='user_profile_viewed_by_other'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^upvote_or_downvote_user', views.upvote_or_downvote_user, name='upvote_or_downvote_user'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

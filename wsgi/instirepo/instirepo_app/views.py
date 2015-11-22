@@ -300,6 +300,55 @@ def upvote_or_downvote_post(request):
 
 
 @csrf_exempt
+def upvote_or_downvote_user(request):
+    upvoter_id = request.POST.get('upvoter_id')
+    user_id = request.POST.get('user_to_be_voted')
+    is_upvote_clicked = request.POST.get('is_upvote_clicked')
+    is_upvote_clicked = parseBoolean(is_upvote_clicked)
+
+    upvoter = User.objects.get(pk=int(upvoter_id))
+    user_voted = User.objects.get(pk=int(user_id))
+
+    message = None
+
+    try:
+        query = UpvotesOnUsers.objects.get(user=user_voted, upvoter=upvoter)
+        if query.is_active:
+            if query.is_upvote and is_upvote_clicked:
+                message = "Already upvoted and clicked on upvote"
+            elif query.is_upvote and not is_upvote_clicked:
+                query.is_active = False
+                message = "Earlier upvoted but now no vote"
+            elif not query.is_upvote and is_upvote_clicked:
+                query.is_active = False
+                message = "Earlier downvoted but now no vote"
+            elif not query.is_upvote and not is_upvote_clicked:
+                message = "Already downvoted and clicked on downvote"
+        else:
+            query.is_active = True
+            query.is_upvote = is_upvote_clicked
+            message = "Made is_active True"
+        query.save()
+    except:
+        query = UpvotesOnUsers(is_upvote=is_upvote_clicked, user=user_voted, upvoter=upvoter)
+        query.save()
+        message = "Created new row"
+
+    upvotes = UpvotesOnUsers.objects.filter(is_upvote=True, is_active=True, user=user_voted).count()
+    downvotes = UpvotesOnUsers.objects.filter(is_upvote=False, is_active=True, user=user_voted).count()
+    has_upvoted = UpvotesOnUsers.objects.filter(is_upvote=True, is_active=True, user=user_voted,
+                                                upvoter=upvoter).count()
+    has_downvoted = UpvotesOnUsers.objects.filter(is_upvote=False, is_active=True, user=user_voted,
+                                                  upvoter=upvoter).count()
+
+    has_downvoted = getBooleanFromQueryCount(has_downvoted)
+    has_upvoted = getBooleanFromQueryCount(has_upvoted)
+
+    return JsonResponse({'message': message, 'upvotes': upvotes, 'downvotes': downvotes, 'has_upvoted': has_upvoted,
+                         'has_downvoted': has_downvoted})
+
+
+@csrf_exempt
 def get_people_who_saw_post(request):
     pagenumber = request.GET.get('pagenumber', 1)
     post_id = request.GET.get('post_id')
@@ -420,12 +469,23 @@ def user_profile_viewed_by_other(request):
     if user_profile.is_student_coordinator or user_profile.is_professor or user_profile.is_senior_professor or query_user_profile.is_student_coordinator or query_user_profile.is_professor or query_user_profile.is_senior_professor:
         can_message = True
 
+    upvotes = UpvotesOnUsers.objects.filter(is_upvote=True, is_active=True, user=query_user).count()
+    downvotes = UpvotesOnUsers.objects.filter(is_upvote=False, is_active=True, user=query_user).count()
+    has_upvoted = UpvotesOnUsers.objects.filter(is_upvote=True, is_active=True, user=query_user,
+                                                upvoter=user).count()
+    has_downvoted = UpvotesOnUsers.objects.filter(is_upvote=False, is_active=True, user=query_user,
+                                                  upvoter=user).count()
+
+    has_downvoted = getBooleanFromQueryCount(has_downvoted)
+    has_upvoted = getBooleanFromQueryCount(has_upvoted)
+
     return JsonResponse({'name': query_user_profile.full_name, 'image': query_user_profile.profile_image,
                          'is_student_coordinator': query_user_profile.is_student_coordinator,
                          'designation': query_user_profile.designation, 'about': query_user_profile.about,
                          'branch': branch, 'batch': batch, 'year': year, 'number_of_posts': number_of_posts,
                          'resume': query_user_profile.resume, 'email': email, 'phone': phone,
-                         'can_message': can_message})
+                         'can_message': can_message, 'upvotes': upvotes, 'downvotes': downvotes,
+                         'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted})
 
 
 def getBooleanFromQueryCount(count):
