@@ -516,7 +516,12 @@ def get_all_post_categories(request):
 
     query = PostCategories.objects.filter(is_active=True)
     for cat in query:
-        categories.append({'id': cat.id, 'name': cat.name, 'image': cat.image, 'type': cat.type, 'color': cat.color})
+        image = None
+        try:
+            image = cat.image.url
+        except:
+            pass
+        categories.append({'id': cat.id, 'name': cat.name, 'image': image, 'type': cat.type, 'color': cat.color})
 
     return JsonResponse({'categories': categories})
 

@@ -35,7 +35,7 @@ urlpatterns = [
         name='check_whether_user_can_post_or_not'),
 
     url(r'^get_all_post_categories', views.get_all_post_categories, name='get_all_post_categories'),
-    
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
