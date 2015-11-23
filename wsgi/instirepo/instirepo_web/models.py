@@ -31,6 +31,7 @@ class UserProfiles(models.Model):
     resume = models.TextField(null=True, blank=True)
     designation = models.CharField(max_length=255, default='Student', null=True)
     about = models.TextField(null=True, blank=True)
+    has_reached_post_limit = models.BooleanField(default=False)
 
     def __str__(self):
         return self.full_name

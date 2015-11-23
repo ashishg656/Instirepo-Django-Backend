@@ -490,6 +490,26 @@ def user_profile_viewed_by_other(request):
                          'is_senior_professor': query_user_profile.is_senior_professor})
 
 
+@csrf_exempt
+def check_whether_user_can_post_or_not(request):
+    user_id = request.POST.get('user_id')
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    message = None
+    error = False
+
+    if user_profile.has_reached_post_limit:
+        message = 'You have been temporarily blocked from making posts. Please contact us using the contact us section to resolve that. Sorry for tthe inconvinience caused.'
+        error = True
+    elif not user_profile.is_verified:
+        message = 'Sorry but your profile details are pending verification from the our team. It may take a time of 1 working day. However, you can contact us from the contact us section if required about verification.'
+        error = True
+
+    return JsonResponse({'error': error, 'message': message})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True

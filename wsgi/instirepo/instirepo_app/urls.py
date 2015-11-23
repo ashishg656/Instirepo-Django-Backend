@@ -31,7 +31,9 @@ urlpatterns = [
 
     url(r'^upvote_or_downvote_user', views.upvote_or_downvote_user, name='upvote_or_downvote_user'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^check_whether_user_can_post_or_not', views.check_whether_user_can_post_or_not,
+        name='check_whether_user_can_post_or_not'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
