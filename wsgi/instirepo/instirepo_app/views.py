@@ -491,7 +491,7 @@ def user_profile_viewed_by_other(request):
 
 
 @csrf_exempt
-def check_whether_user_can_post_or_not(request):
+def get_all_post_categories(request):
     user_id = request.POST.get('user_id')
 
     user = User.objects.get(pk=int(user_id))
@@ -503,15 +503,12 @@ def check_whether_user_can_post_or_not(request):
     if user_profile.has_reached_post_limit:
         message = 'You have been temporarily blocked from making posts. Please contact us using the contact us section to resolve that. Sorry for tthe inconvinience caused.'
         error = True
+        return JsonResponse({'error': error, 'message': message})
     elif not user_profile.is_verified:
         message = 'Sorry but your profile details are pending verification from the our team. It may take a time of 1 working day. However, you can contact us from the contact us section if required about verification.'
         error = True
+        return JsonResponse({'error': error, 'message': message})
 
-    return JsonResponse({'error': error, 'message': message})
-
-
-@csrf_exempt
-def get_all_post_categories(request):
     categories = []
 
     query = PostCategories.objects.filter(is_active=True)
@@ -523,7 +520,7 @@ def get_all_post_categories(request):
             pass
         categories.append({'id': cat.id, 'name': cat.name, 'image': image, 'type': cat.type, 'color': cat.color})
 
-    return JsonResponse({'categories': categories})
+    return JsonResponse({'categories': categories, 'error': error, 'message': message})
 
 
 def getBooleanFromQueryCount(count):
