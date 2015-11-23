@@ -510,6 +510,17 @@ def check_whether_user_can_post_or_not(request):
     return JsonResponse({'error': error, 'message': message})
 
 
+@csrf_exempt
+def get_all_post_categories(request):
+    categories = []
+
+    query = PostCategories.objects.filter(is_active=True)
+    for cat in query:
+        categories.append({'id': cat.id, 'name': cat.name, 'image': cat.image, 'type': cat.type, 'color': cat.color})
+
+    return JsonResponse({'categories': categories})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True

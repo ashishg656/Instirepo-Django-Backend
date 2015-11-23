@@ -99,6 +99,7 @@ class PostCategories(models.Model):
     is_public = models.BooleanField(default=False)
     type = models.CharField(max_length=255, choices=SPECIAL_POSTS, default=OTHER)
     color = models.CharField(max_length=255, null=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
