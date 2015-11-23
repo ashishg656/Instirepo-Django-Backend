@@ -75,7 +75,13 @@ def get_all_colleges_and_universities(request):
 @csrf_exempt
 def get_college_batch_years_list(request):
     college_id = request.POST.get('college_id')
-    college = College.objects.get(pk=int(college_id))
+    college = None
+    try:
+        college = College.objects.get(pk=int(college_id))
+    except:
+        user_id = request.POST.get('user_id')
+        user_profile = User.objects.get(pk=int(user_id)).user_profile.get()
+        college = user_profile.college
 
     branches_list = []
     years_list = []
