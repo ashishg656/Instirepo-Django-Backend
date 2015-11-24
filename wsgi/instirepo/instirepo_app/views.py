@@ -407,21 +407,24 @@ def get_students_posts(request):
         downvotes = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post).count()
         has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
         has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
-        if has_upvoted > 0:
-            has_upvoted = True
-            has_downvoted = False
-        elif has_downvoted > 0:
-            has_upvoted = False
-            has_downvoted = False
-        else:
-            has_downvoted = False
-            has_upvoted = False
+        seens = PostSeens.objects.filter(post=post).count()
+        saves = SavedPosts.objects.filter(post=post, is_active=True).count()
+        is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
+        category = post.category.name
+        category_color = post.category.color
+
+        has_downvoted = getBooleanFromQueryCount(has_downvoted)
+        has_upvoted = getBooleanFromQueryCount(has_upvoted)
+        is_saved = getBooleanFromQueryCount(is_saved)
+
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
         teacher_posts.append(
             {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image, 'time': post.time,
              'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes, 'downvotes': downvotes,
-             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment})
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
