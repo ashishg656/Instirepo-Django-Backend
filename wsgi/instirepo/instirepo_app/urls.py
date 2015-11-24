@@ -33,7 +33,8 @@ urlpatterns = [
 
     url(r'^get_all_post_categories', views.get_all_post_categories, name='get_all_post_categories'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_all_teachers_list', views.get_all_teachers_list, name='get_all_teachers_list'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

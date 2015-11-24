@@ -532,6 +532,35 @@ def get_all_post_categories(request):
     return JsonResponse({'categories': categories, 'error': error, 'message': message})
 
 
+@csrf_exempt
+def get_all_teachers_list(request):
+    pagenumber = request.GET.get('pagenumber', 1)
+    user_id = request.POST.get('user_id')
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    query = UserProfiles.objects.filter(college=user_profile.college).filter(
+        Q(is_professor=True) | Q(is_senior_professor=True))
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    teachers = []
+    for teach in query:
+        branch = None
+        try:
+            branch = teach.branch.branch_name
+        except:
+            pass
+        teachers.append(
+            {'id': teach.user_obj.id, 'name': teach.full_name, 'branch': branch, 'image': teach.profile_image})
+
+    return JsonResponse({'teachers': teachers, 'next_page': next_page})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True
