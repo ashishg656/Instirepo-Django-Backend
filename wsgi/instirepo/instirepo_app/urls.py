@@ -37,7 +37,8 @@ urlpatterns = [
 
     url(r'^save_post_visibility', views.save_post_visibility, name='save_post_visibility'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_saved_post_visibilities', views.get_saved_post_visibilities, name='get_saved_post_visibilities'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

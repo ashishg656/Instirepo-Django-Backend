@@ -618,6 +618,19 @@ def save_post_visibility(request):
     return JsonResponse({'done': True})
 
 
+@csrf_exempt
+def get_saved_post_visibilities(request):
+    user_id = request.POST.get('user_id')
+    user = User.objects.get(pk=int(user_id))
+
+    query = SavedPostVisibilities.objects.filter(user=user, is_active=True).order_by('-time')
+    saves = []
+    for save in query:
+        saves.append({'id': save.id, 'name': save.name})
+
+    return JsonResponse({'visibilities': saves})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True
