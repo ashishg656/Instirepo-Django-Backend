@@ -203,3 +203,31 @@ class UpvotesOnUsers(models.Model):
     is_upvote = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     time = models.DateTimeField(auto_now=True)
+
+
+class SavedPostVisibilities(models.Model):
+    user = models.ForeignKey(User)
+    time = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+    name = models.CharField(max_length=255, null=True)
+
+
+class SavedPostVisibilitiesAttributes(models.Model):
+    BRANCH = 'branch'
+    YEAR = 'year'
+    BATCH = 'batch'
+    TEACHER = 'teacher'
+
+    TYPE_OF_VISIBILITY = (
+        (BRANCH, 'Branch'),
+        (YEAR, 'Year'),
+        (BATCH, 'Batch'),
+        (TEACHER, 'Teacher'),
+    )
+
+    type = models.CharField(max_length=255, choices=TYPE_OF_VISIBILITY)
+    visibility = models.ForeignKey(SavedPostVisibilities)
+    branch = models.ForeignKey(Branches, null=True, blank=True)
+    batch = models.ForeignKey(Batches, null=True, blank=True)
+    year = models.ForeignKey(StudentYears, null=True, blank=True)
+    teacher = models.ForeignKey(User, null=True, blank=True)

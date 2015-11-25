@@ -34,7 +34,13 @@ urlpatterns = [
     url(r'^get_all_post_categories', views.get_all_post_categories, name='get_all_post_categories'),
 
     url(r'^get_all_teachers_list', views.get_all_teachers_list, name='get_all_teachers_list'),
-    
+
+    url(r'^save_post_visibility', views.save_post_visibility, name='save_post_visibility'),
+
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

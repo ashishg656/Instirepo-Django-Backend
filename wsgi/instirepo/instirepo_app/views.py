@@ -561,6 +561,63 @@ def get_all_teachers_list(request):
     return JsonResponse({'teachers': teachers, 'next_page': next_page})
 
 
+@csrf_exempt
+def save_post_visibility(request):
+    user_id = request.POST.get('user_id')
+    user = User.objects.get(pk=int(user_id))
+    name = request.POST.get('name')
+
+    batches_array_request = request.POST.get('batches_id')
+    batches_array = json.loads(batches_array_request)
+    branches_array_request = request.POST.get('branches_id')
+    branches_array = json.loads(branches_array_request)
+    years_array_request = request.POST.get('years_id')
+    years_array = json.loads(years_array_request)
+    users_array_request = request.POST.get('teachers_id')
+    user_array = json.loads(users_array_request)
+
+    saved_post_visibility = SavedPostVisibilities(user=user, name=name)
+    saved_post_visibility.save()
+
+    for batch_id in batches_array:
+        try:
+            batch = Batches.objects.get(pk=int(batch_id))
+            attribute = SavedPostVisibilitiesAttributes(batch=batch, visibility=saved_post_visibility,
+                                                        type=SavedPostVisibilitiesAttributes.BATCH)
+            attribute.save()
+        except:
+            pass
+
+    for batch_id in branches_array:
+        try:
+            batch = Branches.objects.get(pk=int(batch_id))
+            attribute = SavedPostVisibilitiesAttributes(branch=batch, visibility=saved_post_visibility,
+                                                        type=SavedPostVisibilitiesAttributes.BRANCH)
+            attribute.save()
+        except:
+            pass
+
+    for batch_id in years_array:
+        try:
+            batch = StudentYears.objects.get(pk=int(batch_id))
+            attribute = SavedPostVisibilitiesAttributes(year=batch, visibility=saved_post_visibility,
+                                                        type=SavedPostVisibilitiesAttributes.YEAR)
+            attribute.save()
+        except:
+            pass
+
+    for batch_id in user_array:
+        try:
+            batch = User.objects.get(pk=int(batch_id))
+            attribute = SavedPostVisibilitiesAttributes(teacher=batch, visibility=saved_post_visibility,
+                                                        type=SavedPostVisibilitiesAttributes.TEACHER)
+            attribute.save()
+        except:
+            pass
+
+    return JsonResponse({'done': True})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True
