@@ -41,7 +41,8 @@ urlpatterns = [
 
     url(r'^get_posts_posted_by_user', views.get_posts_posted_by_user, name='get_posts_posted_by_user'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_all_messages_list', views.get_all_messages_list, name='get_all_messages_list'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

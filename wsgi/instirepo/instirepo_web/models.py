@@ -33,6 +33,8 @@ class UserProfiles(models.Model):
     about = models.TextField(null=True, blank=True)
     has_reached_post_limit = models.BooleanField(default=False)
 
+    last_message_read_timestamp = models.DateTimeField(null=True, blank=True, auto_now=False)
+
     def __str__(self):
         return self.full_name
 
@@ -231,3 +233,12 @@ class SavedPostVisibilitiesAttributes(models.Model):
     batch = models.ForeignKey(Batches, null=True, blank=True)
     year = models.ForeignKey(StudentYears, null=True, blank=True)
     teacher = models.ForeignKey(User, null=True, blank=True)
+
+
+class Messages(models.Model):
+    receiver = models.ForeignKey(User, related_name='receiver', null=True)
+    sender = models.ForeignKey(User, related_name='sender', null=True)
+    time = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
+    read = models.BooleanField(default=False)
+    message = models.TextField(null=True)

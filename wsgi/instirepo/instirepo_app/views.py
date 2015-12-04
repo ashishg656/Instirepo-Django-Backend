@@ -686,6 +686,100 @@ def get_posts_posted_by_user(request):
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page, 'is_by_teacher': is_by_teacher})
 
 
+@csrf_exempt
+def get_posts_marked_important_by_user(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    pagenumber = request.GET.get('pagenumber', 1)
+
+    user = User.objects.get(pk=user_id)
+    user_profile = user.user_profile.get()
+
+    teacher_posts = []
+    query = Posts.objects.filter(uploader=user).order_by('-time')
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    for post in query:
+        temp = User.objects.get(pk=int(post.uploader.id)).user_profile.get()
+        image = None
+        try:
+            image = post.image.url
+        except:
+            pass
+        upvotes = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post).count()
+        downvotes = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post).count()
+        has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
+        has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
+        seens = PostSeens.objects.filter(post=post).count()
+        saves = SavedPosts.objects.filter(post=post, is_active=True).count()
+        is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
+        category = post.category.name
+        category_color = post.category.color
+
+        has_downvoted = getBooleanFromQueryCount(has_downvoted)
+        has_upvoted = getBooleanFromQueryCount(has_upvoted)
+        is_saved = getBooleanFromQueryCount(is_saved)
+
+        comment = CommentsOnPosts.objects.filter(post=post).count()
+
+        teacher_posts.append(
+            {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image, 'time': post.time,
+             'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes, 'downvotes': downvotes,
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
+
+    is_by_teacher = False
+    if user_profile.is_senior_professor or user_profile.is_professor:
+        is_by_teacher = True
+
+    return JsonResponse({'posts': teacher_posts, 'next_page': next_page, 'is_by_teacher': is_by_teacher})
+
+
+@csrf_exempt
+def get_all_messages_list(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    pagenumber = request.GET.get('pagenumber', 1)
+
+    user = User.objects.get(pk=user_id)
+
+    query = Messages.objects.filter(Q(sender=user) | Q(receiver=user)).values('sender', 'receiver').distinct()
+    users_with_chat = []
+    for obj in query:
+        senderid = obj['sender']
+        receiverid = obj['receiver']
+        person = None
+        personID = None
+        lastMessage = None
+        lastMessageTime = None
+
+        if user_id == senderid:
+            personUser = User.objects.get(pk=int(receiverid))
+            person = personUser.user_profile.get()
+            personID = receiverid
+            lastMessageQuery = Messages.objects.filter(sender=user, receiver=personUser).order_by('-time')[0]
+            lastMessage = lastMessageQuery.message
+            lastMessageTime = lastMessageQuery.time
+        else:
+            personUser = User.objects.get(pk=int(senderid))
+            person = personUser.user_profile.get()
+            personID = senderid
+            lastMessageQuery = Messages.objects.filter(sender=personUser, receiver=user).order_by('-time')[0]
+            lastMessage = lastMessageQuery.message
+            lastMessageTime = lastMessageQuery.time
+        users_with_chat.append(
+            {'personid': personID, 'name': person.full_name, 'image': person.profile_image, 'lastmessage': lastMessage,
+             'time': lastMessageTime})
+
+    return JsonResponse({'names': users_with_chat})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True

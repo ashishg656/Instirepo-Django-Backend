@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_web/admin.py" afterPath="$PROJECT_DIR$/instirepo_web/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_web/models.py" afterPath="$PROJECT_DIR$/instirepo_web/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_app/urls.py" afterPath="$PROJECT_DIR$/instirepo_app/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_app/views.py" afterPath="$PROJECT_DIR$/instirepo_app/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="instirepo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="35" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="35" />
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -39,10 +43,8 @@
         <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,31 +53,30 @@
         <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="12" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="12" />
+              <caret line="243" column="41" selection-start-line="243" selection-start-column="41" selection-end-line="243" selection-end-column="41" />
               <folding>
-                <element signature="e#1931#1952#0" expanded="false" />
-                <element signature="e#2165#2352#0" expanded="false" />
-                <element signature="e#2336#2352#0" expanded="false" />
-                <element signature="e#2389#2532#0" expanded="false" />
-                <element signature="e#2509#2532#0" expanded="false" />
-                <element signature="e#2831#2916#0" expanded="false" />
-                <element signature="e#2952#3095#0" expanded="false" />
-                <element signature="e#3073#3095#0" expanded="false" />
-                <element signature="e#3138#3781#0" expanded="false" />
-                <element signature="e#3765#3781#0" expanded="false" />
-                <element signature="e#4310#4329#0" expanded="false" />
-                <element signature="e#4369#4530#0" expanded="false" />
-                <element signature="e#4512#4530#0" expanded="false" />
-                <element signature="e#4574#4822#0" expanded="false" />
-                <element signature="e#4803#4822#0" expanded="false" />
-                <element signature="e#4865#5078#0" expanded="false" />
-                <element signature="e#5414#5626#0" expanded="false" />
-                <element signature="e#5610#5626#0" expanded="false" />
-                <element signature="e#5667#5879#0" expanded="false" />
-                <element signature="e#5863#5879#0" expanded="false" />
-                <element signature="e#5922#6393#0" expanded="false" />
-                <element signature="e#6431#6544#0" expanded="false" />
-                <element signature="e#6587#6866#0" expanded="false" />
+                <element signature="e#2026#2047#0" expanded="false" />
+                <element signature="e#2260#2447#0" expanded="false" />
+                <element signature="e#2431#2447#0" expanded="false" />
+                <element signature="e#2484#2627#0" expanded="false" />
+                <element signature="e#2604#2627#0" expanded="false" />
+                <element signature="e#2926#3011#0" expanded="false" />
+                <element signature="e#3047#3190#0" expanded="false" />
+                <element signature="e#3168#3190#0" expanded="false" />
+                <element signature="e#3233#3876#0" expanded="false" />
+                <element signature="e#3860#3876#0" expanded="false" />
+                <element signature="e#4405#4424#0" expanded="false" />
+                <element signature="e#4464#4625#0" expanded="false" />
+                <element signature="e#4607#4625#0" expanded="false" />
+                <element signature="e#4669#4917#0" expanded="false" />
+                <element signature="e#4898#4917#0" expanded="false" />
+                <element signature="e#4960#5173#0" expanded="false" />
+                <element signature="e#5509#5721#0" expanded="false" />
+                <element signature="e#5705#5721#0" expanded="false" />
+                <element signature="e#5762#5974#0" expanded="false" />
+                <element signature="e#5958#5974#0" expanded="false" />
+                <element signature="e#6017#6488#0" expanded="false" />
+                <element signature="e#6526#6639#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -84,12 +85,10 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8764045">
-              <caret line="685" column="87" selection-start-line="685" selection-start-column="74" selection-end-line="685" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.66588783">
+              <caret line="769" column="59" selection-start-line="769" selection-start-column="59" selection-end-line="769" selection-end-column="59" />
               <folding>
                 <element signature="e#2257#2777#0" expanded="false" />
-                <element signature="e#2840#4014#0" expanded="false" />
-                <element signature="e#4081#5023#0" expanded="false" />
                 <element signature="e#7407#8053#0" expanded="false" />
                 <element signature="e#8108#9396#0" expanded="false" />
                 <element signature="e#9450#10007#0" expanded="false" />
@@ -97,10 +96,8 @@
                 <element signature="e#12134#14329#0" expanded="false" />
                 <element signature="e#14387#15065#0" expanded="false" />
                 <element signature="e#15118#17397#0" expanded="false" />
-                <element signature="e#17448#17619#0" expanded="false" />
                 <element signature="e#17887#20707#0" expanded="false" />
-                <element signature="e#22043#22904#0" expanded="false" />
-                <element signature="e#28071#28135#0" expanded="false" />
+                <element signature="e#32117#32181#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -114,10 +111,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/instirepo_app/urls.py" />
         <option value="$PROJECT_DIR$/instirepo_web/admin.py" />
         <option value="$PROJECT_DIR$/instirepo_web/models.py" />
         <option value="$PROJECT_DIR$/instirepo_app/views.py" />
-        <option value="$PROJECT_DIR$/instirepo_app/urls.py" />
       </list>
     </option>
   </component>
@@ -141,7 +138,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -152,76 +149,135 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo_web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instirepo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="instirepo" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="instirepo" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="instirepo" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="instirepo" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="instirepo" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="instirepo" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -296,7 +352,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/instirepo_web/models.py</url>
-          <line>193</line>
+          <line>195</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -318,6 +374,278 @@
     <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="75" selection-start-line="46" selection-start-column="75" selection-end-line="46" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="239" column="10" selection-start-line="239" selection-start-column="4" selection-end-line="239" selection-end-column="10" />
+          <folding>
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2257#2777#0" expanded="false" />
+            <element signature="e#7407#8053#0" expanded="false" />
+            <element signature="e#8108#9396#0" expanded="false" />
+            <element signature="e#9450#10007#0" expanded="false" />
+            <element signature="e#10065#12076#0" expanded="false" />
+            <element signature="e#12134#14329#0" expanded="false" />
+            <element signature="e#14387#15065#0" expanded="false" />
+            <element signature="e#15118#17397#0" expanded="false" />
+            <element signature="e#17887#20707#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="756" column="0" selection-start-line="756" selection-start-column="0" selection-end-line="756" selection-end-column="0" />
+          <folding>
+            <element signature="e#2257#2777#0" expanded="false" />
+            <element signature="e#7407#8053#0" expanded="false" />
+            <element signature="e#8108#9396#0" expanded="false" />
+            <element signature="e#9450#10007#0" expanded="false" />
+            <element signature="e#10065#12076#0" expanded="false" />
+            <element signature="e#12134#14329#0" expanded="false" />
+            <element signature="e#14387#15065#0" expanded="false" />
+            <element signature="e#15118#17397#0" expanded="false" />
+            <element signature="e#17887#20707#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="21" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="21" />
+          <folding>
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2257#2777#0" expanded="false" />
+            <element signature="e#7407#8053#0" expanded="false" />
+            <element signature="e#8108#9396#0" expanded="false" />
+            <element signature="e#9450#10007#0" expanded="false" />
+            <element signature="e#10065#12076#0" expanded="false" />
+            <element signature="e#12134#14329#0" expanded="false" />
+            <element signature="e#14387#15065#0" expanded="false" />
+            <element signature="e#15118#17397#0" expanded="false" />
+            <element signature="e#17887#20707#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="12" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="12" />
+          <folding>
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="634" column="28" selection-start-line="634" selection-start-column="4" selection-end-line="634" selection-end-column="28" />
+          <folding>
+            <element signature="e#2257#2777#0" expanded="false" />
+            <element signature="e#7407#8053#0" expanded="false" />
+            <element signature="e#8108#9396#0" expanded="false" />
+            <element signature="e#9450#10007#0" expanded="false" />
+            <element signature="e#10065#12076#0" expanded="false" />
+            <element signature="e#12134#14329#0" expanded="false" />
+            <element signature="e#14387#15065#0" expanded="false" />
+            <element signature="e#15118#17397#0" expanded="false" />
+            <element signature="e#17887#20707#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -329,9 +657,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -341,8 +667,6 @@
           <caret line="535" column="25" selection-start-line="535" selection-start-column="4" selection-end-line="535" selection-end-column="25" />
           <folding>
             <element signature="e#2257#2777#0" expanded="false" />
-            <element signature="e#2840#4014#0" expanded="false" />
-            <element signature="e#4081#5023#0" expanded="false" />
             <element signature="e#7407#8053#0" expanded="false" />
             <element signature="e#8108#9396#0" expanded="false" />
             <element signature="e#9450#10007#0" expanded="false" />
@@ -350,10 +674,8 @@
             <element signature="e#12134#14329#0" expanded="false" />
             <element signature="e#14387#15065#0" expanded="false" />
             <element signature="e#15118#17397#0" expanded="false" />
-            <element signature="e#17448#17619#0" expanded="false" />
             <element signature="e#17887#20707#0" expanded="false" />
-            <element signature="e#22043#22904#0" expanded="false" />
-            <element signature="e#28071#28135#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -363,29 +685,28 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="11" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="11" />
           <folding>
-            <element signature="e#1931#1952#0" expanded="false" />
-            <element signature="e#2165#2352#0" expanded="false" />
-            <element signature="e#2336#2352#0" expanded="false" />
-            <element signature="e#2389#2532#0" expanded="false" />
-            <element signature="e#2509#2532#0" expanded="false" />
-            <element signature="e#2831#2916#0" expanded="false" />
-            <element signature="e#2952#3095#0" expanded="false" />
-            <element signature="e#3073#3095#0" expanded="false" />
-            <element signature="e#3138#3781#0" expanded="false" />
-            <element signature="e#3765#3781#0" expanded="false" />
-            <element signature="e#4310#4329#0" expanded="false" />
-            <element signature="e#4369#4530#0" expanded="false" />
-            <element signature="e#4512#4530#0" expanded="false" />
-            <element signature="e#4574#4822#0" expanded="false" />
-            <element signature="e#4803#4822#0" expanded="false" />
-            <element signature="e#4865#5078#0" expanded="false" />
-            <element signature="e#5414#5626#0" expanded="false" />
-            <element signature="e#5610#5626#0" expanded="false" />
-            <element signature="e#5667#5879#0" expanded="false" />
-            <element signature="e#5863#5879#0" expanded="false" />
-            <element signature="e#5922#6393#0" expanded="false" />
-            <element signature="e#6431#6544#0" expanded="false" />
-            <element signature="e#6587#6866#0" expanded="false" />
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -405,29 +726,28 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
-            <element signature="e#1931#1952#0" expanded="false" />
-            <element signature="e#2165#2352#0" expanded="false" />
-            <element signature="e#2336#2352#0" expanded="false" />
-            <element signature="e#2389#2532#0" expanded="false" />
-            <element signature="e#2509#2532#0" expanded="false" />
-            <element signature="e#2831#2916#0" expanded="false" />
-            <element signature="e#2952#3095#0" expanded="false" />
-            <element signature="e#3073#3095#0" expanded="false" />
-            <element signature="e#3138#3781#0" expanded="false" />
-            <element signature="e#3765#3781#0" expanded="false" />
-            <element signature="e#4310#4329#0" expanded="false" />
-            <element signature="e#4369#4530#0" expanded="false" />
-            <element signature="e#4512#4530#0" expanded="false" />
-            <element signature="e#4574#4822#0" expanded="false" />
-            <element signature="e#4803#4822#0" expanded="false" />
-            <element signature="e#4865#5078#0" expanded="false" />
-            <element signature="e#5414#5626#0" expanded="false" />
-            <element signature="e#5610#5626#0" expanded="false" />
-            <element signature="e#5667#5879#0" expanded="false" />
-            <element signature="e#5863#5879#0" expanded="false" />
-            <element signature="e#5922#6393#0" expanded="false" />
-            <element signature="e#6431#6544#0" expanded="false" />
-            <element signature="e#6587#6866#0" expanded="false" />
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,9 +756,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -448,8 +766,6 @@
           <caret line="381" column="22" selection-start-line="381" selection-start-column="4" selection-end-line="381" selection-end-column="22" />
           <folding>
             <element signature="e#2257#2777#0" expanded="false" />
-            <element signature="e#2840#4014#0" expanded="false" />
-            <element signature="e#4081#5023#0" expanded="false" />
             <element signature="e#7407#8053#0" expanded="false" />
             <element signature="e#8108#9396#0" expanded="false" />
             <element signature="e#9450#10007#0" expanded="false" />
@@ -457,10 +773,8 @@
             <element signature="e#12134#14329#0" expanded="false" />
             <element signature="e#14387#15065#0" expanded="false" />
             <element signature="e#15118#17397#0" expanded="false" />
-            <element signature="e#17448#17619#0" expanded="false" />
             <element signature="e#17887#20707#0" expanded="false" />
-            <element signature="e#22043#22904#0" expanded="false" />
-            <element signature="e#28071#28135#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -480,29 +794,28 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="21" column="11" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="11" />
           <folding>
-            <element signature="e#1931#1952#0" expanded="false" />
-            <element signature="e#2165#2352#0" expanded="false" />
-            <element signature="e#2336#2352#0" expanded="false" />
-            <element signature="e#2389#2532#0" expanded="false" />
-            <element signature="e#2509#2532#0" expanded="false" />
-            <element signature="e#2831#2916#0" expanded="false" />
-            <element signature="e#2952#3095#0" expanded="false" />
-            <element signature="e#3073#3095#0" expanded="false" />
-            <element signature="e#3138#3781#0" expanded="false" />
-            <element signature="e#3765#3781#0" expanded="false" />
-            <element signature="e#4310#4329#0" expanded="false" />
-            <element signature="e#4369#4530#0" expanded="false" />
-            <element signature="e#4512#4530#0" expanded="false" />
-            <element signature="e#4574#4822#0" expanded="false" />
-            <element signature="e#4803#4822#0" expanded="false" />
-            <element signature="e#4865#5078#0" expanded="false" />
-            <element signature="e#5414#5626#0" expanded="false" />
-            <element signature="e#5610#5626#0" expanded="false" />
-            <element signature="e#5667#5879#0" expanded="false" />
-            <element signature="e#5863#5879#0" expanded="false" />
-            <element signature="e#5922#6393#0" expanded="false" />
-            <element signature="e#6431#6544#0" expanded="false" />
-            <element signature="e#6587#6866#0" expanded="false" />
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -511,9 +824,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -523,8 +834,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#2257#2777#0" expanded="false" />
-            <element signature="e#2840#4014#0" expanded="false" />
-            <element signature="e#4081#5023#0" expanded="false" />
             <element signature="e#7407#8053#0" expanded="false" />
             <element signature="e#8108#9396#0" expanded="false" />
             <element signature="e#9450#10007#0" expanded="false" />
@@ -532,10 +841,8 @@
             <element signature="e#12134#14329#0" expanded="false" />
             <element signature="e#14387#15065#0" expanded="false" />
             <element signature="e#15118#17397#0" expanded="false" />
-            <element signature="e#17448#17619#0" expanded="false" />
             <element signature="e#17887#20707#0" expanded="false" />
-            <element signature="e#22043#22904#0" expanded="false" />
-            <element signature="e#28071#28135#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -555,29 +862,28 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="16" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="16" />
           <folding>
-            <element signature="e#1931#1952#0" expanded="false" />
-            <element signature="e#2165#2352#0" expanded="false" />
-            <element signature="e#2336#2352#0" expanded="false" />
-            <element signature="e#2389#2532#0" expanded="false" />
-            <element signature="e#2509#2532#0" expanded="false" />
-            <element signature="e#2831#2916#0" expanded="false" />
-            <element signature="e#2952#3095#0" expanded="false" />
-            <element signature="e#3073#3095#0" expanded="false" />
-            <element signature="e#3138#3781#0" expanded="false" />
-            <element signature="e#3765#3781#0" expanded="false" />
-            <element signature="e#4310#4329#0" expanded="false" />
-            <element signature="e#4369#4530#0" expanded="false" />
-            <element signature="e#4512#4530#0" expanded="false" />
-            <element signature="e#4574#4822#0" expanded="false" />
-            <element signature="e#4803#4822#0" expanded="false" />
-            <element signature="e#4865#5078#0" expanded="false" />
-            <element signature="e#5414#5626#0" expanded="false" />
-            <element signature="e#5610#5626#0" expanded="false" />
-            <element signature="e#5667#5879#0" expanded="false" />
-            <element signature="e#5863#5879#0" expanded="false" />
-            <element signature="e#5922#6393#0" expanded="false" />
-            <element signature="e#6431#6544#0" expanded="false" />
-            <element signature="e#6587#6866#0" expanded="false" />
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -586,9 +892,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -598,8 +902,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#2257#2777#0" expanded="false" />
-            <element signature="e#2840#4014#0" expanded="false" />
-            <element signature="e#4081#5023#0" expanded="false" />
             <element signature="e#7407#8053#0" expanded="false" />
             <element signature="e#8108#9396#0" expanded="false" />
             <element signature="e#9450#10007#0" expanded="false" />
@@ -607,10 +909,8 @@
             <element signature="e#12134#14329#0" expanded="false" />
             <element signature="e#14387#15065#0" expanded="false" />
             <element signature="e#15118#17397#0" expanded="false" />
-            <element signature="e#17448#17619#0" expanded="false" />
             <element signature="e#17887#20707#0" expanded="false" />
-            <element signature="e#22043#22904#0" expanded="false" />
-            <element signature="e#28071#28135#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -630,29 +930,28 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="177" column="20" selection-start-line="177" selection-start-column="6" selection-end-line="177" selection-end-column="20" />
           <folding>
-            <element signature="e#1931#1952#0" expanded="false" />
-            <element signature="e#2165#2352#0" expanded="false" />
-            <element signature="e#2336#2352#0" expanded="false" />
-            <element signature="e#2389#2532#0" expanded="false" />
-            <element signature="e#2509#2532#0" expanded="false" />
-            <element signature="e#2831#2916#0" expanded="false" />
-            <element signature="e#2952#3095#0" expanded="false" />
-            <element signature="e#3073#3095#0" expanded="false" />
-            <element signature="e#3138#3781#0" expanded="false" />
-            <element signature="e#3765#3781#0" expanded="false" />
-            <element signature="e#4310#4329#0" expanded="false" />
-            <element signature="e#4369#4530#0" expanded="false" />
-            <element signature="e#4512#4530#0" expanded="false" />
-            <element signature="e#4574#4822#0" expanded="false" />
-            <element signature="e#4803#4822#0" expanded="false" />
-            <element signature="e#4865#5078#0" expanded="false" />
-            <element signature="e#5414#5626#0" expanded="false" />
-            <element signature="e#5610#5626#0" expanded="false" />
-            <element signature="e#5667#5879#0" expanded="false" />
-            <element signature="e#5863#5879#0" expanded="false" />
-            <element signature="e#5922#6393#0" expanded="false" />
-            <element signature="e#6431#6544#0" expanded="false" />
-            <element signature="e#6587#6866#0" expanded="false" />
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -661,9 +960,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -673,8 +970,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#2257#2777#0" expanded="false" />
-            <element signature="e#2840#4014#0" expanded="false" />
-            <element signature="e#4081#5023#0" expanded="false" />
             <element signature="e#7407#8053#0" expanded="false" />
             <element signature="e#8108#9396#0" expanded="false" />
             <element signature="e#9450#10007#0" expanded="false" />
@@ -682,10 +977,8 @@
             <element signature="e#12134#14329#0" expanded="false" />
             <element signature="e#14387#15065#0" expanded="false" />
             <element signature="e#15118#17397#0" expanded="false" />
-            <element signature="e#17448#17619#0" expanded="false" />
             <element signature="e#17887#20707#0" expanded="false" />
-            <element signature="e#22043#22904#0" expanded="false" />
-            <element signature="e#28071#28135#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -718,52 +1011,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
+    <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+          <caret line="243" column="41" selection-start-line="243" selection-start-column="41" selection-end-line="243" selection-end-column="41" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#2026#2047#0" expanded="false" />
+            <element signature="e#2260#2447#0" expanded="false" />
+            <element signature="e#2431#2447#0" expanded="false" />
+            <element signature="e#2484#2627#0" expanded="false" />
+            <element signature="e#2604#2627#0" expanded="false" />
+            <element signature="e#2926#3011#0" expanded="false" />
+            <element signature="e#3047#3190#0" expanded="false" />
+            <element signature="e#3168#3190#0" expanded="false" />
+            <element signature="e#3233#3876#0" expanded="false" />
+            <element signature="e#3860#3876#0" expanded="false" />
+            <element signature="e#4405#4424#0" expanded="false" />
+            <element signature="e#4464#4625#0" expanded="false" />
+            <element signature="e#4607#4625#0" expanded="false" />
+            <element signature="e#4669#4917#0" expanded="false" />
+            <element signature="e#4898#4917#0" expanded="false" />
+            <element signature="e#4960#5173#0" expanded="false" />
+            <element signature="e#5509#5721#0" expanded="false" />
+            <element signature="e#5705#5721#0" expanded="false" />
+            <element signature="e#5762#5974#0" expanded="false" />
+            <element signature="e#5958#5974#0" expanded="false" />
+            <element signature="e#6017#6488#0" expanded="false" />
+            <element signature="e#6526#6639#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
+    <entry file="file://$PROJECT_DIR$/instirepo_web/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="12" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="12" />
-          <folding>
-            <element signature="e#1931#1952#0" expanded="false" />
-            <element signature="e#2165#2352#0" expanded="false" />
-            <element signature="e#2336#2352#0" expanded="false" />
-            <element signature="e#2389#2532#0" expanded="false" />
-            <element signature="e#2509#2532#0" expanded="false" />
-            <element signature="e#2831#2916#0" expanded="false" />
-            <element signature="e#2952#3095#0" expanded="false" />
-            <element signature="e#3073#3095#0" expanded="false" />
-            <element signature="e#3138#3781#0" expanded="false" />
-            <element signature="e#3765#3781#0" expanded="false" />
-            <element signature="e#4310#4329#0" expanded="false" />
-            <element signature="e#4369#4530#0" expanded="false" />
-            <element signature="e#4512#4530#0" expanded="false" />
-            <element signature="e#4574#4822#0" expanded="false" />
-            <element signature="e#4803#4822#0" expanded="false" />
-            <element signature="e#4865#5078#0" expanded="false" />
-            <element signature="e#5414#5626#0" expanded="false" />
-            <element signature="e#5610#5626#0" expanded="false" />
-            <element signature="e#5667#5879#0" expanded="false" />
-            <element signature="e#5863#5879#0" expanded="false" />
-            <element signature="e#5922#6393#0" expanded="false" />
-            <element signature="e#6431#6544#0" expanded="false" />
-            <element signature="e#6587#6866#0" expanded="false" />
-          </folding>
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="35" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="35" />
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
@@ -772,12 +1062,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8764045">
-          <caret line="685" column="87" selection-start-line="685" selection-start-column="74" selection-end-line="685" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.66588783">
+          <caret line="769" column="59" selection-start-line="769" selection-start-column="59" selection-end-line="769" selection-end-column="59" />
           <folding>
             <element signature="e#2257#2777#0" expanded="false" />
-            <element signature="e#2840#4014#0" expanded="false" />
-            <element signature="e#4081#5023#0" expanded="false" />
             <element signature="e#7407#8053#0" expanded="false" />
             <element signature="e#8108#9396#0" expanded="false" />
             <element signature="e#9450#10007#0" expanded="false" />
@@ -785,10 +1073,8 @@
             <element signature="e#12134#14329#0" expanded="false" />
             <element signature="e#14387#15065#0" expanded="false" />
             <element signature="e#15118#17397#0" expanded="false" />
-            <element signature="e#17448#17619#0" expanded="false" />
             <element signature="e#17887#20707#0" expanded="false" />
-            <element signature="e#22043#22904#0" expanded="false" />
-            <element signature="e#28071#28135#0" expanded="false" />
+            <element signature="e#32117#32181#0" expanded="false" />
           </folding>
         </state>
       </provider>
