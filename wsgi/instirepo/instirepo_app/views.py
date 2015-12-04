@@ -749,7 +749,8 @@ def get_all_messages_list(request):
 
     user = User.objects.get(pk=user_id)
 
-    query = Messages.objects.filter(Q(sender=user) | Q(receiver=user)).values('sender', 'receiver').distinct()
+    query = Messages.objects.filter(Q(sender=user) | Q(receiver=user)).values('sender', 'receiver', 'receiver',
+                                                                              'sender').distinct()
     users_with_chat = []
     for obj in query:
         senderid = obj['sender']
