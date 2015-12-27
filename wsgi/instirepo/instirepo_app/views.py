@@ -764,7 +764,7 @@ def get_all_messages_list(request):
     for x in receivers:
         xUser = User.objects.get(pk=int(x))
         try:
-            query = Messages.objects.filter(sender=user, receiver=xUser).order_by('-time')
+            query = Messages.objects.filter(sender=user, receiver=xUser).order_by('-time')[0]
             lastMessage = None
             lastMessageTime = None
             if query is not None:
@@ -772,7 +772,7 @@ def get_all_messages_list(request):
                 lastMessageTime = query.time
         except:
             pass
-        
+
         try:
             query = Messages.objects.filter(sender=xUser, receiver=user).order_by('-time')[0]
             if lastMessageTime is None or (query is not None and lastMessageTime < query.time):
