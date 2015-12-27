@@ -748,34 +748,36 @@ def get_all_messages_list(request):
     pagenumber = request.GET.get('pagenumber', 1)
 
     user = User.objects.get(pk=user_id)
-
-    query = Messages.objects.filter(Q(sender=user) | Q(receiver=user)).values('sender', 'receiver', 'receiver',
-                                                                              'sender').distinct()
+    receivers = set()
     users_with_chat = []
+
+    query = Messages.objects.filter(sender=user).values('receiver').distinct()
+    for obj in query:
+        receiverid = obj['receiver']
+        receivers.add(receiverid)
+
+    query = Messages.objects.filter(receiver=user).values('sender').distinct()
     for obj in query:
         senderid = obj['sender']
-        receiverid = obj['receiver']
-        person = None
-        personID = None
+        receivers.add(senderid)
+
+    for x in receivers:
+        xUser = User.objects.get(pk=int(x))
+        query = Messages.objects.filter(sender=user, receiver=xUser).order_by('-time')[0]
         lastMessage = None
         lastMessageTime = None
+        if query is not None:
+            lastMessage = query.message
+            lastMessageTime = query.time
+        query = Messages.objects.filter(sender=xUser, receiver=user).order_by('-time')[0]
+        if lastMessageTime is None or (query is not None and lastMessageTime < query.time):
+            lastMessage = query.message
+            lastMessageTime = query.time
 
-        if user_id == senderid:
-            personUser = User.objects.get(pk=int(receiverid))
-            person = personUser.user_profile.get()
-            personID = receiverid
-            lastMessageQuery = Messages.objects.filter(sender=user, receiver=personUser).order_by('-time')[0]
-            lastMessage = lastMessageQuery.message
-            lastMessageTime = lastMessageQuery.time
-        else:
-            personUser = User.objects.get(pk=int(senderid))
-            person = personUser.user_profile.get()
-            personID = senderid
-            lastMessageQuery = Messages.objects.filter(sender=personUser, receiver=user).order_by('-time')[0]
-            lastMessage = lastMessageQuery.message
-            lastMessageTime = lastMessageQuery.time
+        person_profile = xUser.user_profile.get()
         users_with_chat.append(
-            {'personid': personID, 'name': person.full_name, 'image': person.profile_image, 'lastmessage': lastMessage,
+            {'personid': xUser.id, 'name': person_profile.full_name, 'image': person_profile.profile_image,
+             'lastmessage': lastMessage,
              'time': lastMessageTime})
 
     return JsonResponse({'names': users_with_chat})
