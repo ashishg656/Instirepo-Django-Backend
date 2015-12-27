@@ -763,16 +763,23 @@ def get_all_messages_list(request):
 
     for x in receivers:
         xUser = User.objects.get(pk=int(x))
-        query = Messages.objects.filter(sender=user, receiver=xUser).order_by('-time')[0]
-        lastMessage = None
-        lastMessageTime = None
-        if query is not None:
-            lastMessage = query.message
-            lastMessageTime = query.time
-        query = Messages.objects.filter(sender=xUser, receiver=user).order_by('-time')[0]
-        if lastMessageTime is None or (query is not None and lastMessageTime < query.time):
-            lastMessage = query.message
-            lastMessageTime = query.time
+        try:
+            query = Messages.objects.filter(sender=user, receiver=xUser).order_by('-time')
+            lastMessage = None
+            lastMessageTime = None
+            if query is not None:
+                lastMessage = query.message
+                lastMessageTime = query.time
+        except:
+            pass
+        
+        try:
+            query = Messages.objects.filter(sender=xUser, receiver=user).order_by('-time')[0]
+            if lastMessageTime is None or (query is not None and lastMessageTime < query.time):
+                lastMessage = query.message
+                lastMessageTime = query.time
+        except:
+            pass
 
         person_profile = xUser.user_profile.get()
         users_with_chat.append(
