@@ -828,7 +828,7 @@ def add_message_to_chats(request):
     person_id = request.POST.get('person_id')
     person_id = int(person_id)
     message = request.POST.get('message')
-    local_id = request().POST.get('local_id')
+    local_id = request.POST.get('local_id')
 
     user = User.objects.get(pk=user_id)
     person = User.objects.get(pk=person_id)
