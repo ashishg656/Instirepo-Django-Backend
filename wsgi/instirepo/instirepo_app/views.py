@@ -1,4 +1,5 @@
 from ctypes import c_short
+from operator import itemgetter
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest, Http404, JsonResponse
@@ -785,6 +786,8 @@ def get_all_messages_list(request):
             {'personid': xUser.id, 'name': person_profile.full_name, 'image': person_profile.profile_image,
              'lastmessage': lastMessage,
              'time': lastMessageTime})
+
+    sorted_chats = sorted(users_with_chat, key=itemgetter('time'), reverse=True)
 
     return JsonResponse({'names': users_with_chat})
 
