@@ -828,6 +828,7 @@ def add_message_to_chats(request):
     person_id = request.POST.get('person_id')
     person_id = int(person_id)
     message = request.POST.get('message')
+    local_id = request().POST.get('local_id')
 
     user = User.objects.get(pk=user_id)
     person = User.objects.get(pk=person_id)
@@ -835,7 +836,7 @@ def add_message_to_chats(request):
     query = Messages(receiver=person, sender=user, message=message)
     query.save()
 
-    return JsonResponse({'status': True})
+    return JsonResponse({'status': True, 'local_id': local_id, 'server_id': query.id})
 
 
 def getBooleanFromQueryCount(count):
