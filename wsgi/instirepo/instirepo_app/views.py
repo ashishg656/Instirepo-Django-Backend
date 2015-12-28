@@ -813,9 +813,26 @@ def get_messages_for_one_user(request):
         is_by_user = False
         if msg.sender == user:
             is_by_user = True
-        messages.append({'time': msg.time, 'message': msg.message, 'is_by_user': is_by_user})
+        messages.append({'time': msg.time, 'message': msg.message, 'is_by_user': is_by_user, 'server_id': msg.id})
 
     return JsonResponse({'messages': messages, 'next_page': next_page})
+
+
+@csrf_exempt
+def add_message_to_chats(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    person_id = request.POST.get('person_id')
+    person_id = int(person_id)
+    message = request.POST.get('message')
+
+    user = User.objects.get(pk=user_id)
+    person = User.objects.get(pk=person_id)
+
+    query = Messages(receiver=person, sender=user, message=message)
+    query.save()
+
+    return JsonResponse({'status': True})
 
 
 def getBooleanFromQueryCount(count):

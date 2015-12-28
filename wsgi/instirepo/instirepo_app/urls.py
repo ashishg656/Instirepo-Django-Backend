@@ -45,7 +45,8 @@ urlpatterns = [
 
     url(r'^get_messages_for_one_user', views.get_messages_for_one_user, name='get_messages_for_one_user'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^add_message_to_chats', views.add_message_to_chats, name='add_message_to_chats'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
