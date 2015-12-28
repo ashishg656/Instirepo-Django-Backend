@@ -43,7 +43,8 @@ urlpatterns = [
 
     url(r'^get_all_messages_list', views.get_all_messages_list, name='get_all_messages_list'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_messages_for_one_user', views.get_messages_for_one_user, name='get_messages_for_one_user'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

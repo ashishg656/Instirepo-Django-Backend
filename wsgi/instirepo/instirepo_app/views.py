@@ -745,7 +745,6 @@ def get_posts_marked_important_by_user(request):
 def get_all_messages_list(request):
     user_id = request.POST.get('user_id')
     user_id = int(user_id)
-    pagenumber = request.GET.get('pagenumber', 1)
 
     user = User.objects.get(pk=user_id)
     receivers = set()
@@ -788,6 +787,35 @@ def get_all_messages_list(request):
              'time': lastMessageTime})
 
     return JsonResponse({'names': users_with_chat})
+
+
+@csrf_exempt
+def get_messages_for_one_user(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    person_id = request.GET.get('person_id')
+    person_id = int(person_id)
+    page_number = request.GET.get('pagenumber', 1)
+
+    user = User.objects.get(pk=user_id)
+    person = User.objects.get(pk=person_id)
+
+    messages = []
+    query = Messages.objects.filter(Q(sender=user, receiver=person) | Q(sender=person, receiver=user)).order_by('-time')
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(page_number)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    for msg in query:
+        is_by_user = False
+        if msg.sender == user:
+            is_by_user = True
+        messages.append({'time': msg.time, 'message': msg.message, 'is_by_user': is_by_user})
+
+    return JsonResponse({'messages': messages, 'next_page': next_page})
 
 
 def getBooleanFromQueryCount(count):
