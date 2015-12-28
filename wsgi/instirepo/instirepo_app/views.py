@@ -789,7 +789,7 @@ def get_all_messages_list(request):
 
     sorted_chats = sorted(users_with_chat, key=itemgetter('time'), reverse=True)
 
-    return JsonResponse({'names': users_with_chat})
+    return JsonResponse({'names': sorted_chats})
 
 
 @csrf_exempt
