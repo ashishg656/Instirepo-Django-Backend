@@ -858,18 +858,18 @@ def add_message_to_chats(request):
 def add_gcm_token_for_user(request):
     user_id = request.POST.get('user_id')
     user_id = int(user_id)
-    token = request().POST.get('token')
+    gcm_token = request.POST.get('token')
     device_id = request.POST.get('device_id')
 
     user = User.objects.get(pk=user_id)
 
     try:
         gcm_model = GCMDevice.objects.get(user=user)
-        gcm_model.registration_id = token
+        gcm_model.registration_id = gcm_model
         gcm_model.active = True
         gcm_model.save()
     except:
-        gcm_device_model = GCMDevice(name=user.email, user=user, device_id=device_id, registration_id=token)
+        gcm_device_model = GCMDevice(name=user.email, user=user, device_id=device_id, registration_id=gcm_token)
         gcm_device_model.save()
 
     return JsonResponse({'status': True})
