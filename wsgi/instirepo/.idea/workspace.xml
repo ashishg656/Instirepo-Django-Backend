@@ -83,8 +83,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53629977">
-              <caret line="852" column="7" selection-start-line="852" selection-start-column="7" selection-end-line="852" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.61358315">
+              <caret line="855" column="26" selection-start-line="855" selection-start-column="26" selection-end-line="855" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#14531#15230#0" expanded="false" />
@@ -396,7 +396,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451419577610</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="corrected token">
+      <created>1451420028035</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1451420028035</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1227,8 +1233,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53629977">
-          <caret line="852" column="7" selection-start-line="852" selection-start-column="7" selection-end-line="852" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.61358315">
+          <caret line="855" column="26" selection-start-line="855" selection-start-column="26" selection-end-line="855" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />

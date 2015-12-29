@@ -853,7 +853,7 @@ def add_message_to_chats(request):
     # try:
     device_send = GCMDevice.objects.get(user=person)
     user_id_str = str(user_id)
-    id_str = str(query.ic)
+    id_str = str(query.id)
     device_send.send_message(None,
                              extra={'message': message, 'sender_id': user_id_str, 'id': id_str,
                                     'sender_name': user.first_name})
