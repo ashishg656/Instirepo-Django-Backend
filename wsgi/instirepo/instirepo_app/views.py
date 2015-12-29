@@ -1,6 +1,8 @@
 from ctypes import c_short
 from datetime import datetime
 from operator import itemgetter
+
+import sys
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest, Http404, JsonResponse
@@ -846,15 +848,17 @@ def add_message_to_chats(request):
     query = Messages(receiver=person, sender=user, message=message)
     query.save()
 
-    try:
-        device_send = GCMDevice.objects.get(user=person)
-        device_send.send_message(None,
-                                 extra={'message': message, 'sender_id': user_id, 'id': query.id,
-                                        'sender_name': user.first_name})
-    except:
-        pass
+    error = False
 
-    return JsonResponse({'status': True, 'local_id': local_id, 'server_id': query.id})
+    # try:
+    device_send = GCMDevice.objects.get(user=person)
+    device_send.send_message(None,
+                             extra={'message': message, 'sender_id': user_id, 'id': query.id,
+                                    'sender_name': user.first_name})
+    # except:
+    #     error = True
+
+    return JsonResponse({'status': True, 'local_id': local_id, 'server_id': query.id, 'error': error})
 
 
 @csrf_exempt
