@@ -867,7 +867,7 @@ def add_gcm_token_for_user(request):
 
     try:
         gcm_model = GCMDevice.objects.get(user=user)
-        gcm_model.registration_id = gcm_model
+        gcm_model.registration_id = gcm_token
         gcm_model.active = True
         gcm_model.save()
     except:
