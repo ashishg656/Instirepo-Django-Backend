@@ -83,12 +83,12 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61358315">
-              <caret line="855" column="26" selection-start-line="855" selection-start-column="26" selection-end-line="855" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.6393443">
+              <caret line="856" column="8" selection-start-line="856" selection-start-column="8" selection-end-line="856" selection-end-column="8" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#14531#15230#0" expanded="false" />
-                <element signature="e#35096#35160#0" expanded="false" />
+                <element signature="e#35114#35178#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -402,7 +402,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451420028035</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="corrected token">
+      <created>1451420195284</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1451420195284</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -532,7 +538,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -593,7 +599,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -654,7 +660,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -715,7 +721,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -776,7 +782,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -837,7 +843,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,7 +873,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -959,7 +965,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1020,7 +1026,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,7 +1087,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1142,7 +1148,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1233,12 +1239,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61358315">
-          <caret line="855" column="26" selection-start-line="855" selection-start-column="26" selection-end-line="855" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.6393443">
+          <caret line="856" column="8" selection-start-line="856" selection-start-column="8" selection-end-line="856" selection-end-column="8" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14531#15230#0" expanded="false" />
-            <element signature="e#35096#35160#0" expanded="false" />
+            <element signature="e#35114#35178#0" expanded="false" />
           </folding>
         </state>
       </provider>
