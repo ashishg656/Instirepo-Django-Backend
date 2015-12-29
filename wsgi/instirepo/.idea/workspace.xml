@@ -83,12 +83,12 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5696822">
-              <caret line="853" column="0" selection-start-line="853" selection-start-column="0" selection-end-line="853" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8196721">
+              <caret line="867" column="8" selection-start-line="867" selection-start-column="8" selection-end-line="867" selection-end-column="8" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#14489#15188#0" expanded="false" />
-                <element signature="e#34909#34973#0" expanded="false" />
+                <element signature="e#34981#35045#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -342,7 +342,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451413849869</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="send extra data in gcm">
+      <created>1451415898893</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1451415898893</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -405,7 +411,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added gcm work" />
     <MESSAGE value="corrected error in gcm&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrected error in gcm&#10;" />
+    <MESSAGE value="send extra data in gcm" />
+    <option name="LAST_COMMIT_MESSAGE" value="send extra data in gcm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -469,7 +476,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -530,7 +537,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -591,7 +598,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -652,7 +659,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -713,7 +720,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -774,7 +781,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -804,7 +811,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -896,7 +903,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -957,7 +964,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1018,7 +1025,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1079,7 +1086,7 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1170,12 +1177,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5696822">
-          <caret line="853" column="0" selection-start-line="853" selection-start-column="0" selection-end-line="853" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8196721">
+          <caret line="867" column="8" selection-start-line="867" selection-start-column="8" selection-end-line="867" selection-end-column="8" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34909#34973#0" expanded="false" />
+            <element signature="e#34981#35045#0" expanded="false" />
           </folding>
         </state>
       </provider>
