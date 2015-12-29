@@ -846,13 +846,13 @@ def add_message_to_chats(request):
     query = Messages(receiver=person, sender=user, message=message)
     query.save()
 
-    # try:
-    device_send = GCMDevice.objects.get(user=person)
-    device_send.send_message(None,
-                             extra={'message': message, 'sender_id': user_id, 'id': query.id, 'time': datetime.now(),
-                                    'sender_name': user.first_name})
-    # except:
-    #     pass
+    try:
+        device_send = GCMDevice.objects.get(user=person)
+        device_send.send_message(None,
+                                 extra={'message': message, 'sender_id': user_id, 'id': query.id,
+                                        'sender_name': user.first_name})
+    except:
+        pass
 
     return JsonResponse({'status': True, 'local_id': local_id, 'server_id': query.id})
 
