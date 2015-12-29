@@ -47,7 +47,8 @@ urlpatterns = [
 
     url(r'^add_message_to_chats', views.add_message_to_chats, name='add_message_to_chats'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^add_gcm_token_for_user', views.add_gcm_token_for_user, name='add_gcm_token_for_user'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
