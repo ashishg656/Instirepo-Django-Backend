@@ -1,4 +1,5 @@
 from ctypes import c_short
+from datetime import datetime
 from operator import itemgetter
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
@@ -848,7 +849,7 @@ def add_message_to_chats(request):
     # try:
     device_send = GCMDevice.objects.get(user=person)
     device_send.send_message(None,
-                             extra={'message': message, 'sender_id': user_id, 'id': query.id, 'time': query.time,
+                             extra={'message': message, 'sender_id': user_id, 'id': query.id, 'time': datetime.now(),
                                     'sender_name': user.first_name})
     # except:
     #     pass

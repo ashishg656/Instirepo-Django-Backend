@@ -83,12 +83,12 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6651054">
-              <caret line="849" column="4" selection-start-line="849" selection-start-column="4" selection-end-line="849" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.69086653">
+              <caret line="851" column="115" selection-start-line="851" selection-start-column="115" selection-end-line="851" selection-end-column="115" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#14489#15188#0" expanded="false" />
-                <element signature="e#34971#35035#0" expanded="false" />
+                <element signature="e#14519#15218#0" expanded="false" />
+                <element signature="e#35005#35069#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -366,7 +366,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451417766055</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="corrected token">
+      <created>1451418453410</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1451418453410</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -444,12 +450,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/instirepo_app/views.py</url>
-          <line>245</line>
+          <line>246</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/instirepo_app/views.py</url>
-          <line>385</line>
+          <line>386</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
@@ -495,8 +501,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -556,8 +562,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -617,8 +623,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -678,8 +684,8 @@
           <caret line="756" column="0" selection-start-line="756" selection-start-column="0" selection-end-line="756" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -739,8 +745,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -800,8 +806,8 @@
           <caret line="634" column="28" selection-start-line="634" selection-start-column="4" selection-end-line="634" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -830,8 +836,8 @@
           <caret line="535" column="25" selection-start-line="535" selection-start-column="4" selection-end-line="535" selection-end-column="25" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -922,8 +928,8 @@
           <caret line="381" column="22" selection-start-line="381" selection-start-column="4" selection-end-line="381" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -983,8 +989,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1044,8 +1050,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1105,8 +1111,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1197,12 +1203,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6651054">
-          <caret line="849" column="4" selection-start-line="849" selection-start-column="4" selection-end-line="849" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.69086653">
+          <caret line="851" column="115" selection-start-line="851" selection-start-column="115" selection-end-line="851" selection-end-column="115" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#14489#15188#0" expanded="false" />
-            <element signature="e#34971#35035#0" expanded="false" />
+            <element signature="e#14519#15218#0" expanded="false" />
+            <element signature="e#35005#35069#0" expanded="false" />
           </folding>
         </state>
       </provider>
