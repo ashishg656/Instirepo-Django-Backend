@@ -780,6 +780,8 @@ def get_all_messages_list(request):
         receivers.add(senderid)
 
     for x in receivers:
+        lastMessage = None
+        lastMessageTime = None
         xUser = User.objects.get(pk=int(x))
         try:
             query = Messages.objects.filter(sender=user, receiver=xUser).order_by('-time')[0]
