@@ -245,7 +245,7 @@ def get_comments_on_post(request):
             is_flagged = True
         comments.append({'id': comment.id, 'comment': comment.comment, 'time': comment.time, 'user_name': user_name,
                          'user_image': user_image, 'is_by_user': is_by_user, 'is_different_color': is_different_color,
-                         'is_flagged': is_flagged})
+                         'is_flagged': is_flagged, 'user_id': comment.user.id})
 
     return JsonResponse({'comments': comments, 'next_page': next_page, 'count': count})
 

@@ -7,3 +7,4 @@
 .pydevproject
 
 wsgi/instirepo/media/**
+.idea/
