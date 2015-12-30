@@ -49,6 +49,13 @@ urlpatterns = [
 
     url(r'^add_gcm_token_for_user', views.add_gcm_token_for_user, name='add_gcm_token_for_user'),
 
+    url(r'^block_user_request', views.block_user_request, name='block_user_request'),
+
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

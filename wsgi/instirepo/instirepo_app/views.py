@@ -71,7 +71,7 @@ def get_all_colleges_and_universities(request):
         colleges = univ.college_set.all()
         for coll in colleges:
             colleges_list.append(
-                    {'university_id': univ.id, 'name': coll.name, 'location': coll.location, 'id': coll.id})
+                {'university_id': univ.id, 'name': coll.name, 'location': coll.location, 'id': coll.id})
 
     return JsonResponse({'colleges_list': colleges_list, 'university_list': university_list})
 
@@ -97,8 +97,8 @@ def get_college_batch_years_list(request):
         years = branch.studentyears_set.all()
         for year in years:
             years_list.append(
-                    {'branch_id': branch.id, 'year_name': year.year_name, 'admission_year': year.admission_year,
-                     'passout_year': year.passout_year, 'has_passed_out': year.has_passed_out, 'year_id': year.id})
+                {'branch_id': branch.id, 'year_name': year.year_name, 'admission_year': year.admission_year,
+                 'passout_year': year.passout_year, 'has_passed_out': year.has_passed_out, 'year_id': year.id})
             batches = year.batches_set.all()
             for batch in batches:
                 batches_list.append({'year_id': year.id, 'batch_name': batch.batch_name, 'batch_id': batch.id})
@@ -174,13 +174,13 @@ def get_teacher_posts(request):
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
         teacher_posts.append(
-                {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
-                 'time': post.time,
-                 'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
-                 'downvotes': downvotes,
-                 'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
-                 'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-                 'user_id': post.uploader.id})
+            {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
+             'time': post.time,
+             'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
+             'downvotes': downvotes,
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -261,7 +261,7 @@ def add_comment_on_post(request):
     count = CommentsOnPosts.objects.filter(post=post, is_active=True).count()
 
     return JsonResponse(
-            {'count': count, 'id': query.id, 'name': user_profile.full_name, 'image': user_profile.profile_image})
+        {'count': count, 'id': query.id, 'name': user_profile.full_name, 'image': user_profile.profile_image})
 
 
 @csrf_exempt
@@ -379,8 +379,8 @@ def get_people_who_saw_post(request):
     for saw in query:
         user_profile = saw.user.user_profile.get()
         seens.append(
-                {'time': saw.time, 'image': user_profile.profile_image, 'name': user_profile.full_name,
-                 'id': saw.user.id})
+            {'time': saw.time, 'image': user_profile.profile_image, 'name': user_profile.full_name,
+             'id': saw.user.id})
 
     return JsonResponse({'seens': seens, 'next_page': next_page})
 
@@ -427,13 +427,13 @@ def get_students_posts(request):
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
         teacher_posts.append(
-                {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
-                 'time': post.time,
-                 'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
-                 'downvotes': downvotes,
-                 'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
-                 'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-                 'user_id': post.uploader.id})
+            {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
+             'time': post.time,
+             'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
+             'downvotes': downvotes,
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -497,6 +497,12 @@ def user_profile_viewed_by_other(request):
     has_downvoted = getBooleanFromQueryCount(has_downvoted)
     has_upvoted = getBooleanFromQueryCount(has_upvoted)
 
+    is_blocked = UsersBlockList.objects.filter(blocked_by=user, blocked_user=query_user, is_active=True).count()
+    if is_blocked > 0:
+        is_blocked = True
+    else:
+        is_blocked = False
+
     return JsonResponse({'name': query_user_profile.full_name, 'image': query_user_profile.profile_image,
                          'is_student_coordinator': query_user_profile.is_student_coordinator,
                          'designation': query_user_profile.designation, 'about': query_user_profile.about,
@@ -505,7 +511,7 @@ def user_profile_viewed_by_other(request):
                          'can_message': can_message, 'upvotes': upvotes, 'downvotes': downvotes,
                          'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted,
                          'is_professor': query_user_profile.is_professor,
-                         'is_senior_professor': query_user_profile.is_senior_professor})
+                         'is_senior_professor': query_user_profile.is_senior_professor, 'is_blocked': is_blocked})
 
 
 @csrf_exempt
@@ -549,7 +555,7 @@ def get_all_teachers_list(request):
     user_profile = user.user_profile.get()
 
     query = UserProfiles.objects.filter(college=user_profile.college).filter(
-            Q(is_professor=True) | Q(is_senior_professor=True))
+        Q(is_professor=True) | Q(is_senior_professor=True))
 
     query_paginated = Paginator(query, 20)
     query = query_paginated.page(pagenumber)
@@ -565,7 +571,7 @@ def get_all_teachers_list(request):
         except:
             pass
         teachers.append(
-                {'id': teach.user_obj.id, 'name': teach.full_name, 'branch': branch, 'image': teach.profile_image})
+            {'id': teach.user_obj.id, 'name': teach.full_name, 'branch': branch, 'image': teach.profile_image})
 
     return JsonResponse({'teachers': teachers, 'next_page': next_page})
 
@@ -682,13 +688,13 @@ def get_posts_posted_by_user(request):
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
         teacher_posts.append(
-                {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
-                 'time': post.time,
-                 'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
-                 'downvotes': downvotes,
-                 'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
-                 'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-                 'user_id': post.uploader.id})
+            {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
+             'time': post.time,
+             'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
+             'downvotes': downvotes,
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
 
     is_by_teacher = False
     if user_profile.is_senior_professor or user_profile.is_professor:
@@ -739,13 +745,13 @@ def get_posts_marked_important_by_user(request):
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
         teacher_posts.append(
-                {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
-                 'time': post.time,
-                 'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
-                 'downvotes': downvotes,
-                 'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
-                 'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-                 'user_id': post.uploader.id})
+            {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
+             'time': post.time,
+             'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
+             'downvotes': downvotes,
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
 
     is_by_teacher = False
     if user_profile.is_senior_professor or user_profile.is_professor:
@@ -795,9 +801,9 @@ def get_all_messages_list(request):
 
         person_profile = xUser.user_profile.get()
         users_with_chat.append(
-                {'personid': xUser.id, 'name': person_profile.full_name, 'image': person_profile.profile_image,
-                 'lastmessage': lastMessage,
-                 'time': lastMessageTime})
+            {'personid': xUser.id, 'name': person_profile.full_name, 'image': person_profile.profile_image,
+             'lastmessage': lastMessage,
+             'time': lastMessageTime})
 
     sorted_chats = sorted(users_with_chat, key=itemgetter('time'), reverse=True)
 
@@ -882,6 +888,33 @@ def add_gcm_token_for_user(request):
         gcm_device_model.save()
 
     return JsonResponse({'status': True})
+
+
+@csrf_exempt
+def block_user_request(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    person_id = request.POST.get('person_id')
+    person_id = int(person_id)
+    comment = request.POST.get('comment')
+
+    user = User.objects.get(pk=user_id)
+    person = User.objects.get(pk=person_id)
+
+    is_blocked = True
+    try:
+        query = UsersBlockList.objects.get(blocked_by=user, blocked_user=person)
+        if query.is_active:
+            query.is_active = False
+            is_blocked = False
+        else:
+            query.is_active = True
+        query.save()
+    except:
+        query = UsersBlockList(blocked_by=user, blocked_user=person, comment=comment)
+        query.save()
+
+    return JsonResponse({'is_blocked': is_blocked})
 
 
 def getBooleanFromQueryCount(count):

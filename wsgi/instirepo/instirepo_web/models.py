@@ -242,3 +242,11 @@ class Messages(models.Model):
     is_active = models.BooleanField(default=True)
     read = models.BooleanField(default=False)
     message = models.TextField(null=True)
+
+
+class UsersBlockList(models.Model):
+    blocked_by = models.ForeignKey(User, related_name='blocked_by', null=True)
+    blocked_user = models.ForeignKey(User, related_name='blocked_user', null=True)
+    time = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+    comment = models.TextField(null=True, blank=True)
