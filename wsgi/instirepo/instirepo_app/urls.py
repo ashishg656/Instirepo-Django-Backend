@@ -51,7 +51,8 @@ urlpatterns = [
 
     url(r'^block_user_request', views.block_user_request, name='block_user_request'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^flag_comment_on_post', views.flag_comment_on_post, name='flag_comment_on_post'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

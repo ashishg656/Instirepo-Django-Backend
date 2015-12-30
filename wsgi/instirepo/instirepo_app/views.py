@@ -239,8 +239,13 @@ def get_comments_on_post(request):
         is_different_color = False
         if temp_user.is_senior_professor or temp_user.is_professor:
             is_different_color = True
+        is_flagged = False
+        is_flag_query = CommentsFlags.objects.filter(is_active=True, user__id=int(user_id), comment=comment).count()
+        if is_flag_query > 0:
+            is_flagged = True
         comments.append({'id': comment.id, 'comment': comment.comment, 'time': comment.time, 'user_name': user_name,
-                         'user_image': user_image, 'is_by_user': is_by_user, 'is_different_color': is_different_color})
+                         'user_image': user_image, 'is_by_user': is_by_user, 'is_different_color': is_different_color,
+                         'is_flagged': is_flagged})
 
     return JsonResponse({'comments': comments, 'next_page': next_page, 'count': count})
 
@@ -917,6 +922,32 @@ def block_user_request(request):
         query.save()
 
     return JsonResponse({'is_blocked': is_blocked})
+
+
+@csrf_exempt
+def flag_comment_on_post(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    comment_id = request.POST.get('comment_id')
+    comment_id = int(comment_id)
+
+    user = User.objects.get(pk=user_id)
+    comment = CommentsOnPosts.objects.get(pk=comment_id)
+
+    is_flagged = True
+    try:
+        query = CommentsFlags.objects.get(user=user, comment=comment)
+        if query.is_active:
+            query.is_active = False
+            is_flagged = False
+        else:
+            query.is_active = True
+        query.save()
+    except:
+        query = CommentsFlags(user=user, comment=comment)
+        query.save()
+
+    return JsonResponse({'is_flagged': is_flagged})
 
 
 def getBooleanFromQueryCount(count):

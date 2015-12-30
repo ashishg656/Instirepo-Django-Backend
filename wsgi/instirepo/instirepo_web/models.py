@@ -250,3 +250,10 @@ class UsersBlockList(models.Model):
     time = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     comment = models.TextField(null=True, blank=True)
+
+
+class CommentsFlags(models.Model):
+    user = models.ForeignKey(User)
+    comment = models.ForeignKey(CommentsOnPosts)
+    is_active = models.BooleanField(default=True)
+    time = models.DateTimeField(auto_now=True)
