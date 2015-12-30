@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_web/admin.py" afterPath="$PROJECT_DIR$/instirepo_web/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="" />
     <ignored path="instirepo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -92,8 +89,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="214" column="24" selection-start-line="214" selection-start-column="4" selection-end-line="214" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.2322503">
+              <caret line="930" column="45" selection-start-line="930" selection-start-column="35" selection-end-line="930" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#877#2263#0" expanded="false" />
@@ -1569,8 +1566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="214" column="24" selection-start-line="214" selection-start-column="4" selection-end-line="214" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.2322503">
+          <caret line="930" column="45" selection-start-line="930" selection-start-column="35" selection-end-line="930" selection-end-column="45" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#877#2263#0" expanded="false" />
