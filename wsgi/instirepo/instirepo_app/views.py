@@ -144,7 +144,7 @@ def get_teacher_posts(request):
     teacher_posts = []
     query = PostVisibility.objects.filter((Q(individual=user) | Q(batch=user_profile.batch) | Q(
         branch=user_profile.branch) | Q(university=user_profile.university) | Q(year=user_profile.year) | Q(
-        college=user_profile.college)), (Q(post__uploader__user_profile__is_professor=True) | Q(
+        college=user_profile.college) | Q(is_public=True)), (Q(post__uploader__user_profile__is_professor=True) | Q(
         post__uploader__user_profile__is_senior_professor=True))).order_by('-post__time').values('post').distinct()
 
     query_paginated = Paginator(query, 20)
@@ -201,7 +201,7 @@ def get_students_posts(request):
     teacher_posts = []
     query = PostVisibility.objects.filter((Q(individual=user) | Q(batch=user_profile.batch) | Q(
         branch=user_profile.branch) | Q(university=user_profile.university) | Q(year=user_profile.year) | Q(
-        college=user_profile.college)), (Q(post__uploader__user_profile__is_professor=False) & Q(
+        college=user_profile.college) | Q(is_public=True)), (Q(post__uploader__user_profile__is_professor=False) & Q(
         post__uploader__user_profile__is_senior_professor=False))).order_by('-post__time').values('post').distinct()
 
     query_paginated = Paginator(query, 20)

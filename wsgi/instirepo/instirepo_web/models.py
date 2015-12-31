@@ -189,6 +189,7 @@ class PostVisibility(models.Model):
     year = models.ForeignKey(StudentYears, null=True, blank=True)
     college = models.ForeignKey(College, null=True, blank=True)
     university = models.ForeignKey(Universities, null=True, blank=True)
+    is_public = models.BooleanField(default=False)
 
     post = models.ForeignKey(Posts, related_name='post')
     time = models.DateTimeField(auto_now=True)
