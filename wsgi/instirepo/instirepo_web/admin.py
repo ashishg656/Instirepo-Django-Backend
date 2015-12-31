@@ -2,8 +2,8 @@ from django.contrib import admin
 from instirepo_web.models import *
 
 admin.site.register(UserProfiles)
-admin.site.register(College)
 admin.site.register(Universities)
+admin.site.register(College)
 admin.site.register(Branches)
 admin.site.register(StudentYears)
 admin.site.register(Batches)
@@ -23,3 +23,4 @@ admin.site.register(SavedPostVisibilitiesAttributes)
 admin.site.register(Messages)
 admin.site.register(UsersBlockList)
 admin.site.register(CommentsFlags)
+admin.site.register(Notifications)

@@ -34,6 +34,7 @@ class UserProfiles(models.Model):
     has_reached_post_limit = models.BooleanField(default=False)
 
     last_message_read_timestamp = models.DateTimeField(null=True, blank=True, auto_now=False)
+    last_notification_seen_timestamp = models.DateTimeField(null=True, auto_now=False, blank=True)
 
     def __str__(self):
         return self.full_name
@@ -113,7 +114,7 @@ class Posts(models.Model):
     description = models.TextField(null=True)
     image = models.ImageField(upload_to='posts_images', null=True, blank=True)
     company_name = models.TextField(null=True, blank=True)
-    uploader = models.ForeignKey(User)
+    uploader = models.ForeignKey(User, related_name='uploader')
     time = models.DateTimeField(auto_now=True)
     is_public = models.BooleanField(default=False)
     is_by_teacher = models.BooleanField(default=False)
@@ -189,7 +190,7 @@ class PostVisibility(models.Model):
     college = models.ForeignKey(College, null=True, blank=True)
     university = models.ForeignKey(Universities, null=True, blank=True)
 
-    post = models.ForeignKey(Posts)
+    post = models.ForeignKey(Posts, related_name='post')
     time = models.DateTimeField(auto_now=True)
 
 
@@ -257,3 +258,20 @@ class CommentsFlags(models.Model):
     comment = models.ForeignKey(CommentsOnPosts)
     is_active = models.BooleanField(default=True)
     time = models.DateTimeField(auto_now=True)
+
+
+class Notifications(models.Model):
+    image = models.ImageField(upload_to='notifications_images', null=True, blank=True)
+    image_url = models.TextField(null=True, blank=True)
+    text = models.TextField()
+    time = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, null=True)
+    post = models.ForeignKey(Posts, null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+
+
+class FollowingPosts(models.Model):
+    user = models.ForeignKey(User)
+    post = models.ForeignKey(Posts)
+    time = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)

@@ -142,7 +142,10 @@ def get_teacher_posts(request):
     user_profile = user.user_profile.get()
 
     teacher_posts = []
-    query = Posts.objects.filter((Q(is_by_teacher=True))).order_by('-time')
+    query = PostVisibility.objects.filter((Q(individual=user) | Q(batch=user_profile.batch) | Q(
+        branch=user_profile.branch) | Q(university=user_profile.university) | Q(year=user_profile.year) | Q(
+        college=user_profile.college)), (Q(post__uploader__user_profile__is_professor=True) | Q(
+        post__uploader__user_profile__is_senior_professor=True))).order_by('-post__time').values('post').distinct()
 
     query_paginated = Paginator(query, 20)
     query = query_paginated.page(pagenumber)
@@ -150,7 +153,65 @@ def get_teacher_posts(request):
     if query.has_next():
         next_page = query.next_page_number()
 
-    for post in query:
+    for post_id_iter in query:
+        post = Posts.objects.get(pk=post_id_iter['post'])
+        temp = User.objects.get(pk=int(post.uploader.id)).user_profile.get()
+        image = None
+        try:
+            image = post.image.url
+        except:
+            pass
+        upvotes = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post).count()
+        downvotes = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post).count()
+        has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
+        has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
+        seens = PostSeens.objects.filter(post=post).count()
+        saves = SavedPosts.objects.filter(post=post, is_active=True).count()
+        is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
+        category = post.category.name
+        category_color = post.category.color
+
+        has_downvoted = getBooleanFromQueryCount(has_downvoted)
+        has_upvoted = getBooleanFromQueryCount(has_upvoted)
+        is_saved = getBooleanFromQueryCount(is_saved)
+
+        comment = CommentsOnPosts.objects.filter(post=post).count()
+
+        teacher_posts.append(
+            {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
+             'time': post.time,
+             'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
+             'downvotes': downvotes,
+             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+             'user_id': post.uploader.id})
+
+    return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
+
+
+@csrf_exempt
+def get_students_posts(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    pagenumber = request.GET.get('pagenumber', 1)
+
+    user = User.objects.get(pk=user_id)
+    user_profile = user.user_profile.get()
+
+    teacher_posts = []
+    query = PostVisibility.objects.filter((Q(individual=user) | Q(batch=user_profile.batch) | Q(
+        branch=user_profile.branch) | Q(university=user_profile.university) | Q(year=user_profile.year) | Q(
+        college=user_profile.college)), (Q(post__uploader__user_profile__is_professor=False) & Q(
+        post__uploader__user_profile__is_senior_professor=False))).order_by('-post__time').values('post').distinct()
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    for post_id_iter in query:
+        post = Posts.objects.get(pk=post_id_iter['post'])
         temp = User.objects.get(pk=int(post.uploader.id)).user_profile.get()
         image = None
         try:
@@ -388,59 +449,6 @@ def get_people_who_saw_post(request):
              'id': saw.user.id})
 
     return JsonResponse({'seens': seens, 'next_page': next_page})
-
-
-@csrf_exempt
-def get_students_posts(request):
-    user_id = request.POST.get('user_id')
-    user_id = int(user_id)
-    pagenumber = request.GET.get('pagenumber', 1)
-
-    user = User.objects.get(pk=user_id)
-    user_profile = user.user_profile.get()
-
-    teacher_posts = []
-    query = Posts.objects.filter((Q(is_by_teacher=False))).order_by('-time')
-
-    query_paginated = Paginator(query, 20)
-    query = query_paginated.page(pagenumber)
-    next_page = None
-    if query.has_next():
-        next_page = query.next_page_number()
-
-    for post in query:
-        temp = User.objects.get(pk=int(post.uploader.id)).user_profile.get()
-        image = None
-        try:
-            image = post.image.url
-        except:
-            pass
-        upvotes = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post).count()
-        downvotes = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post).count()
-        has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
-        has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
-        seens = PostSeens.objects.filter(post=post).count()
-        saves = SavedPosts.objects.filter(post=post, is_active=True).count()
-        is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
-        category = post.category.name
-        category_color = post.category.color
-
-        has_downvoted = getBooleanFromQueryCount(has_downvoted)
-        has_upvoted = getBooleanFromQueryCount(has_upvoted)
-        is_saved = getBooleanFromQueryCount(is_saved)
-
-        comment = CommentsOnPosts.objects.filter(post=post).count()
-
-        teacher_posts.append(
-            {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
-             'time': post.time,
-             'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
-             'downvotes': downvotes,
-             'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
-             'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id})
-
-    return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
 
 @csrf_exempt
@@ -948,6 +956,62 @@ def flag_comment_on_post(request):
         query.save()
 
     return JsonResponse({'is_flagged': is_flagged})
+
+
+@csrf_exempt
+def get_notifications_for_user(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    pagenumber = request.GET.get('pagenumber', 1)
+
+    user = User.objects.get(pk=user_id)
+    notifications_list = []
+
+    query = Notifications.objects.filter(is_active=True, user=user).order_by('-time')
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    for notif in notifications_list:
+        image = None
+        try:
+            image = notif.image.url
+        except:
+            pass
+
+        notifications_list.append(
+            {'image': image, 'image_url': notif.image_url, 'text': notif.text, 'time': notif.time})
+
+    return JsonResponse({'notifications': notifications_list})
+
+
+@csrf_exempt
+def follow_post(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    post_id = request.POST.get('post_id')
+    post_id = int(post_id)
+
+    user = User.objects.get(pk=user_id)
+    post = Posts.objects.get(pk=post_id)
+
+    is_following = True
+    try:
+        query = FollowingPosts.objects.get(user=user, post=post)
+        if query.is_active:
+            query.is_active = False
+            is_following = False
+        else:
+            query.is_active = True
+        query.save()
+    except:
+        query = FollowingPosts(user=user, post=post)
+        query.save()
+
+    return JsonResponse({'is_following': is_following})
 
 
 def getBooleanFromQueryCount(count):
