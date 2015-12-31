@@ -52,9 +52,11 @@ urlpatterns = [
     url(r'^block_user_request', views.block_user_request, name='block_user_request'),
 
     url(r'^flag_comment_on_post', views.flag_comment_on_post, name='flag_comment_on_post'),
-    
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+
+    url(r'^get_notifications_for_user', views.get_notifications_for_user, name='get_notifications_for_user'),
+
+    url(r'^follow_post', views.follow_post, name='follow_post'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

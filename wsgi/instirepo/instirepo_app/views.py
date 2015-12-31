@@ -967,15 +967,9 @@ def get_notifications_for_user(request):
     user = User.objects.get(pk=user_id)
     notifications_list = []
 
-    query = Notifications.objects.filter(is_active=True, user=user).order_by('-time')
+    query = Notifications.objects.filter(is_active=True).order_by('-time')
 
-    query_paginated = Paginator(query, 20)
-    query = query_paginated.page(pagenumber)
-    next_page = None
-    if query.has_next():
-        next_page = query.next_page_number()
-
-    for notif in notifications_list:
+    for notif in query:
         image = None
         try:
             image = notif.image.url
@@ -983,7 +977,25 @@ def get_notifications_for_user(request):
             pass
 
         notifications_list.append(
-            {'image': image, 'image_url': notif.image_url, 'text': notif.text, 'time': notif.time})
+            {'image': image, 'image_url': notif.image_url, 'text': notif.text, 'time': notif.time,
+             'web_url': notif.web_url, 'general_notification': True})
+
+    query = FollowingPosts.objects.filter(user=user, is_active=True)
+    for followpost in query:
+        count_query = CommentsOnPosts.objects.filter(post=followpost.post, is_active=True).count()
+        if count_query > 0:
+            is_author_of_post = False
+            if followpost.post.uploader.id == user_id:
+                is_author_of_post = True
+            last_comment = CommentsOnPosts.objects.filter(post=followpost.post, is_active=True).order_by('-time')[0]
+            notifications_list.append(
+                {'time': last_comment.time, 'post_id': last_comment.post.id, 'post_name': last_comment.post.heading,
+                 'post_image': last_comment.post.image.url,
+                 'uploader_name': followpost.post.uploader.user_profile.get().full_name,
+                 'uploader_id': followpost.post.uploader.id, 'general_notification': False,
+                 'is_author_of_post': is_author_of_post})
+
+    notifications_list = sorted(notifications_list, key=itemgetter('time'), reverse=True)
 
     return JsonResponse({'notifications': notifications_list})
 

@@ -269,6 +269,7 @@ class Notifications(models.Model):
     user = models.ForeignKey(User, null=True)
     post = models.ForeignKey(Posts, null=True, blank=True)
     is_active = models.BooleanField(default=True)
+    web_url = models.TextField(null=True, blank=True)
 
 
 class FollowingPosts(models.Model):
