@@ -169,6 +169,7 @@ def get_teacher_posts(request):
         saves = SavedPosts.objects.filter(post=post, is_active=True).count()
         is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
         is_following = FollowingPosts.objects.filter(post=post, is_active=True, user=user).count()
+        is_reported = FlaggedPosts.objects.filter(post=post, is_active=True, user=user).count()
         category = post.category.name
         category_color = post.category.color
 
@@ -176,6 +177,7 @@ def get_teacher_posts(request):
         has_upvoted = getBooleanFromQueryCount(has_upvoted)
         is_saved = getBooleanFromQueryCount(is_saved)
         is_following = getBooleanFromQueryCount(is_following)
+        is_reported = getBooleanFromQueryCount(is_reported)
 
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
@@ -186,7 +188,7 @@ def get_teacher_posts(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id, 'is_following': is_following})
+             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -228,6 +230,7 @@ def get_students_posts(request):
         saves = SavedPosts.objects.filter(post=post, is_active=True).count()
         is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
         is_following = FollowingPosts.objects.filter(post=post, is_active=True, user=user).count()
+        is_reported = FlaggedPosts.objects.filter(post=post, is_active=True, user=user).count()
         category = post.category.name
         category_color = post.category.color
 
@@ -235,6 +238,7 @@ def get_students_posts(request):
         has_upvoted = getBooleanFromQueryCount(has_upvoted)
         is_saved = getBooleanFromQueryCount(is_saved)
         is_following = getBooleanFromQueryCount(is_following)
+        is_reported = getBooleanFromQueryCount(is_reported)
 
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
@@ -245,7 +249,7 @@ def get_students_posts(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id, 'is_following': is_following})
+             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -1041,6 +1045,32 @@ def follow_post(request):
         query.save()
 
     return JsonResponse({'is_following': is_following, 'post_id': post_id})
+
+
+@csrf_exempt
+def report_post(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    post_id = request.POST.get('post_id')
+    post_id = int(post_id)
+
+    user = User.objects.get(pk=user_id)
+    post = Posts.objects.get(pk=post_id)
+
+    is_reported = True
+    try:
+        query = FlaggedPosts.objects.get(user=user, post=post)
+        if query.is_active:
+            query.is_active = False
+            is_reported = False
+        else:
+            query.is_active = True
+        query.save()
+    except:
+        query = FlaggedPosts(user=user, post=post)
+        query.save()
+
+    return JsonResponse({'is_reported': is_reported, 'post_id': post_id})
 
 
 def getBooleanFromQueryCount(count):
