@@ -277,3 +277,7 @@ class FollowingPosts(models.Model):
     post = models.ForeignKey(Posts)
     time = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
+
+
+class UserProfileImagesHeader(models.Model):
+    image = models.ImageField(upload_to='admin_uploaded_user_images', null=True)
