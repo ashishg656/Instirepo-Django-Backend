@@ -1027,7 +1027,7 @@ def follow_post(request):
         query = FollowingPosts(user=user, post=post)
         query.save()
 
-    return JsonResponse({'is_following': is_following})
+    return JsonResponse({'is_following': is_following, 'post_id': post_id})
 
 
 def getBooleanFromQueryCount(count):
