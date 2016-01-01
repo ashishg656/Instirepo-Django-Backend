@@ -168,12 +168,14 @@ def get_teacher_posts(request):
         seens = PostSeens.objects.filter(post=post).count()
         saves = SavedPosts.objects.filter(post=post, is_active=True).count()
         is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
+        is_following = FollowingPosts.objects.filter(post=post, is_active=True, user=user).count()
         category = post.category.name
         category_color = post.category.color
 
         has_downvoted = getBooleanFromQueryCount(has_downvoted)
         has_upvoted = getBooleanFromQueryCount(has_upvoted)
         is_saved = getBooleanFromQueryCount(is_saved)
+        is_following = getBooleanFromQueryCount(is_following)
 
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
@@ -184,7 +186,7 @@ def get_teacher_posts(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id})
+             'user_id': post.uploader.id, 'is_following': is_following})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -225,12 +227,14 @@ def get_students_posts(request):
         seens = PostSeens.objects.filter(post=post).count()
         saves = SavedPosts.objects.filter(post=post, is_active=True).count()
         is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
+        is_following = FollowingPosts.objects.filter(post=post, is_active=True, user=user).count()
         category = post.category.name
         category_color = post.category.color
 
         has_downvoted = getBooleanFromQueryCount(has_downvoted)
         has_upvoted = getBooleanFromQueryCount(has_upvoted)
         is_saved = getBooleanFromQueryCount(is_saved)
+        is_following = getBooleanFromQueryCount(is_following)
 
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
@@ -241,7 +245,7 @@ def get_students_posts(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id})
+             'user_id': post.uploader.id, 'is_following': is_following})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
