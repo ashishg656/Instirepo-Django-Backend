@@ -980,58 +980,69 @@ def get_notifications_for_user(request):
         except:
             pass
 
+        image_url = notif.image_url
+        if image_url == '':
+            image_url = None
+
+        web_url = notif.web_url
+        if web_url == '':
+            web_url = None
+
         notifications_list.append(
-            {'image': image, 'image_url': notif.image_url, 'text': notif.text, 'time': notif.time,
-             'web_url': notif.web_url, 'general_notification': True})
+            {'image': image, 'image_url': image_url, 'text': notif.text, 'time': notif.time,
+             'web_url': web_url, 'general_notification': True})
 
-    query = FollowingPosts.objects.filter(user=user, is_active=True)
-    for followpost in query:
-        count_query = CommentsOnPosts.objects.filter(post=followpost.post, is_active=True).count()
-        if count_query > 0:
-            is_author_of_post = False
-            if followpost.post.uploader.id == user_id:
-                is_author_of_post = True
-            last_comment = CommentsOnPosts.objects.filter(post=followpost.post, is_active=True).order_by('-time')[0]
-            notifications_list.append(
-                {'time': last_comment.time, 'post_id': last_comment.post.id, 'post_name': last_comment.post.heading,
-                 'post_image': last_comment.post.image.url,
-                 'uploader_name': followpost.post.uploader.user_profile.get().full_name,
-                 'uploader_id': followpost.post.uploader.id, 'general_notification': False,
-                 'is_author_of_post': is_author_of_post})
+        query = FollowingPosts.objects.filter(user=user, is_active=True)
+        for followpost in query:
+            count_query = CommentsOnPosts.objects.filter(post=followpost.post, is_active=True).count()
+            if count_query > 0:
+                is_author_of_post = False
+                if followpost.post.uploader.id == user_id:
+                    is_author_of_post = True
+                last_comment = CommentsOnPosts.objects.filter(post=followpost.post, is_active=True).order_by('-time')[0]
+                post_image = None
+                try:
+                    post_image = last_comment.post.image.url
+                except:
+                    pass
+                notifications_list.append(
+                    {'time': last_comment.time, 'post_id': last_comment.post.id, 'post_name': last_comment.post.heading,
+                     'post_image': post_image,
+                     'uploader_name': followpost.post.uploader.user_profile.get().full_name,
+                     'uploader_id': followpost.post.uploader.id, 'general_notification': False,
+                     'is_author_of_post': is_author_of_post})
 
-    notifications_list = sorted(notifications_list, key=itemgetter('time'), reverse=True)
+        notifications_list = sorted(notifications_list, key=itemgetter('time'), reverse=True)
 
-    return JsonResponse({'notifications': notifications_list})
+        return JsonResponse({'notifications': notifications_list})
 
+    @csrf_exempt
+    def follow_post(request):
+        user_id = request.POST.get('user_id')
+        user_id = int(user_id)
+        post_id = request.POST.get('post_id')
+        post_id = int(post_id)
 
-@csrf_exempt
-def follow_post(request):
-    user_id = request.POST.get('user_id')
-    user_id = int(user_id)
-    post_id = request.POST.get('post_id')
-    post_id = int(post_id)
+        user = User.objects.get(pk=user_id)
+        post = Posts.objects.get(pk=post_id)
 
-    user = User.objects.get(pk=user_id)
-    post = Posts.objects.get(pk=post_id)
+        is_following = True
+        try:
+            query = FollowingPosts.objects.get(user=user, post=post)
+            if query.is_active:
+                query.is_active = False
+                is_following = False
+            else:
+                query.is_active = True
+            query.save()
+        except:
+            query = FollowingPosts(user=user, post=post)
+            query.save()
 
-    is_following = True
-    try:
-        query = FollowingPosts.objects.get(user=user, post=post)
-        if query.is_active:
-            query.is_active = False
-            is_following = False
+        return JsonResponse({'is_following': is_following, 'post_id': post_id})
+
+    def getBooleanFromQueryCount(count):
+        if count > 0:
+            return True
         else:
-            query.is_active = True
-        query.save()
-    except:
-        query = FollowingPosts(user=user, post=post)
-        query.save()
-
-    return JsonResponse({'is_following': is_following, 'post_id': post_id})
-
-
-def getBooleanFromQueryCount(count):
-    if count > 0:
-        return True
-    else:
-        return False
+            return False
