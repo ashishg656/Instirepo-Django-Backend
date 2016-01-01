@@ -1012,37 +1012,39 @@ def get_notifications_for_user(request):
                      'uploader_id': followpost.post.uploader.id, 'general_notification': False,
                      'is_author_of_post': is_author_of_post})
 
-        notifications_list = sorted(notifications_list, key=itemgetter('time'), reverse=True)
+    notifications_list = sorted(notifications_list, key=itemgetter('time'), reverse=True)
 
-        return JsonResponse({'notifications': notifications_list})
+    return JsonResponse({'notifications': notifications_list})
 
-    @csrf_exempt
-    def follow_post(request):
-        user_id = request.POST.get('user_id')
-        user_id = int(user_id)
-        post_id = request.POST.get('post_id')
-        post_id = int(post_id)
 
-        user = User.objects.get(pk=user_id)
-        post = Posts.objects.get(pk=post_id)
+@csrf_exempt
+def follow_post(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    post_id = request.POST.get('post_id')
+    post_id = int(post_id)
 
-        is_following = True
-        try:
-            query = FollowingPosts.objects.get(user=user, post=post)
-            if query.is_active:
-                query.is_active = False
-                is_following = False
-            else:
-                query.is_active = True
-            query.save()
-        except:
-            query = FollowingPosts(user=user, post=post)
-            query.save()
+    user = User.objects.get(pk=user_id)
+    post = Posts.objects.get(pk=post_id)
 
-        return JsonResponse({'is_following': is_following, 'post_id': post_id})
-
-    def getBooleanFromQueryCount(count):
-        if count > 0:
-            return True
+    is_following = True
+    try:
+        query = FollowingPosts.objects.get(user=user, post=post)
+        if query.is_active:
+            query.is_active = False
+            is_following = False
         else:
-            return False
+            query.is_active = True
+        query.save()
+    except:
+        query = FollowingPosts(user=user, post=post)
+        query.save()
+
+    return JsonResponse({'is_following': is_following, 'post_id': post_id})
+
+
+def getBooleanFromQueryCount(count):
+    if count > 0:
+        return True
+    else:
+        return False
