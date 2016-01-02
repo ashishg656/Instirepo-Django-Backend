@@ -1108,11 +1108,13 @@ def upload_post(request):
     #     fh.close()
     #     decoded_image = cover_image.decode('base64')
     #     post_obj_save.image = ContentFile(decoded_image, filename)
+    # post_obj_save.save()
 
-    data = base64.b64decode(cover_image)
-    post_obj_save.image.save('some_file_name.jpg', ContentFile(data))
-
-    post_obj_save.save()
+    if cover_image is not None:
+        data = base64.b64decode(cover_image)
+        post_obj_save.image.save('some_file_name.jpg', ContentFile(data))
+    else:
+        post_obj_save.save()
 
     if type_of_visibility == TYPE_PUBLIC:
         query = PostVisibility(is_public=True, post=post_obj_save)
