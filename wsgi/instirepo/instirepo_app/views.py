@@ -1,8 +1,10 @@
 from ctypes import c_short
-from datetime import datetime
+from datetime import datetime, time
 from operator import itemgetter
+import os
 
 import sys
+from django.core.files.base import ContentFile
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest, Http404, JsonResponse
@@ -16,6 +18,7 @@ import json
 import requests
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from instirepo import settings
 from instirepo_web.models import *
 from django.core import serializers
 from push_notifications.models import GCMDevice
@@ -1071,6 +1074,50 @@ def report_post(request):
         query.save()
 
     return JsonResponse({'is_reported': is_reported, 'post_id': post_id})
+
+
+@csrf_exempt
+def upload_post(request):
+    TYPE_PUBLIC = 0
+    TYPE_SAVED_VISIBLITY = 1
+    TYPE_SELECED_GROUP = 2
+
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    user = User.objects.get(pk=int(user_id))
+
+    heading = request.POST.get('heading')
+    description = request.POST.get('description')
+    company_name = request.POST.get('company_name')
+    category_id = request.POST.get('category_id')
+    cover_image = request.POST.get('cover_image')
+    type_of_visibility = request.POST.get('type_of_visibility')
+
+    category = PostCategories.objects.get(pk=int(category_id))
+
+    post_obj_save = Posts(category=category, heading=heading, description=description, company_name=company_name,
+                          uploader=user)
+
+    # image save work
+    if cover_image is not None:
+        filename = "uploaded_post_image%s.png" % str(time()).replace('.', '_')
+        fh = open(os.path.join(settings.MEDIA_ROOT, filename), "wb")
+        fh.write(cover_image.decode('base64'))
+        fh.close()
+        decoded_image = cover_image.decode('base64')
+        post_obj_save.image = ContentFile(decoded_image, filename)
+
+    post_obj_save.save()
+
+    if type_of_visibility == TYPE_PUBLIC:
+        query = PostVisibility(is_public=True, post=post_obj_save)
+        query.save()
+    elif type_of_visibility == TYPE_SAVED_VISIBLITY:
+        pass
+    elif type_of_visibility == TYPE_SELECED_GROUP:
+        pass
+
+    return JsonResponse({'status': True})
 
 
 def getBooleanFromQueryCount(count):

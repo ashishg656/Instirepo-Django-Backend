@@ -59,7 +59,8 @@ urlpatterns = [
 
     url(r'^report_post', views.report_post, name='report_post'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^upload_post', views.upload_post, name='upload_post'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
