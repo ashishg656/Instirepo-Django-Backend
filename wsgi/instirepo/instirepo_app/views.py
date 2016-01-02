@@ -1,3 +1,4 @@
+import base64
 from ctypes import c_short
 from datetime import datetime, time
 from operator import itemgetter
@@ -1092,6 +1093,7 @@ def upload_post(request):
     category_id = request.POST.get('category_id')
     cover_image = request.POST.get('cover_image')
     type_of_visibility = request.POST.get('type_of_visibility')
+    type_of_visibility = int(type_of_visibility)
 
     category = PostCategories.objects.get(pk=int(category_id))
 
@@ -1099,13 +1101,16 @@ def upload_post(request):
                           uploader=user)
 
     # image save work
-    if cover_image is not None:
-        filename = "uploaded_post_image%s.png" % str(time()).replace('.', '_')
-        fh = open(os.path.join(settings.MEDIA_ROOT, filename), "wb")
-        fh.write(cover_image.decode('base64'))
-        fh.close()
-        decoded_image = cover_image.decode('base64')
-        post_obj_save.image = ContentFile(decoded_image, filename)
+    # if cover_image is not None:
+    #     filename = "uploaded_post_image%s.png" % str(time()).replace('.', '_')
+    #     fh = open(os.path.join(settings.MEDIA_ROOT, filename), "wb")
+    #     fh.write(cover_image.decode('base64'))
+    #     fh.close()
+    #     decoded_image = cover_image.decode('base64')
+    #     post_obj_save.image = ContentFile(decoded_image, filename)
+
+    data = base64.b64decode(cover_image)
+    post_obj_save.image.save('some_file_name.jpg', ContentFile(data))
 
     post_obj_save.save()
 
