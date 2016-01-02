@@ -1086,6 +1086,7 @@ def upload_post(request):
     user_id = request.POST.get('user_id')
     user_id = int(user_id)
     user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
 
     heading = request.POST.get('heading')
     description = request.POST.get('description')
@@ -1094,21 +1095,12 @@ def upload_post(request):
     cover_image = request.POST.get('cover_image')
     type_of_visibility = request.POST.get('type_of_visibility')
     type_of_visibility = int(type_of_visibility)
+    saved_collection_id = request.POST.get('saved_collection_id')
 
     category = PostCategories.objects.get(pk=int(category_id))
 
     post_obj_save = Posts(category=category, heading=heading, description=description, company_name=company_name,
                           uploader=user)
-
-    # image save work
-    # if cover_image is not None:
-    #     filename = "uploaded_post_image%s.png" % str(time()).replace('.', '_')
-    #     fh = open(os.path.join(settings.MEDIA_ROOT, filename), "wb")
-    #     fh.write(cover_image.decode('base64'))
-    #     fh.close()
-    #     decoded_image = cover_image.decode('base64')
-    #     post_obj_save.image = ContentFile(decoded_image, filename)
-    # post_obj_save.save()
 
     if cover_image is not None:
         data = base64.b64decode(cover_image)
@@ -1117,10 +1109,24 @@ def upload_post(request):
         post_obj_save.save()
 
     if type_of_visibility == TYPE_PUBLIC:
-        query = PostVisibility(is_public=True, post=post_obj_save)
+        query = PostVisibility(college=user_profile.college, post=post_obj_save)
         query.save()
     elif type_of_visibility == TYPE_SAVED_VISIBLITY:
-        pass
+        saved_collection = SavedPostVisibilities.objects.get(pk=int(saved_collection_id))
+        query = SavedPostVisibilitiesAttributes.objects.filter(visibility=saved_collection)
+        for data in query:
+            if data.type == SavedPostVisibilitiesAttributes.BRANCH:
+                tosave = PostVisibility(branch=data.branch, post=post_obj_save)
+                tosave.save()
+            elif data.type == SavedPostVisibilitiesAttributes.BATCH:
+                tosave = PostVisibility(batch=data.batch, post=post_obj_save)
+                tosave.save()
+            elif data.type == SavedPostVisibilitiesAttributes.YEAR:
+                tosave = PostVisibility(year=data.year, post=post_obj_save)
+                tosave.save()
+            elif data.type == SavedPostVisibilitiesAttributes.TEACHER:
+                tosave = PostVisibility(individual=data.teacher, post=post_obj_save)
+                tosave.save()
     elif type_of_visibility == TYPE_SELECED_GROUP:
         pass
 
