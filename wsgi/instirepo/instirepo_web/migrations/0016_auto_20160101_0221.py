@@ -11,14 +11,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='notifications',
-            name='web_url',
-            field=models.TextField(blank=True, null=True),
-        ),
-        migrations.AddField(
-            model_name='postvisibility',
-            name='is_public',
-            field=models.BooleanField(default=False),
-        ),
+        
     ]
