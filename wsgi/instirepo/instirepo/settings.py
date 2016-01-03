@@ -19,6 +19,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'instirepo_web',
     'instirepo_app',
+    'myexcel',
     'push_notifications',
 )
 
