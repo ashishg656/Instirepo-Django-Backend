@@ -1134,11 +1134,11 @@ def upload_post(request):
     try:
         dropbox_files = json.loads(dropbox_files_request)
         for file in dropbox_files:
-            query = DropboxFilesForPosts(user=user, post=post_obj_save, file_name=file['file_name'],
-                                         parent_path=file['parent_path'], path=file['path'],
-                                         mime_type=file['mime_type'], modified=file['modified'],
+            query = DropboxFilesForPosts(user=user, post=post_obj_save, file_name=file['fileName'],
+                                         parent_path=file['parentPath'], path=file['path'],
+                                         mime_type=file['mimeType'], modified=file['modified'],
                                          rev=file['rev'], size=file['size'],
-                                         link=file['link'], bytes=file['bytes'], expires=file['expires'])
+                                         link=file['fileLink'], bytes=int(file['bytes']), expires=file['expires'])
             query.save()
     except:
         pass
