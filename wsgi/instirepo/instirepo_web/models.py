@@ -158,9 +158,6 @@ class PollsVotes(models.Model):
     is_active = models.BooleanField(default=True)
     time = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.choice
-
 
 class SavedPosts(models.Model):
     post = models.ForeignKey(Posts)
@@ -168,18 +165,12 @@ class SavedPosts(models.Model):
     is_active = models.BooleanField(default=True)
     time = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.post
-
 
 class FlaggedPosts(models.Model):
     post = models.ForeignKey(Posts)
     user = models.ForeignKey(User)
     is_active = models.BooleanField(default=True)
     time = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.post
 
 
 class PostVisibility(models.Model):
