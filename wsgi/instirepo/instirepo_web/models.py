@@ -281,3 +281,19 @@ class FollowingPosts(models.Model):
 
 class UserProfileImagesHeader(models.Model):
     image = models.ImageField(upload_to='admin_uploaded_user_images', null=True)
+
+
+class DropboxFilesForPosts(models.Model):
+    file_name = models.TextField(null=True, blank=True)
+    parent_path = models.TextField(null=True, blank=True)
+    path = models.TextField(null=True, blank=True)
+    mime_type = models.TextField(null=True, blank=True)
+    modified = models.TextField(null=True, blank=True)
+    rev = models.TextField(null=True, blank=True)
+    size = models.TextField(null=True, blank=True)
+    link = models.TextField(null=True, blank=True)
+    bytes = models.IntegerField(null=True, blank=True)
+    expires = models.TextField(null=True, blank=True)
+
+    post = models.ForeignKey(Posts, null=True)
+    user = models.ForeignKey(User, null=True)

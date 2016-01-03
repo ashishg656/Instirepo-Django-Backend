@@ -1096,6 +1096,7 @@ def upload_post(request):
     type_of_visibility = request.POST.get('type_of_visibility')
     type_of_visibility = int(type_of_visibility)
     saved_collection_id = request.POST.get('saved_collection_id')
+    dropbox_files_request = request.POST.get('dropbox_files')
 
     category = PostCategories.objects.get(pk=int(category_id))
 
@@ -1128,6 +1129,18 @@ def upload_post(request):
                 tosave = PostVisibility(individual=data.teacher, post=post_obj_save)
                 tosave.save()
     elif type_of_visibility == TYPE_SELECED_GROUP:
+        pass
+
+    try:
+        dropbox_files = json.loads(dropbox_files_request)
+        for file in dropbox_files:
+            query = DropboxFilesForPosts(user=user, post=post_obj_save, file_name=file['file_name'],
+                                         parent_path=file['parent_path'], path=file['path'],
+                                         mime_type=file['mime_type'], modified=file['modified'],
+                                         rev=file['rev'], size=file['size'],
+                                         link=file['link'], bytes=file['bytes'], expires=file['expires'])
+            query.save()
+    except:
         pass
 
     return JsonResponse({'status': True})
