@@ -120,7 +120,7 @@ class Posts(models.Model):
     is_by_teacher = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.heading
+        return str(self.heading)
 
 
 class PollChoices(models.Model):
