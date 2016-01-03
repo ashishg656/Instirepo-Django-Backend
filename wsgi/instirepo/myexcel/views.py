@@ -47,3 +47,39 @@ def get_works_list(request):
              'status': work.status})
 
     return JsonResponse({'works': works, 'next_page': next_page})
+
+
+@csrf_exempt
+def add_work(request):
+    tool_number = request.POST.get('tool_number')
+    jw_number = request.POST.get('jw_number')
+    product = request.POST.get('product')
+    desc = request.POST.get('desc')
+    startdate = request.POST.get('startdate')
+    targetdate = request.POST.get('targetdate')
+    doneby = request.POST.get('doneby')
+    actualdate = request.POST.get('actualdate')
+    cost = request.POST.get('cost')
+    status = request.POST.get('status')
+    remarks = request.POST.get('remarks')
+    id_work = request.POST.get('id_work')
+
+    work = None
+    if id_work is None:
+        work = Works()
+        work.tool_number = tool_number
+        work.jw_number = jw_number
+        work.product = product
+        work.description = desc
+        work.start_date = startdate
+        work.target_date = targetdate
+        work.done_by = doneby
+        work.actual_date = actualdate
+        work.cost = cost
+        work.status = status
+        work.remarks = remarks
+        work.save()
+    else:
+        pass
+
+    return JsonResponse({'id': work.id})
