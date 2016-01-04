@@ -29,9 +29,9 @@ from django.db.models import Q
 def get_works_list(request):
     pagenumber = request.GET.get('pagenumber', 1)
 
-    query = Works.objects.all()
+    query = Works.objects.filter(is_active=True).order_by('-date')
 
-    query_paginated = Paginator(query, 20)
+    query_paginated = Paginator(query, 30)
     query = query_paginated.page(pagenumber)
     next_page = None
     if query.has_next():
@@ -80,6 +80,81 @@ def add_work(request):
         work.remarks = remarks
         work.save()
     else:
-        pass
+        work = Works.objects.get(pk=int(id_work))
+        work.tool_number = tool_number
+        work.jw_number = jw_number
+        work.product = product
+        work.description = desc
+        work.start_date = startdate
+        work.target_date = targetdate
+        work.done_by = doneby
+        work.actual_date = actualdate
+        work.cost = cost
+        work.status = status
+        work.remarks = remarks
+        work.save()
 
     return JsonResponse({'id': work.id})
+
+
+@csrf_exempt
+def delete_work(request):
+    id_work = request.POST.get('id_work')
+
+    work = Works.objects.get(pk=int(id_work))
+    work.is_active = False
+    work.save()
+
+    return JsonResponse({'status': True})
+
+
+@csrf_exempt
+def add_detail(request):
+    work_id = request.POST.get('work_id')
+    expected_date = request.POST.get('expected_date')
+    actual_date = request.POST.get('actual_date')
+    trial_date = request.POST.get('trial_date')
+    qc_date = request.POST.get('qc_date')
+    action_taken = request.POST.get('action_taken')
+    status = request.POST.get('status')
+    cost = request.POST.get('cost')
+    remarks = request.POST.get('remarks')
+
+    query = Details()
+    query.work = Works.objects.get(pk=int(work_id))
+    query.expected_date = expected_date
+    query.actual_date = actual_date
+    query.trial_date = trial_date
+    query.qc_date = qc_date
+    query.action_taken = action_taken
+    query.status = status
+    query.cost = cost
+    query.remarks = remarks
+    query.save()
+
+    return JsonResponse({'id': query.id})
+
+
+@csrf_exempt
+def get_details_list(request):
+    pagenumber = request.GET.get('pagenumber', 1)
+    work_id = request.POST.get('work_id')
+    work = Works.objects.get(pk=int(work_id))
+
+    query = Details.objects.filter(is_active=True, work=work).order_by('-date')
+
+    query_paginated = Paginator(query, 30)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    works = []
+    for work in query:
+        works.append(
+            {'id': work.id, 'date': work.date, 'expected_date': work.expected_date, 'actual_date': work.actual_date,
+             'trial_date': work.trial_date, 'qc_date': work.qc_date, 'action_taken': work.action_taken,
+             'status': work.status, 'cost': work.cost,
+             'remarks': work.remarks})
+
+    return JsonResponse({'works': works, 'next_page': next_page})

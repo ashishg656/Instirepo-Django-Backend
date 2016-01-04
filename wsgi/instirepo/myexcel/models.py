@@ -14,10 +14,11 @@ class Works(models.Model):
     cost = models.TextField(null=True)
     status = models.TextField(null=True)
     remarks = models.TextField(null=True)
+    is_active = models.BooleanField(default=True)
 
 
 class Details(models.Model):
-    date = models.TextField(null=True)
+    date = models.DateTimeField(auto_now=True, null=True)
     expected_date = models.TextField(null=True)
     actual_date = models.TextField(null=True)
     trial_date = models.TextField(null=True)
@@ -26,3 +27,6 @@ class Details(models.Model):
     status = models.TextField(null=True)
     cost = models.TextField(null=True)
     remarks = models.TextField(null=True)
+    is_active = models.BooleanField(default=True)
+
+    work = models.ForeignKey(Works, null=True)
