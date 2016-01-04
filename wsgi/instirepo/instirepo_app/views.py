@@ -1129,7 +1129,46 @@ def upload_post(request):
                 tosave = PostVisibility(individual=data.teacher, post=post_obj_save)
                 tosave.save()
     elif type_of_visibility == TYPE_SELECED_GROUP:
-        pass
+        batches_array_request = request.POST.get('batches_id')
+        batches_array = json.loads(batches_array_request)
+        branches_array_request = request.POST.get('branches_id')
+        branches_array = json.loads(branches_array_request)
+        years_array_request = request.POST.get('years_id')
+        years_array = json.loads(years_array_request)
+        users_array_request = request.POST.get('teachers_id')
+        user_array = json.loads(users_array_request)
+
+        for batch_id in batches_array:
+            try:
+                batch = Batches.objects.get(pk=int(batch_id))
+                attribute = PostVisibility(batch=batch, post=post_obj_save)
+                attribute.save()
+            except:
+                pass
+
+        for batch_id in branches_array:
+            try:
+                batch = Branches.objects.get(pk=int(batch_id))
+                attribute = PostVisibility(branch=batch, post=post_obj_save)
+                attribute.save()
+            except:
+                pass
+
+        for batch_id in years_array:
+            try:
+                batch = StudentYears.objects.get(pk=int(batch_id))
+                attribute = PostVisibility(year=batch, post=post_obj_save)
+                attribute.save()
+            except:
+                pass
+
+        for batch_id in user_array:
+            try:
+                batch = User.objects.get(pk=int(batch_id))
+                attribute = PostVisibility(individual=batch, post=post_obj_save)
+                attribute.save()
+            except:
+                pass
 
     try:
         dropbox_files = json.loads(dropbox_files_request)
