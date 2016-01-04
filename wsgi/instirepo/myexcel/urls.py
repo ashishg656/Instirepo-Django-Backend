@@ -12,8 +12,9 @@ urlpatterns = [
     url(r'^get_details_list', views.get_details_list, name='get_details_list'),
 
     url(r'^delete_work', views.delete_work, name='delete_work'),
-    
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+
+    url(r'^delete_detail', views.delete_detail, name='delete_detail'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

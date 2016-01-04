@@ -67,32 +67,21 @@ def add_work(request):
     work = None
     if id_work is None:
         work = Works()
-        work.tool_number = tool_number
-        work.jw_number = jw_number
-        work.product = product
-        work.description = desc
-        work.start_date = startdate
-        work.target_date = targetdate
-        work.done_by = doneby
-        work.actual_date = actualdate
-        work.cost = cost
-        work.status = status
-        work.remarks = remarks
-        work.save()
     else:
         work = Works.objects.get(pk=int(id_work))
-        work.tool_number = tool_number
-        work.jw_number = jw_number
-        work.product = product
-        work.description = desc
-        work.start_date = startdate
-        work.target_date = targetdate
-        work.done_by = doneby
-        work.actual_date = actualdate
-        work.cost = cost
-        work.status = status
-        work.remarks = remarks
-        work.save()
+
+    work.tool_number = tool_number
+    work.jw_number = jw_number
+    work.product = product
+    work.description = desc
+    work.start_date = startdate
+    work.target_date = targetdate
+    work.done_by = doneby
+    work.actual_date = actualdate
+    work.cost = cost
+    work.status = status
+    work.remarks = remarks
+    work.save()
 
     return JsonResponse({'id': work.id})
 
@@ -102,6 +91,17 @@ def delete_work(request):
     id_work = request.POST.get('id_work')
 
     work = Works.objects.get(pk=int(id_work))
+    work.is_active = False
+    work.save()
+
+    return JsonResponse({'status': True})
+
+
+@csrf_exempt
+def delete_detail(request):
+    id_work = request.POST.get('id_work')
+
+    work = Details.objects.get(pk=int(id_work))
     work.is_active = False
     work.save()
 
@@ -119,8 +119,14 @@ def add_detail(request):
     status = request.POST.get('status')
     cost = request.POST.get('cost')
     remarks = request.POST.get('remarks')
+    id_detail = request.POST.get('id_detail')
 
-    query = Details()
+    query = None
+    if id_detail is None:
+        query = Details()
+    else:
+        query = Details.objects.get(pk=int(id_detail))
+
     query.work = Works.objects.get(pk=int(work_id))
     query.expected_date = expected_date
     query.actual_date = actual_date
