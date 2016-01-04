@@ -152,8 +152,8 @@ def get_details_list(request):
     works = []
     for work in query:
         works.append(
-            {'id': work.id, 'date': work.date, 'expected_date': work.expected_date, 'actual_date': work.actual_date,
-             'trial_date': work.trial_date, 'qc_date': work.qc_date, 'action_taken': work.action_taken,
+            {'id': work.id, 'date': work.date, 'expectedDate': work.expected_date, 'actualDate': work.actual_date,
+             'trialDate': work.trial_date, 'qcDate': work.qc_date, 'actionTaken': work.action_taken,
              'status': work.status, 'cost': work.cost,
              'remarks': work.remarks})
 
