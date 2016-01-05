@@ -288,3 +288,18 @@ class DropboxFilesForPosts(models.Model):
 
     post = models.ForeignKey(Posts, null=True)
     user = models.ForeignKey(User, null=True)
+
+
+class ResumesDropbox(models.Model):
+    file_name = models.TextField(null=True, blank=True)
+    parent_path = models.TextField(null=True, blank=True)
+    path = models.TextField(null=True, blank=True)
+    mime_type = models.TextField(null=True, blank=True)
+    modified = models.TextField(null=True, blank=True)
+    rev = models.TextField(null=True, blank=True)
+    size = models.TextField(null=True, blank=True)
+    link = models.TextField(null=True, blank=True)
+    bytes = models.IntegerField(null=True, blank=True)
+    expires = models.TextField(null=True, blank=True)
+
+    user = models.ForeignKey(User, null=True)

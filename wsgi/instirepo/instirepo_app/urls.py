@@ -61,8 +61,10 @@ urlpatterns = [
 
     url(r'^upload_post', views.upload_post, name='upload_post'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^upload_resume_request', views.upload_resume_request, name='upload_resume_request'),
+
+    url(r'^delete_resume', views.delete_resume, name='delete_resume'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
 ]

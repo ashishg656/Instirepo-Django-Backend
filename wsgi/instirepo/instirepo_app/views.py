@@ -1185,6 +1185,61 @@ def upload_post(request):
     return JsonResponse({'status': True})
 
 
+@csrf_exempt
+def upload_resume_request(request):
+    user_id = request.POST.get('user_id')
+    user = User.objects.get(pk=int(user_id))
+
+    fileName = request.POST.get('fileName')
+    parentPath = request.POST.get('parentPath')
+    path = request.POST.get('path')
+    mimeType = request.POST.get('mimeType')
+    modified = request.POST.get('modified')
+    rev = request.POST.get('rev')
+    size = request.POST.get('size')
+    fileLink = request.POST.get('fileLink')
+    bytes = request.POST.get('bytes')
+    expires = request.POST.get('expires')
+
+    query = None
+    try:
+        query = ResumesDropbox.objects.get(user=user)
+    except:
+        query = ResumesDropbox()
+
+    query.user = user
+    query.file_name = fileName
+    query.parent_path = parentPath
+    query.path = path
+    query.mime_type = mimeType
+    query.modified = modified
+    query.rev = rev
+    query.size = size
+    query.link = fileLink
+    query.bytes = bytes
+    query.expires = expires
+
+    query.save()
+
+    return JsonResponse({'id': query.id})
+
+
+@csrf_exempt
+def delete_resume(request):
+    user_id = request.POST.get('user_id')
+    user = User.objects.get(pk=int(user_id))
+
+    error = True
+    try:
+        query = ResumesDropbox.objects.get(user=user)
+        query.delete()
+        error = False
+    except:
+        pass
+
+    return JsonResponse({'error': error})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True
