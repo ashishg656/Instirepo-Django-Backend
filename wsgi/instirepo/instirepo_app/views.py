@@ -528,11 +528,18 @@ def user_profile_viewed_by_other(request):
     else:
         is_blocked = False
 
+    resume = None
+    try:
+        resume_o = ResumesDropbox.objects.get(user=query_user)
+        resume = resume_o.link
+    except:
+        pass
+
     return JsonResponse({'name': query_user_profile.full_name, 'image': query_user_profile.profile_image,
                          'is_student_coordinator': query_user_profile.is_student_coordinator,
                          'designation': query_user_profile.designation, 'about': query_user_profile.about,
                          'branch': branch, 'batch': batch, 'year': year, 'number_of_posts': number_of_posts,
-                         'resume': query_user_profile.resume, 'email': email, 'phone': phone,
+                         'resume': resume, 'email': email, 'phone': phone,
                          'can_message': can_message, 'upvotes': upvotes, 'downvotes': downvotes,
                          'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted,
                          'is_professor': query_user_profile.is_professor,
