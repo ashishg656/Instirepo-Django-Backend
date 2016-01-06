@@ -65,6 +65,17 @@ urlpatterns = [
 
     url(r'^delete_resume', views.delete_resume, name='delete_resume'),
 
+    url(r'^user_profile_viewed_by_himself', views.user_profile_viewed_by_himself,
+        name='user_profile_viewed_by_himself'),
+
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
 ]
