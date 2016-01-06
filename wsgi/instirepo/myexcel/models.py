@@ -16,6 +16,9 @@ class Works(models.Model):
     remarks = models.TextField(null=True)
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.tool_number + "-" + self.jw_number + "-" + self.product + "-" + self.target_date
+
 
 class Details(models.Model):
     date = models.DateTimeField(auto_now=True, null=True)
@@ -30,3 +33,6 @@ class Details(models.Model):
     is_active = models.BooleanField(default=True)
 
     work = models.ForeignKey(Works, null=True)
+
+    def __str__(self):
+        return self.action_taken + "-" + self.status + "-" + self.remarks + "-" + self.expected_date
