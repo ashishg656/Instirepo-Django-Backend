@@ -1281,6 +1281,11 @@ def user_profile_viewed_by_himself(request):
     except:
         pass
 
+    images_header_send = []
+    images_header = UserProfileImagesHeader.objects.all()
+    for image in images_header:
+        images_header_send.append(image.image.url)
+
     return JsonResponse({'name': user_profile.full_name, 'image': user_profile.profile_image,
                          'is_student_coordinator': user_profile.is_student_coordinator,
                          'designation': user_profile.designation, 'about': user_profile.about,
@@ -1291,7 +1296,8 @@ def user_profile_viewed_by_himself(request):
                          'is_senior_professor': user_profile.is_senior_professor,
                          'enrollment_number': user_profile.enrollment_number,
                          'is_email_shown_to_others': is_email_shown_to_others,
-                         'is_mobile_shown_to_others': is_mobile_shown_to_others})
+                         'is_mobile_shown_to_others': is_mobile_shown_to_others,
+                         'images_header_send': images_header_send})
 
 
 def getBooleanFromQueryCount(count):
