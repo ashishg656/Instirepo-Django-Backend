@@ -68,8 +68,10 @@ urlpatterns = [
     url(r'^user_profile_viewed_by_himself', views.user_profile_viewed_by_himself,
         name='user_profile_viewed_by_himself'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^change_email_visibility', views.change_email_visibility, name='change_email_visibility'),
+
+    url(r'^change_phone_visibility', views.change_phone_visibility, name='change_phone_visibility'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

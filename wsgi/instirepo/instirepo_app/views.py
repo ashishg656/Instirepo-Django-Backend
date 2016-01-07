@@ -472,12 +472,6 @@ def post_detail_page(request):
     user = User.objects.get(pk=int(user_id))
 
 
-def parseBoolean(stringToParse):
-    if stringToParse == 'True' or stringToParse == "true" or stringToParse == 1 or stringToParse == True or stringToParse == 'TRUE':
-        return True
-    return False
-
-
 @csrf_exempt
 def user_profile_viewed_by_other(request):
     user_id = request.POST.get('user_id')
@@ -1300,8 +1294,44 @@ def user_profile_viewed_by_himself(request):
                          'images_header_send': images_header_send})
 
 
+@csrf_exempt
+def change_email_visibility(request):
+    user_id = request.POST.get('user_id')
+    visibile = request.POST.get('is_visible')
+    visibile = parseBoolean(visibile)
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    user_profile.is_email_shown_to_others = visibile
+    user_profile.save()
+
+    return JsonResponse({'visible': visibile})
+
+
+@csrf_exempt
+def change_phone_visibility(request):
+    user_id = request.POST.get('user_id')
+    visibile = request.POST.get('is_visible')
+    visibile = parseBoolean(visibile)
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    user_profile.is_mobile_shown_to_others = visibile
+    user_profile.save()
+
+    return JsonResponse({'visible': visibile})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True
     else:
         return False
+
+
+def parseBoolean(stringToParse):
+    if stringToParse == 'True' or stringToParse == "true" or stringToParse == 1 or stringToParse == True or stringToParse == 'TRUE':
+        return True
+    return False
