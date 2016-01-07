@@ -1265,28 +1265,14 @@ def user_profile_viewed_by_himself(request):
 
     number_of_posts = Posts.objects.filter(uploader=user).count()
 
-    email = None
-    if user_profile.is_email_shown_to_others:
-        email = user.email
-    phone = None
-    if user_profile.is_mobile_shown_to_others:
-        phone = user_profile.mobile_number
+    email = user.email
+    is_email_shown_to_others = user_profile.is_email_shown_to_others
+
+    phone = user_profile.mobile_number
+    is_mobile_shown_to_others = user_profile.is_mobile_shown_to_others
 
     upvotes = UpvotesOnUsers.objects.filter(is_upvote=True, is_active=True, user=user).count()
     downvotes = UpvotesOnUsers.objects.filter(is_upvote=False, is_active=True, user=user).count()
-    has_upvoted = UpvotesOnUsers.objects.filter(is_upvote=True, is_active=True, user=user,
-                                                upvoter=user).count()
-    has_downvoted = UpvotesOnUsers.objects.filter(is_upvote=False, is_active=True, user=user,
-                                                  upvoter=user).count()
-
-    has_downvoted = getBooleanFromQueryCount(has_downvoted)
-    has_upvoted = getBooleanFromQueryCount(has_upvoted)
-
-    is_blocked = UsersBlockList.objects.filter(blocked_by=user, blocked_user=user, is_active=True).count()
-    if is_blocked > 0:
-        is_blocked = True
-    else:
-        is_blocked = False
 
     resume = None
     try:
@@ -1301,9 +1287,11 @@ def user_profile_viewed_by_himself(request):
                          'branch': branch, 'batch': batch, 'year': year, 'number_of_posts': number_of_posts,
                          'resume': resume, 'email': email, 'phone': phone,
                          'upvotes': upvotes, 'downvotes': downvotes,
-                         'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted,
                          'is_professor': user_profile.is_professor,
-                         'is_senior_professor': user_profile.is_senior_professor, 'is_blocked': is_blocked})
+                         'is_senior_professor': user_profile.is_senior_professor,
+                         'enrollment_number': user_profile.enrollment_number,
+                         'is_email_shown_to_others': is_email_shown_to_others,
+                         'is_mobile_shown_to_others': is_mobile_shown_to_others})
 
 
 def getBooleanFromQueryCount(count):
