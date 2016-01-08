@@ -754,7 +754,8 @@ def get_posts_marked_important_by_user(request):
     if query.has_next():
         next_page = query.next_page_number()
 
-    for post in query:
+    for saved_post in query:
+        post = saved_post.post
         temp = User.objects.get(pk=int(post.uploader.id)).user_profile.get()
         image = None
         try:
