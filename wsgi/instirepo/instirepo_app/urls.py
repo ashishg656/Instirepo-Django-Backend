@@ -71,8 +71,9 @@ urlpatterns = [
     url(r'^change_email_visibility', views.change_email_visibility, name='change_email_visibility'),
 
     url(r'^change_phone_visibility', views.change_phone_visibility, name='change_phone_visibility'),
-    
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+
+    url(r'^post_detail_request', views.post_detail_request, name='post_detail_request'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

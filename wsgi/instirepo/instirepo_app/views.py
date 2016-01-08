@@ -1331,6 +1331,47 @@ def getBooleanFromQueryCount(count):
         return False
 
 
+@csrf_exempt
+def post_detail_request(request):
+    post_id = request.GET.get('post_id')
+    post = Posts.objects.get(pk=int(post_id))
+    user = User.objects.get(pk=int(request.POST.get('user_id')))
+
+    temp = User.objects.get(pk=int(post.uploader.id)).user_profile.get()
+    image = None
+    try:
+        image = post.image.url
+    except:
+        pass
+    upvotes = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post).count()
+    downvotes = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post).count()
+    has_upvoted = UpvotesOnPosts.objects.filter(is_upvote=True, is_active=True, post=post, user=user).count()
+    has_downvoted = UpvotesOnPosts.objects.filter(is_upvote=False, is_active=True, post=post, user=user).count()
+    seens = PostSeens.objects.filter(post=post).count()
+    saves = SavedPosts.objects.filter(post=post, is_active=True).count()
+    is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
+    is_following = FollowingPosts.objects.filter(post=post, is_active=True, user=user).count()
+    is_reported = FlaggedPosts.objects.filter(post=post, is_active=True, user=user).count()
+    category = post.category.name
+    category_color = post.category.color
+
+    has_downvoted = getBooleanFromQueryCount(has_downvoted)
+    has_upvoted = getBooleanFromQueryCount(has_upvoted)
+    is_saved = getBooleanFromQueryCount(is_saved)
+    is_following = getBooleanFromQueryCount(is_following)
+    is_reported = getBooleanFromQueryCount(is_reported)
+
+    comment = CommentsOnPosts.objects.filter(post=post).count()
+
+    return JsonResponse({'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
+                         'time': post.time,
+                         'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
+                         'downvotes': downvotes,
+                         'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
+                         'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
+                         'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported})
+
+
 def parseBoolean(stringToParse):
     if stringToParse == 'True' or stringToParse == "true" or stringToParse == 1 or stringToParse == True or stringToParse == 'TRUE':
         return True
