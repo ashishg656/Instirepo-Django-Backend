@@ -746,7 +746,7 @@ def get_posts_marked_important_by_user(request):
     user_profile = user.user_profile.get()
 
     teacher_posts = []
-    query = Posts.objects.filter(user=user, is_active=True).order_by('-time')
+    query = SavedPosts.objects.filter(user=user, is_active=True).order_by('-time')
 
     query_paginated = Paginator(query, 20)
     query = query_paginated.page(pagenumber)
