@@ -192,7 +192,8 @@ def get_teacher_posts(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported})
+             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported,
+             'is_by_teacher': True})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
@@ -253,7 +254,8 @@ def get_students_posts(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported})
+             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported,
+             'is_by_teacher': False})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page})
 
