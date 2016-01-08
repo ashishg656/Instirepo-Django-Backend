@@ -683,6 +683,10 @@ def get_posts_posted_by_user(request):
     user = User.objects.get(pk=user_id)
     user_profile = user.user_profile.get()
 
+    is_by_teacher = False
+    if user_profile.is_senior_professor or user_profile.is_professor:
+        is_by_teacher = True
+
     teacher_posts = []
     query = Posts.objects.filter(uploader=user).order_by('-time')
 
@@ -708,10 +712,14 @@ def get_posts_posted_by_user(request):
         is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
         category = post.category.name
         category_color = post.category.color
+        is_following = FollowingPosts.objects.filter(post=post, is_active=True, user=user).count()
+        is_reported = FlaggedPosts.objects.filter(post=post, is_active=True, user=user).count()
 
         has_downvoted = getBooleanFromQueryCount(has_downvoted)
         has_upvoted = getBooleanFromQueryCount(has_upvoted)
         is_saved = getBooleanFromQueryCount(is_saved)
+        is_following = getBooleanFromQueryCount(is_following)
+        is_reported = getBooleanFromQueryCount(is_reported)
 
         comment = CommentsOnPosts.objects.filter(post=post).count()
 
@@ -722,11 +730,8 @@ def get_posts_posted_by_user(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id})
-
-    is_by_teacher = False
-    if user_profile.is_senior_professor or user_profile.is_professor:
-        is_by_teacher = True
+             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported,
+             'is_by_teacher': is_by_teacher})
 
     return JsonResponse({'posts': teacher_posts, 'next_page': next_page, 'is_by_teacher': is_by_teacher})
 
@@ -765,12 +770,20 @@ def get_posts_marked_important_by_user(request):
         is_saved = SavedPosts.objects.filter(post=post, user=user, is_active=True).count()
         category = post.category.name
         category_color = post.category.color
+        is_following = FollowingPosts.objects.filter(post=post, is_active=True, user=user).count()
+        is_reported = FlaggedPosts.objects.filter(post=post, is_active=True, user=user).count()
 
         has_downvoted = getBooleanFromQueryCount(has_downvoted)
         has_upvoted = getBooleanFromQueryCount(has_upvoted)
         is_saved = getBooleanFromQueryCount(is_saved)
+        is_following = getBooleanFromQueryCount(is_following)
+        is_reported = getBooleanFromQueryCount(is_reported)
 
         comment = CommentsOnPosts.objects.filter(post=post).count()
+
+        is_by_teacher = False
+        if temp.is_professor or temp.is_senior_professor:
+            is_by_teacher = True
 
         teacher_posts.append(
             {'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
@@ -779,7 +792,8 @@ def get_posts_marked_important_by_user(request):
              'downvotes': downvotes,
              'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
              'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-             'user_id': post.uploader.id})
+             'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported,
+             'is_by_teacher': is_by_teacher})
 
     is_by_teacher = False
     if user_profile.is_senior_professor or user_profile.is_professor:
