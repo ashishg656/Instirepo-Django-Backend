@@ -74,7 +74,9 @@ urlpatterns = [
 
     url(r'^post_detail_request', views.post_detail_request, name='post_detail_request'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_posts_marked_important_by_user', views.get_posts_marked_important_by_user,
+        name='get_posts_marked_important_by_user'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
