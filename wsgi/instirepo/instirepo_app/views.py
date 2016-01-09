@@ -1389,6 +1389,34 @@ def post_detail_request(request):
                          'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported})
 
 
+@csrf_exempt
+def change_about_for_user(request):
+    user_id = request.POST.get('user_id')
+    about = request.POST.get('about')
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    user_profile.about = about
+    user_profile.save()
+
+    return JsonResponse({'status': True})
+
+
+@csrf_exempt
+def change_mobile_number_for_user(request):
+    user_id = request.POST.get('user_id')
+    number = request.POST.get('number')
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    user_profile.mobile_number = number
+    user_profile.save()
+
+    return JsonResponse({'status': True})
+
+
 def parseBoolean(stringToParse):
     if stringToParse == 'True' or stringToParse == "true" or stringToParse == 1 or stringToParse == True or stringToParse == 'TRUE':
         return True
