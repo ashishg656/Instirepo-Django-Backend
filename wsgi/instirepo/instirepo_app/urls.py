@@ -80,7 +80,7 @@ urlpatterns = [
     url(r'^change_about_for_user', views.change_about_for_user, name='change_about_for_user'),
 
     url(r'^change_mobile_number_for_user', views.change_mobile_number_for_user, name='change_mobile_number_for_user'),
-    
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
