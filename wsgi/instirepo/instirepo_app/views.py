@@ -466,15 +466,6 @@ def get_people_who_saw_post(request):
 
 
 @csrf_exempt
-def post_detail_page(request):
-    user_id = request.POST.get('user_id')
-    post_id = request.POST.get('post_id')
-
-    post = Posts.objects.get(pk=int(post_id))
-    user = User.objects.get(pk=int(user_id))
-
-
-@csrf_exempt
 def user_profile_viewed_by_other(request):
     user_id = request.POST.get('user_id')
     id_find = request.POST.get('profile_viewing_id')
@@ -1380,13 +1371,18 @@ def post_detail_request(request):
 
     comment = CommentsOnPosts.objects.filter(post=post).count()
 
+    is_by_teacher = False
+    if temp.is_professor or temp.is_senior_professor:
+        is_by_teacher = True
+
     return JsonResponse({'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
                          'time': post.time,
                          'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
                          'downvotes': downvotes,
                          'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
                          'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
-                         'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported})
+                         'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported,
+                         'is_by_teacher': is_by_teacher})
 
 
 @csrf_exempt
