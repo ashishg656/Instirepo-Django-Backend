@@ -303,3 +303,17 @@ class ResumesDropbox(models.Model):
     expires = models.TextField(null=True, blank=True)
 
     user = models.ForeignKey(User, null=True)
+
+
+class EventDetails(models.Model):
+    start_date = models.CharField(max_length=255, null=True, blank=True)
+    start_time = models.CharField(max_length=255, null=True, blank=True)
+    end_date = models.CharField(max_length=255, null=True, blank=True)
+    end_time = models.CharField(max_length=255, null=True, blank=True)
+
+    registration_fee = models.IntegerField(null=True, blank=True)
+    location = models.TextField(null=True, blank=True)
+    contact = models.TextField(null=True, blank=True)
+    date = models.DateField(auto_now=True)
+
+    post = models.ForeignKey(Posts, null=True)
