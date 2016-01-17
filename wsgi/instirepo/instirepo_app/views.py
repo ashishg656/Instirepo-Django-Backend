@@ -545,14 +545,14 @@ def get_all_post_categories(request):
     message = None
     error = False
 
-    if user_profile.has_reached_post_limit:
-        message = 'You have been temporarily blocked from making posts. Please contact us using the contact us section to resolve that. Sorry for tthe inconvinience caused.'
-        error = True
-        return JsonResponse({'error': error, 'message': message})
-    elif not user_profile.is_verified:
-        message = 'Sorry but your profile details are pending verification from the our team. It may take a time of 1 working day. However, you can contact us from the contact us section if required about verification.'
-        error = True
-        return JsonResponse({'error': error, 'message': message})
+    # if user_profile.has_reached_post_limit:
+    #     message = 'You have been temporarily blocked from making posts. Please contact us using the contact us section to resolve that. Sorry for tthe inconvinience caused.'
+    #     error = True
+    #     return JsonResponse({'error': error, 'message': message})
+    # elif not user_profile.is_verified:
+    #     message = 'Sorry but your profile details are pending verification from the our team. It may take a time of 1 working day. However, you can contact us from the contact us section if required about verification.'
+    #     error = True
+    #     return JsonResponse({'error': error, 'message': message})
 
     categories = []
 
