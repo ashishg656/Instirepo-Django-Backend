@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_app/views.py" afterPath="$PROJECT_DIR$/instirepo_app/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instirepo_web/models.py" afterPath="$PROJECT_DIR$/instirepo_web/models.py" />
-    </list>
+    <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="" />
     <ignored path="instirepo.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -40,8 +37,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0977995">
-              <caret line="1210" column="37" selection-start-line="1210" selection-start-column="37" selection-end-line="1210" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.38141808">
+              <caret line="1400" column="94" selection-start-line="1400" selection-start-column="94" selection-end-line="1400" selection-end-column="94" />
               <folding>
                 <element signature="e#985#2371#0" expanded="false" />
                 <element signature="e#2439#2963#0" expanded="false" />
@@ -154,7 +151,6 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
-    <option name="y" value="-9" />
     <option name="width" value="1934" />
     <option name="height" value="1048" />
   </component>
@@ -268,7 +264,6 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="false" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -399,8 +394,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1934" height="1048" extended-state="0" />
-    <editor active="true" />
+    <frame x="-9" y="0" width="1934" height="1048" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1745435" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1554,8 +1549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0977995">
-          <caret line="1210" column="37" selection-start-line="1210" selection-start-column="37" selection-end-line="1210" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.38141808">
+          <caret line="1400" column="94" selection-start-line="1400" selection-start-column="94" selection-end-line="1400" selection-end-column="94" />
           <folding>
             <element signature="e#985#2371#0" expanded="false" />
             <element signature="e#2439#2963#0" expanded="false" />
