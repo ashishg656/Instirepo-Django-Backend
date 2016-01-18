@@ -24,6 +24,7 @@ from instirepo_web.models import *
 from django.core import serializers
 from push_notifications.models import GCMDevice
 from django.db.models import Q
+import pdb
 
 
 @csrf_exempt
@@ -1194,6 +1195,7 @@ def upload_post(request):
         pass
 
     if category.type == PostCategories.EVENT:
+        # pdb.set_trace()
         start_date = request.POST.get('start_date')
         start_time = request.POST.get('start_time')
         end_date = request.POST.get('end_date')

@@ -311,7 +311,7 @@ class EventDetails(models.Model):
     end_date = models.CharField(max_length=255, null=True, blank=True)
     end_time = models.CharField(max_length=255, null=True, blank=True)
 
-    registration_fee = models.IntegerField(null=True, blank=True)
+    registration_fee = models.TextField(null=True, blank=True)
     location = models.TextField(null=True, blank=True)
     contact = models.TextField(null=True, blank=True)
     date = models.DateField(auto_now=True)
