@@ -1398,6 +1398,14 @@ def post_detail_request(request):
     if temp.is_professor or temp.is_senior_professor:
         is_by_teacher = True
 
+    saw_query = PostSeens.objects.filter(post=post).order_by('-time')[:20]
+    seens_by = []
+    for saw in saw_query:
+        user_profile = saw.user.user_profile.get()
+        seens_by.append(
+                {'time': saw.time, 'image': user_profile.profile_image, 'name': user_profile.full_name,
+                 'id': saw.user.id})
+
     return JsonResponse({'id': post.id, 'heading': post.heading, 'description': post.description, 'image': image,
                          'time': post.time,
                          'user_image': temp.profile_image, 'user_name': temp.full_name, 'upvotes': upvotes,
@@ -1405,7 +1413,7 @@ def post_detail_request(request):
                          'has_upvoted': has_upvoted, 'has_downvoted': has_downvoted, 'comment': comment, 'seens': seens,
                          'category': category, 'category_color': category_color, 'saves': saves, 'is_saved': is_saved,
                          'user_id': post.uploader.id, 'is_following': is_following, 'is_reported': is_reported,
-                         'is_by_teacher': is_by_teacher})
+                         'is_by_teacher': is_by_teacher, 'seens_by_list': seens_by})
 
 
 @csrf_exempt
