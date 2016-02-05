@@ -20,6 +20,7 @@ INSTALLED_APPS = (
     'instirepo_web',
     'instirepo_app',
     'myexcel',
+    'ecommerce',
     'push_notifications',
 )
 
