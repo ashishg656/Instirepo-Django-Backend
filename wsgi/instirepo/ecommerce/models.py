@@ -55,6 +55,9 @@ class Orders(models.Model):
 
     time = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User)
+    amount = models.IntegerField(null=True)
+    price = models.IntegerField(null=True)
+    product_name = models.TextField(null=True)
     product = models.ForeignKey(Product)
     quantity = models.IntegerField(null=True)
     status = models.CharField(max_length=255, choices=TYPE_OF_VISIBILITY)
@@ -75,6 +78,13 @@ class ProductFavourites(models.Model):
 
 
 class ProductViews(models.Model):
+    time = models.DateTimeField(auto_now=True)
+    product = models.ForeignKey(Product)
+    user = models.ForeignKey(User)
+    is_active = models.BooleanField(default=True)
+
+
+class RecentlyViewedProducts(models.Model):
     time = models.DateTimeField(auto_now=True)
     product = models.ForeignKey(Product)
     user = models.ForeignKey(User)
