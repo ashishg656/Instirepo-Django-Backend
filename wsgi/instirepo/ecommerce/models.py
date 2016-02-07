@@ -30,6 +30,9 @@ class Product(models.Model):
     is_online_payment = models.BooleanField()
     time = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return str(self.name)
+
 
 class ProductCategories(models.Model):
     name = models.CharField(max_length=255)
@@ -86,8 +89,9 @@ class ProductViews(models.Model):
 
 class RecentlyViewedProducts(models.Model):
     time = models.DateTimeField(auto_now=True)
-    product = models.ForeignKey(Product,related_name='recently_viewed')
+    product = models.ForeignKey(Product, related_name='recently_viewed')
     user = models.ForeignKey(User)
     is_active = models.BooleanField(default=True)
-    def __unicode__(self):
+
+    def __str__(self):
         return str(self.product.name)
