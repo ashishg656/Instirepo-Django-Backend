@@ -29,7 +29,7 @@ import pdb
 
 @csrf_exempt
 def get_all_product_categories_and_trending_and_recent_products(request):
-    user_id = request.POST.get('user_id')
+    user_id = request.GET.get('user_id')
 
     user = User.objects.get(pk=int(user_id))
     user_profile = user.user_profile.get()
