@@ -1,6 +1,6 @@
 import base64
 from ctypes import c_short
-from datetime import datetime, time
+import datetime
 from operator import itemgetter
 import os
 
@@ -23,7 +23,7 @@ from instirepo import settings
 from ecommerce.models import *
 from django.core import serializers
 from push_notifications.models import GCMDevice
-from django.db.models import Q
+from django.db.models import Q, Count
 import pdb
 
 
@@ -45,17 +45,30 @@ def get_all_product_categories_and_trending_and_recent_products(request):
         categories.append({'id': cat.id, 'name': cat.name, 'image': image})
 
     recently_viewed = []
-    query = RecentlyViewedProducts.objects.filter(user=user).order_by(
-            '-time').values('product', 'user').distinct()
+    query = RecentlyViewedProducts.objects.filter(user=user).values('product', 'user').distinct()[:20]
     for pro in query:
-        pro = pro['product']
+        product = Product.objects.get(pk=int(pro['product']))
         image = None
         try:
-            image = pro.product.image1.url
+            image = product.image1.url
         except:
             pass
         recently_viewed.append(
-                {'id': pro.product.id, 'name': pro.product.name, 'mrp': pro.product.mrp, 'price': pro.product.price,
+                {'id': product.id, 'name': product.name, 'mrp': product.mrp, 'price': product.price,
                  'image': image})
 
-    return JsonResponse({'categories': categories,'recently_viewed':recently_viewed})
+    trending_products = []
+    yesterday = datetime.date.today() - datetime.timedelta(days=1)
+    query = Product.objects.filter(recently_viewed__time__gt=yesterday).annotate(
+            views=Count('recently_viewed')).order_by('-views')[:20]
+    for pro in query:
+        image = None
+        try:
+            image = pro.image1.url
+        except:
+            pass
+        trending_products.append({'id': pro.id, 'name': pro.name, 'mrp': pro.mrp, 'price': pro.price,
+                                  'image': image, 'views': pro.views})
+
+    return JsonResponse(
+            {'categories': categories, 'recently_viewed': recently_viewed, 'trending_products': trending_products})

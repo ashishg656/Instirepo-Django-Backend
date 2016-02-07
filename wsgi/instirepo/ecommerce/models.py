@@ -86,6 +86,8 @@ class ProductViews(models.Model):
 
 class RecentlyViewedProducts(models.Model):
     time = models.DateTimeField(auto_now=True)
-    product = models.ForeignKey(Product)
+    product = models.ForeignKey(Product,related_name='recently_viewed')
     user = models.ForeignKey(User)
     is_active = models.BooleanField(default=True)
+    def __unicode__(self):
+        return str(self.product.name)
