@@ -35,7 +35,6 @@ def get_all_product_categories_and_trending_and_recent_products(request):
     user_profile = user.user_profile.get()
 
     categories = []
-
     query = ProductCategories.objects.filter(is_active=True)
     for cat in query:
         image = None
@@ -43,6 +42,20 @@ def get_all_product_categories_and_trending_and_recent_products(request):
             image = cat.image.url
         except:
             pass
-        categories.append({'id': cat.id, 'name': cat.name, 'image': image, 'type': cat.type, 'color': cat.color})
+        categories.append({'id': cat.id, 'name': cat.name, 'image': image})
 
-    return JsonResponse({'categories': categories, 'error': error, 'message': message})
+    recently_viewed = []
+    query = RecentlyViewedProducts.objects.filter(user=user).order_by(
+            '-time').values('product', 'user').distinct()
+    for pro in query:
+        pro = pro['product']
+        image = None
+        try:
+            image = pro.product.image1.url
+        except:
+            pass
+        recently_viewed.append(
+                {'id': pro.product.id, 'name': pro.product.name, 'mrp': pro.product.mrp, 'price': pro.product.price,
+                 'image': image})
+
+    return JsonResponse({'categories': categories,'recently_viewed':recently_viewed})
