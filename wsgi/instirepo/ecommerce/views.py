@@ -179,16 +179,6 @@ def get_recent_products(request):
     if query.has_next():
         next_page = query.next_page_number()
 
-    # pdb.set_trace()
-
-    query = RecentlyViewedProducts.objects.filter(user=user).values('product', 'user').distinct()
-
-    query_paginated = Paginator(query, page_size)
-    query = query_paginated.page(page_number)
-    next_page = None
-    if query.has_next():
-        next_page = query.next_page_number()
-
     for pro in query:
         product = Product.objects.get(pk=int(pro['product']))
         image = None
