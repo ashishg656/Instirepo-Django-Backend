@@ -58,9 +58,21 @@ def get_all_product_categories_and_trending_and_recent_products(request):
                  'image': image})
 
     trending_products = []
-    yesterday = datetime.date.today() - datetime.timedelta(days=1)
-    query = Product.objects.filter(recently_viewed__time__gt=yesterday).annotate(
+    time_delta_days_factor = 1
+    yesterday = datetime.date.today() - datetime.timedelta(days=time_delta_days_factor)
+    query = Product.objects.filter(recently_viewed__time__gt=yesterday, stock__gt=0, is_active=True,
+                                   college=user_profile.college).annotate(
             views=Count('recently_viewed')).order_by('-views')[:20]
+
+    while query.count != 20:
+        time_delta_days_factor += 1
+        if time_delta_days_factor > 10:
+            break
+        yesterday = datetime.date.today() - datetime.timedelta(days=time_delta_days_factor)
+        query = Product.objects.filter(recently_viewed__time__gt=yesterday, stock__gt=0, is_active=True,
+                                       college=user_profile.college).annotate(
+                views=Count('recently_viewed')).order_by('-views')[:20]
+
     for pro in query:
         image = None
         try:
@@ -72,3 +84,35 @@ def get_all_product_categories_and_trending_and_recent_products(request):
 
     return JsonResponse(
             {'categories': categories, 'recently_viewed': recently_viewed, 'trending_products': trending_products})
+
+
+@csrf_exempt
+def get_products_from_category(request):
+    user_id = request.GET.get('user_id')
+    category_id = request.GET.get('category_id')
+    page_number = request.GET.get('page_number', 1)
+    page_size = request.GET.get('page_size', 20)
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+    category = ProductCategories.objects.get(pk=int(category_id))
+
+    query = Product.objects.filter(stock__gt=0, is_active=True, category=category, college=user_profile.college)
+
+    query_paginated = Paginator(query, page_size)
+    query = query_paginated.page(page_number)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    products = []
+    for pro in query:
+        image = None
+        try:
+            image = pro.image1.url
+        except:
+            pass
+        products.append({'id': pro.id, 'name': pro.name, 'mrp': pro.mrp, 'price': pro.price,
+                         'image': image})
+
+    return JsonResponse({'products': products, 'next_page': next_page})
