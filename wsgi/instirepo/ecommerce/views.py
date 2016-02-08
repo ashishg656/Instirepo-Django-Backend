@@ -64,7 +64,7 @@ def get_all_product_categories_and_trending_and_recent_products(request):
                                    college=user_profile.college).annotate(
             views=Count('recently_viewed')).order_by('-views')[:20]
 
-    while query.count != 20:
+    while query.count() != 20:
         time_delta_days_factor += 1
         if time_delta_days_factor > 10:
             break
@@ -130,17 +130,17 @@ def get_trending_products(request):
     time_delta_days_factor = 1
     yesterday = datetime.date.today() - datetime.timedelta(days=time_delta_days_factor)
     query = Product.objects.filter(recently_viewed__time__gt=yesterday, stock__gt=0, is_active=True,
-                                   college=user_profile.college).annotate(
-            views=Count('recently_viewed')).order_by('-views')
+                                   college=user_profile.college).annotate(views=Count('recently_viewed')).order_by(
+            '-views')
 
-    while query.count < 40:
+    while query.count() < 40:
         time_delta_days_factor += 1
         if time_delta_days_factor > 10:
             break
         yesterday = datetime.date.today() - datetime.timedelta(days=time_delta_days_factor)
         query = Product.objects.filter(recently_viewed__time__gt=yesterday, stock__gt=0, is_active=True,
-                                       college=user_profile.college).annotate(
-                views=Count('recently_viewed')).order_by('-views')
+                                       college=user_profile.college).annotate(views=Count('recently_viewed')).order_by(
+                '-views')
 
     query_paginated = Paginator(query, page_size)
     query = query_paginated.page(page_number)
