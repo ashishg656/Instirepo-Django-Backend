@@ -159,3 +159,45 @@ def get_trending_products(request):
                          'image': image})
 
     return JsonResponse({'products': products, 'next_page': next_page})
+
+
+@csrf_exempt
+def get_recent_products(request):
+    user_id = request.GET.get('user_id')
+    page_number = request.GET.get('page_number', 1)
+    page_size = request.GET.get('page_size', 20)
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    recently_viewed = []
+    query = RecentlyViewedProducts.objects.filter(user=user).values('product', 'user').distinct()
+
+    query_paginated = Paginator(query, page_size)
+    query = query_paginated.page(page_number)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    # pdb.set_trace()
+
+    query = RecentlyViewedProducts.objects.filter(user=user).values('product', 'user').distinct()
+
+    query_paginated = Paginator(query, page_size)
+    query = query_paginated.page(page_number)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    for pro in query:
+        product = Product.objects.get(pk=int(pro['product']))
+        image = None
+        try:
+            image = product.image1.url
+        except:
+            pass
+        recently_viewed.append(
+                {'id': product.id, 'name': product.name, 'mrp': product.mrp, 'price': product.price,
+                 'image': image})
+
+    return JsonResponse({'products': recently_viewed, 'next_page': next_page})

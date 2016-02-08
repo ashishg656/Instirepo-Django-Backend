@@ -11,7 +11,8 @@ urlpatterns = [
 
     url(r'^get_trending_products', views.get_trending_products, name='get_trending_products'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_recent_products', views.get_recent_products, name='get_recent_products'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
