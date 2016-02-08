@@ -191,3 +191,64 @@ def get_recent_products(request):
                  'image': image})
 
     return JsonResponse({'products': recently_viewed, 'next_page': next_page})
+
+
+@csrf_exempt
+def get_product_detail(request):
+    user_id = request.GET.get('user_id')
+    product_id = request.GET.get('product_id')
+
+    user = User.objects.get(pk=int(user_id))
+    user_profile = user.user_profile.get()
+
+    product = Product.objects.get(pk=int(product_id))
+
+    image1 = None
+    image2 = None
+    image3 = None
+    image4 = None
+    image5 = None
+    image6 = None
+    image7 = None
+    image8 = None
+    try:
+        image1 = product.image1.url
+    except:
+        pass
+    try:
+        image2 = product.image2.url
+    except:
+        pass
+    try:
+        image3 = product.image3.url
+    except:
+        pass
+    try:
+        image4 = product.image4.url
+    except:
+        pass
+    try:
+        image5 = product.image5.url
+    except:
+        pass
+    try:
+        image6 = product.image6.url
+    except:
+        pass
+    try:
+        image7 = product.image7.url
+    except:
+        pass
+    try:
+        image8 = product.image8.url
+    except:
+        pass
+
+    uploader = product.uploader.user_profile.get()
+
+    return JsonResponse(
+            {'name': product.name, 'id': product.id, 'mrp': product.mrp, 'price': product.price, 'image1': image1,
+             'image2': image2, 'image3': image3, 'image4': image4, 'image5': image5, 'image6': image6, 'image7': image7,
+             'image8': image8, 'stock': product.stock, 'description': product.description,
+             'contact_number': product.contact_number, 'user_name': uploader.full_name, 'user_id': product.uploader.id,
+             'user_image': uploader.profile_image, 'time': product.time})

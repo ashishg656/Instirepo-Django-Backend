@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1a4673a-8b2c-417f-a977-cf44fd057621" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce/urls.py" afterPath="$PROJECT_DIR$/ecommerce/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecommerce/views.py" afterPath="$PROJECT_DIR$/ecommerce/views.py" />
     </list>
     <ignored path="instirepo.iws" />
@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/ecommerce/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+              <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -39,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/ecommerce/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+              <caret line="30" column="8" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="8" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
                 <element signature="e#1842#2567#0" expanded="false" />
@@ -54,8 +54,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6397661">
-              <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.7851038">
+              <caret line="252" column="65" selection-start-line="252" selection-start-column="65" selection-end-line="252" selection-end-column="65" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -67,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="869" column="44" selection-start-line="865" selection-start-column="4" selection-end-line="869" selection-end-column="44" />
+              <caret line="872" column="26" selection-start-line="872" selection-start-column="26" selection-end-line="872" selection-end-column="26" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#4286#5228#0" expanded="false" />
@@ -101,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="11" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="11" />
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="17" />
               <folding>
                 <element signature="e#2125#2146#0" expanded="false" />
                 <element signature="e#2187#2323#0" expanded="false" />
@@ -153,8 +153,8 @@
         <option value="$PROJECT_DIR$/instirepo/urls.py" />
         <option value="$PROJECT_DIR$/ecommerce/admin.py" />
         <option value="$PROJECT_DIR$/instirepo_app/urls.py" />
-        <option value="$PROJECT_DIR$/ecommerce/models.py" />
         <option value="$PROJECT_DIR$/ecommerce/urls.py" />
+        <option value="$PROJECT_DIR$/ecommerce/models.py" />
         <option value="$PROJECT_DIR$/ecommerce/views.py" />
       </list>
     </option>
@@ -1386,13 +1386,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.2264151">
           <caret line="182" column="57" selection-start-line="182" selection-start-column="57" selection-end-line="182" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="872" column="26" selection-start-line="872" selection-start-column="26" selection-end-line="872" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#4286#5228#0" expanded="false" />
+            <element signature="e#11859#12505#0" expanded="false" />
+            <element signature="e#14185#14746#0" expanded="false" />
+            <element signature="e#14804#16815#0" expanded="false" />
+            <element signature="e#16873#19068#0" expanded="false" />
+            <element signature="e#19888#23062#0" expanded="false" />
+            <element signature="e#25338#27537#0" expanded="false" />
+            <element signature="e#36789#37688#0" expanded="false" />
+            <element signature="e#37745#38304#0" expanded="false" />
+            <element signature="e#38357#39075#0" expanded="false" />
+            <element signature="e#39130#39784#0" expanded="false" />
+            <element signature="e#39845#41848#0" expanded="false" />
+            <element signature="e#41894#42538#0" expanded="false" />
+            <element signature="e#42584#43220#0" expanded="false" />
+            <element signature="e#48851#49823#0" expanded="false" />
+            <element signature="e#49871#50147#0" expanded="false" />
+            <element signature="e#50212#52496#0" expanded="false" />
+            <element signature="e#52554#52890#0" expanded="false" />
+            <element signature="e#52948#53285#0" expanded="false" />
+            <element signature="e#53329#53393#0" expanded="false" />
+            <element signature="e#56573#56847#0" expanded="false" />
+            <element signature="e#56887#57052#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/instirepo_web/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="11" />
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="17" />
           <folding>
             <element signature="e#2125#2146#0" expanded="false" />
             <element signature="e#2187#2323#0" expanded="false" />
@@ -1427,7 +1468,7 @@
     <entry file="file://$PROJECT_DIR$/ecommerce/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="8" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
             <element signature="e#1842#2567#0" expanded="false" />
@@ -1438,50 +1479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/instirepo_app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="869" column="44" selection-start-line="865" selection-start-column="4" selection-end-line="869" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#4286#5228#0" expanded="false" />
-            <element signature="e#11859#12505#0" expanded="false" />
-            <element signature="e#14185#14746#0" expanded="false" />
-            <element signature="e#14804#16815#0" expanded="false" />
-            <element signature="e#16873#19068#0" expanded="false" />
-            <element signature="e#19888#23062#0" expanded="false" />
-            <element signature="e#25338#27537#0" expanded="false" />
-            <element signature="e#36789#37688#0" expanded="false" />
-            <element signature="e#37745#38304#0" expanded="false" />
-            <element signature="e#38357#39075#0" expanded="false" />
-            <element signature="e#39130#39784#0" expanded="false" />
-            <element signature="e#39845#41848#0" expanded="false" />
-            <element signature="e#41894#42538#0" expanded="false" />
-            <element signature="e#42584#43220#0" expanded="false" />
-            <element signature="e#48851#49823#0" expanded="false" />
-            <element signature="e#49871#50147#0" expanded="false" />
-            <element signature="e#50212#52496#0" expanded="false" />
-            <element signature="e#52554#52890#0" expanded="false" />
-            <element signature="e#52948#53285#0" expanded="false" />
-            <element signature="e#53329#53393#0" expanded="false" />
-            <element signature="e#56573#56847#0" expanded="false" />
-            <element signature="e#56887#57052#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6397661">
-          <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.7851038">
+          <caret line="252" column="65" selection-start-line="252" selection-start-column="65" selection-end-line="252" selection-end-column="65" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

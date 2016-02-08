@@ -13,7 +13,8 @@ urlpatterns = [
 
     url(r'^get_recent_products', views.get_recent_products, name='get_recent_products'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_product_detail', views.get_product_detail, name='get_product_detail'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
