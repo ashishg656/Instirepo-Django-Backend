@@ -9,7 +9,8 @@ urlpatterns = [
 
     url(r'^get_products_from_category', views.get_products_from_category, name='get_products_from_category'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_trending_products', views.get_trending_products, name='get_trending_products'),
+    
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
