@@ -247,7 +247,7 @@ def get_product_detail(request):
     uploader = product.uploader.user_profile.get()
 
     return JsonResponse(
-            {'name': product.name, 'id': product.id, 'mrp': product.mrp, 'price': product.price, 'image1': image1,
+            {'name': product.name, 'id': product.id, 'mrp': product.mrp, 'price': product.price, 'image': image1,
              'image2': image2, 'image3': image3, 'image4': image4, 'image5': image5, 'image6': image6, 'image7': image7,
              'image8': image8, 'stock': product.stock, 'description': product.description,
              'contact_number': product.contact_number, 'user_name': uploader.full_name, 'user_id': product.uploader.id,
