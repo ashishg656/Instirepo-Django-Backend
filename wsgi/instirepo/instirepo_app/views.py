@@ -127,10 +127,14 @@ def register_student_profile_details(request):
     profile.enrollment_number = enrollment_number_req
     profile.has_provided_college_details = True
     profile.college = College.objects.get(pk=int(college_id_req))
-    profile.batch = Batches.objects.get(pk=int(batch_id_req))
-    profile.branch = Branches.objects.get(pk=int(branch_id_req))
     profile.university = Universities.objects.get(pk=int(university_id_req))
-    profile.year = StudentYears.objects.get(pk=int(year_id_req))
+    profile.branch = Branches.objects.get(pk=int(branch_id_req))
+
+    try:
+        profile.batch = Batches.objects.get(pk=int(batch_id_req))
+        profile.year = StudentYears.objects.get(pk=int(year_id_req))
+    except:
+        pass
 
     profile.save()
 
