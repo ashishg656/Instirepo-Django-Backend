@@ -120,6 +120,7 @@ def register_student_profile_details(request):
     year_id_req = request.POST.get('year_id')
     batch_id_req = request.POST.get('batch_id')
     user_id = request.POST.get('user_id')
+    teacher_registration = request.POST.get('teacher_registration', False)
 
     user = User.objects.get(pk=int(user_id))
     profile = user.user_profile.get()
@@ -129,6 +130,7 @@ def register_student_profile_details(request):
     profile.college = College.objects.get(pk=int(college_id_req))
     profile.university = Universities.objects.get(pk=int(university_id_req))
     profile.branch = Branches.objects.get(pk=int(branch_id_req))
+    profile.is_professor = parseBoolean(teacher_registration)
 
     try:
         profile.batch = Batches.objects.get(pk=int(batch_id_req))
