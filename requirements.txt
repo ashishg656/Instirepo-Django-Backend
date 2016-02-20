@@ -1,4 +1,0 @@
-mysqlclient
-pillow
-requests
-django-push-notifications
