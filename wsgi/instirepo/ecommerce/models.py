@@ -18,6 +18,8 @@ class Product(models.Model):
     category = models.ForeignKey('ProductCategories', null=True)
 
     contact_number = models.CharField(max_length=255, null=True)
+    bill_availabe = models.BooleanField(default=False)
+    warranty_left = models.CharField(max_length=200, null=True, blank=True)
 
     stock = models.IntegerField(null=True)
 
@@ -88,7 +90,7 @@ class ProductViews(models.Model):
 
 
 class RecentlyViewedProducts(models.Model):
-    time = models.DateTimeField(auto_now=True)
+    time = models.DateTimeField()
     product = models.ForeignKey(Product, related_name='recently_viewed')
     user = models.ForeignKey(User)
     is_active = models.BooleanField(default=True)
