@@ -19,6 +19,7 @@ class Product(models.Model):
 
     contact_number = models.CharField(max_length=255, null=True)
     bill_availabe = models.BooleanField(default=False)
+    warranty_availabe = models.BooleanField(default=False)
     warranty_left = models.CharField(max_length=200, null=True, blank=True)
 
     stock = models.IntegerField(null=True)

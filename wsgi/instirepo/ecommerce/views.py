@@ -258,7 +258,8 @@ def get_product_detail(request):
              'contact_number': product.contact_number, 'user_name': uploader.full_name, 'user_id': product.uploader.id,
              'user_image': uploader.profile_image, 'time': product.time, 'bill_availabe': product.bill_availabe,
              'warranty_left': product.warranty_left, 'number_of_comments': number_of_comments,
-             'number_of_likes': number_of_likes, 'has_liked': has_liked})
+             'number_of_likes': number_of_likes, 'has_liked': has_liked,
+             'warranty_availabe': product.warranty_availabe})
 
 
 def getBooleanFromQueryCount(count):
