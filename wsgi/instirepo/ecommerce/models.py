@@ -74,6 +74,14 @@ class ProductComments(models.Model):
     user = models.ForeignKey(User)
     product = models.ForeignKey(Product)
     is_active = models.BooleanField(default=True)
+    comment = models.TextField(null=True)
+
+
+class CommentsFlags(models.Model):
+    user = models.ForeignKey(User, related_name='user_commented')
+    comment = models.ForeignKey(ProductComments)
+    is_active = models.BooleanField(default=True)
+    time = models.DateTimeField(auto_now=True)
 
 
 class ProductFavourites(models.Model):

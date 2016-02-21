@@ -15,10 +15,14 @@ urlpatterns = [
 
     url(r'^get_product_detail', views.get_product_detail, name='get_product_detail'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_comments_on_product', views.get_comments_on_product, name='get_comments_on_product'),
+
+    url(r'^add_comment_on_product', views.add_comment_on_product, name='add_comment_on_product'),
+
+    url(r'^flag_comment_on_product', views.flag_comment_on_product, name='flag_comment_on_product'),
+
+    url(r'^save_product_for_later', views.save_product_for_later, name='save_product_for_later'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

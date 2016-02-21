@@ -26,6 +26,8 @@ from push_notifications.models import GCMDevice
 from django.db.models import Q, Count
 import pdb
 
+from instirepo_web.models import UserProfiles
+
 
 @csrf_exempt
 def get_all_product_categories_and_trending_and_recent_products(request):
@@ -260,6 +262,116 @@ def get_product_detail(request):
              'warranty_left': product.warranty_left, 'number_of_comments': number_of_comments,
              'number_of_likes': number_of_likes, 'has_liked': has_liked,
              'warranty_availabe': product.warranty_availabe})
+
+
+@csrf_exempt
+def get_comments_on_product(request):
+    pagenumber = request.GET.get('pagenumber', 1)
+    user_id = request.POST.get('user_id')
+    product_id = request.GET.get('product_id')
+
+    product = Product.objects.get(pk=int(product_id))
+
+    query = ProductComments.objects.filter(product=product, is_active=True).order_by('-time')
+    count = ProductComments.objects.filter(product=product, is_active=True).count()
+
+    query_paginated = Paginator(query, 20)
+    query = query_paginated.page(pagenumber)
+    next_page = None
+    if query.has_next():
+        next_page = query.next_page_number()
+
+    comments = []
+    for comment in query:
+        is_by_user = False
+        if comment.user.id == int(user_id):
+            is_by_user = True
+        temp_user = UserProfiles.objects.get(user_obj=comment.user)
+        user_name = temp_user.full_name
+        user_image = temp_user.profile_image
+        is_different_color = False
+        if temp_user.is_senior_professor or temp_user.is_professor:
+            is_different_color = True
+        is_flagged = False
+        is_flag_query = CommentsFlags.objects.filter(is_active=True, user__id=int(user_id), comment=comment).count()
+        if is_flag_query > 0:
+            is_flagged = True
+        comments.append({'id': comment.id, 'comment': comment.comment, 'time': comment.time, 'user_name': user_name,
+                         'user_image': user_image, 'is_by_user': is_by_user, 'is_different_color': is_different_color,
+                         'is_flagged': is_flagged, 'user_id': comment.user.id})
+
+    return JsonResponse({'comments': comments, 'next_page': next_page, 'count': count})
+
+
+@csrf_exempt
+def add_comment_on_product(request):
+    user_id = request.POST.get('user_id')
+    product_id = request.POST.get('product_id')
+    comment = request.POST.get('comment')
+
+    user = User.objects.get(pk=int(user_id))
+    product = Product.objects.get(pk=int(product_id))
+    user_profile = user.user_profile.get()
+
+    query = ProductComments(comment=comment, user=user, product=product)
+    query.save()
+
+    count = ProductComments.objects.filter(product=product, is_active=True).count()
+
+    return JsonResponse(
+            {'count': count, 'id': query.id, 'name': user_profile.full_name, 'image': user_profile.profile_image})
+
+
+@csrf_exempt
+def flag_comment_on_product(request):
+    user_id = request.POST.get('user_id')
+    user_id = int(user_id)
+    comment_id = request.POST.get('comment_id')
+    comment_id = int(comment_id)
+
+    user = User.objects.get(pk=user_id)
+    comment = ProductComments.objects.get(pk=comment_id)
+
+    is_flagged = True
+    try:
+        query = CommentsFlags.objects.get(user=user, comment=comment)
+        if query.is_active:
+            query.is_active = False
+            is_flagged = False
+        else:
+            query.is_active = True
+        query.save()
+    except:
+        query = CommentsFlags(user=user, comment=comment)
+        query.save()
+
+    return JsonResponse({'is_flagged': is_flagged})
+
+
+@csrf_exempt
+def save_product_for_later(request):
+    user_id = request.POST.get('user_id')
+    product_id = request.POST.get('product_id')
+
+    product = Product.objects.get(pk=int(product_id))
+    user = User.objects.get(pk=int(user_id))
+
+    is_saved = True
+    try:
+        query = ProductFavourites.objects.get(product=product, user=user)
+        if query.is_active:
+            query.is_active = False
+            is_saved = False
+        else:
+            query.is_active = True
+        query.save()
+    except:
+        query = ProductFavourites(product=product, user=user)
+        query.save()
+
+    count = ProductFavourites.objects.filter(product=product, is_active=True).count()
+
+    return JsonResponse({'count': count, 'is_saved': is_saved})
 
 
 def getBooleanFromQueryCount(count):
