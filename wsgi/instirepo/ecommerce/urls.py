@@ -23,7 +23,8 @@ urlpatterns = [
 
     url(r'^save_product_for_later', views.save_product_for_later, name='save_product_for_later'),
 
-    # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
+    url(r'^get_all_categories_for_product', views.get_all_categories_for_product, name='get_all_categories_for_product'),
+
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),
     # url(r'^view_addresses', views.view_addresses, name='view_addresses'),

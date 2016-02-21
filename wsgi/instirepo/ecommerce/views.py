@@ -30,6 +30,21 @@ from instirepo_web.models import UserProfiles
 
 
 @csrf_exempt
+def get_all_categories_for_product(request):
+    categories = []
+    query = ProductCategories.objects.filter(is_active=True)
+    for cat in query:
+        image = None
+        try:
+            image = cat.image.url
+        except:
+            pass
+        categories.append({'id': cat.id, 'name': cat.name, 'image': image})
+
+    return JsonResponse({'categories': categories})
+
+
+@csrf_exempt
 def get_all_product_categories_and_trending_and_recent_products(request):
     user_id = request.GET.get('user_id')
 
