@@ -392,6 +392,73 @@ def save_product_for_later(request):
     return JsonResponse({'count': count, 'is_saved': is_saved})
 
 
+@csrf_exempt
+def upload_product(request):
+    name = request.POST.get('name')
+    description = request.POST.get('description')
+    image1 = request.POST.get('image1')
+    image2 = request.POST.get('image2')
+    image3 = request.POST.get('image3')
+    image4 = request.POST.get('image4')
+    image5 = request.POST.get('image5')
+    image6 = request.POST.get('image6')
+    image7 = request.POST.get('image7')
+    image8 = request.POST.get('image8')
+    mrp = request.POST.get('mrp')
+    price = request.POST.get('price')
+    contact = request.POST.get('contact')
+    warranty_left = request.POST.get('warranty_left')
+    is_warranty = request.POST.get('is_warranty')
+    is_bill = request.POST.get('is_bill')
+    user_id = request.POST.get('user_id')
+    category_id = request.POST.get('category_id')
+
+    user = User.objects.get(pk=int(user_id))
+    category = ProductCategories.objects.get(pk=int(category_id))
+
+    product = Product(name=name, description=description, mrp=mrp, price=price, category=category,
+                      contact_number=contact, bill_availabe=is_bill, warranty_availabe=is_warranty,
+                      warranty_left=warranty_left, uploader=user, college=user.user_profile.get().college)
+
+    if image1 is not None:
+        data = base64.b64decode(image1)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image1 = ContentFile(data, filename)
+
+    if image2 is not None:
+        data = base64.b64decode(image2)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image2 = ContentFile(data, filename)
+    if image3 is not None:
+        data = base64.b64decode(image3)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image3 = ContentFile(data, filename)
+    if image4 is not None:
+        data = base64.b64decode(image4)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image4 = ContentFile(data, filename)
+    if image5 is not None:
+        data = base64.b64decode(image5)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image5 = ContentFile(data, filename)
+    if image6 is not None:
+        data = base64.b64decode(image6)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image6 = ContentFile(data, filename)
+    if image7 is not None:
+        data = base64.b64decode(image7)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image7 = ContentFile(data, filename)
+    if image8 is not None:
+        data = base64.b64decode(image8)
+        filename = "uploaded_image%s.png" % str(datetime.datetime.now()).replace('.', '_')
+        product.image8 = ContentFile(data, filename)
+
+    product.save()
+
+    return JsonResponse({'status': True})
+
+
 def getBooleanFromQueryCount(count):
     if count > 0:
         return True
