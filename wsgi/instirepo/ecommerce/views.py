@@ -253,6 +253,9 @@ def get_product_detail(request):
     has_liked = ProductFavourites.objects.filter(product=product, is_active=True, user=user).count()
     has_liked = getBooleanFromQueryCount(has_liked)
 
+    recent_add = RecentlyViewedProducts(user=user, product=product, time=datetime.datetime.now())
+    recent_add.save()
+
     return JsonResponse(
             {'name': product.name, 'id': product.id, 'mrp': product.mrp, 'price': product.price, 'image': image1,
              'image2': image2, 'image3': image3, 'image4': image4, 'image5': image5, 'image6': image6, 'image7': image7,
