@@ -418,7 +418,7 @@ def upload_product(request):
 
     product = Product(name=name, description=description, mrp=mrp, price=price, category=category,
                       contact_number=contact, bill_availabe=is_bill, warranty_availabe=is_warranty,
-                      warranty_left=warranty_left, uploader=user, college=user.user_profile.get().college)
+                      warranty_left=warranty_left, uploader=user, college=user.user_profile.get().college, stock=2)
 
     if image1 is not None:
         data = base64.b64decode(image1)
