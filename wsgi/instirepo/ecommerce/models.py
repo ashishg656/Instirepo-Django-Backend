@@ -29,8 +29,8 @@ class Product(models.Model):
 
     is_old_product = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
-    is_cod_payment = models.BooleanField()
-    is_online_payment = models.BooleanField()
+    is_cod_payment = models.BooleanField(default=False)
+    is_online_payment = models.BooleanField(default=False)
     time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
