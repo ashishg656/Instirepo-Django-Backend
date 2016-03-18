@@ -1404,6 +1404,12 @@ def post_detail_request(request):
     if temp.is_professor or temp.is_senior_professor:
         is_by_teacher = True
 
+    try:
+        saw_seen_query = PostSeens.objects.get(post=post, user=user)
+    except:
+        saw_seen_query = PostSeens(post=post, user=user)
+        saw_seen_query.save()
+
     saw_query = PostSeens.objects.filter(post=post).order_by('-time')[:20]
     seens_by = []
     for saw in saw_query:
